@@ -7,4 +7,5 @@ module.exports = {
     database: "pinmarket",
     charset: "utf8",
   },
+  useNullAsDefault: true
 };

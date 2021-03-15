@@ -1,15 +1,14 @@
 const bookshelf = require("../bookshelf");
-require("./category")
-require("./user")
+require("./poster_category");
+require("./user");
+require("./category");
 
 const Poster = bookshelf.model("Poster", {
-  tableName: "poster",
+  tableName: "posters",
   category: function () {
-    return this.blongsTo("category")
-  },
-  user: function(){
-    return this.blongsTo("user")
+    return this.belongsTo("Category");
   }
 });
 
 module.exports = Poster;
+
