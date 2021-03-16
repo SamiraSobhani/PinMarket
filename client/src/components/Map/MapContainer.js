@@ -34,8 +34,9 @@ export class MapContainer extends Component {
   };
   render() {
     const mapStyles = {
+      marginTop:"4rem",
       width: "100%",
-      height: "100%",
+      height: "40%",
     };
     return (
       <Map

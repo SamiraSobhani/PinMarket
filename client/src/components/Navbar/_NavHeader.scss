@@ -1,0 +1,19 @@
+
+.navbar{
+
+    display: flex;
+    justify-content: space-between;
+    &__logo{
+
+    }
+&__profile{
+    display: flex;
+}
+    &__welcome{
+
+    }
+    &__icon{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}

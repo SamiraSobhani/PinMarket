@@ -1,11 +1,17 @@
 import React, { Component } from "react";
-import  MapContainer from "./components/Map/MapContainer";
-
+import MapContainer from "./components/Map/MapContainer";
+import NavHeader from "./components/Navbar/NavHeader";
 
 class App extends Component {
   state = {};
   render() {
-    return <MapContainer />;
+    return (
+      <div>
+        <NavHeader />
+
+        <MapContainer />
+      </div>
+    );
   }
 }
 
