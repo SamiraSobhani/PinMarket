@@ -1,11 +1,12 @@
 module.exports = [
   {
+    id: 1,
     title: "makeup artist",
     description: "light makeup needed",
     price: 100,
     pay_type: "perhours",
-    start_date: "2021-09-10T07:00:00.000Z",
-    end_date: "2021-09-11T07:00:00.000Z",
+    start_date: "2021-09-10",
+    end_date: "2021-09-11",
     latitude: 1234,
     longitude: 1237,
     category_id: 4,
@@ -14,12 +15,13 @@ module.exports = [
   },
 
   {
+    id: 2,
     title: "driver needed",
     description: "driver for wedding",
     price: 60,
     pay_type: "perhours",
-    start_date: "2021-09-10T07:00:00.000Z",
-    end_date: "2021-09-10T07:00:00.000Z",
+    start_date: "2021-09-10",
+    end_date: "2021-09-10",
     latitude: 4567,
     longitude: 8910,
     category_id: 3,
@@ -27,6 +29,7 @@ module.exports = [
     helper_id: 1,
   },
   {
+    id: 3,
     title: "photographer",
     description: "10 pictures needed",
     price: 100,

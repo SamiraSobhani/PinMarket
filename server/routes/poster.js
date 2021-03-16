@@ -6,7 +6,11 @@ const User = require("../models/user");
 const knex = require("knex")(require("../knexfile"));
 // get all posters
 router.route("/").get((req, res) => {
-  let posters = knex("posters")
+  // Poster.fetchAll({ withRelated: ["category"] }).then((posters) => {
+  //   res.json(posters);
+  // });
+
+  knex("posters")
     .select(
       "posters.id",
       "posters.title",
@@ -19,11 +23,11 @@ router.route("/").get((req, res) => {
       "posters.longitude",
       "category.name",
       "posters.client_id",
-      "posters.helper_id"
-      // "user.name"
+      "posters.helper_id",
     )
+
     .innerJoin("category", "posters.category_id", "=", "category.id")
-    // .join("user", "posters.helper_id", "=", "user.id")
+    // .innerJoin("user", "posters.helper_id", "=", "user.id")
 
     .then((posters) => {
       console.log(posters);
@@ -48,24 +52,44 @@ router.route("/:id").get((req, res) => {
 });
 
 // post new poster
+// router.route("/").post((req, res) => {
+//   knex("posters")
+//     .insert({
+//       title: req.body.title,
+//       description: req.body.description,
+//       price: req.body.price,
+//       pay_type: req.body.pay_type,
+//       start_date: req.body.start_date,
+//       end_date: req.body.end_date,
+//       latitude: req.body.latitude,
+//       longitude: req.body.longitude,
+//       category_id: req.body.categories_id,
+//       client_id: req.body.client_id,
+//     })
+//     // .save()
+//     .then((posters) => {
+//       res.status(201).json({ posters });
+//     })
+//     .catch((err) => console.log(err));
+// });
+
 router.route("/").post((req, res) => {
-  knex("posters")
-    .insert({
-      title: req.body.title,
-      description: req.body.description,
-      price: req.body.price,
-      pay_type: req.body.pay_type,
-      start_date: req.body.start_date,
-      end_date: req.body.end_date,
-      latitude: req.body.latitude,
-      longitude: req.body.longitude,
-      category_id: req.body.categories_id,
-      client_id: req.body.client_id,
-    })
-    // .save()
-    .then((posters) => {
-      res.status(201).json({ posters });
-    })
-    .catch((err) => console.log(err));
+  Category.where("id", req.body.category_Id)
+    .fetch()
+    .then((category) => console.log("Category found"))
+    .catch((category) => {
+      res.status(404).json({ error: "Please provide valid warehouse id" });
+    });
+  new Inventory({
+    name: req.body.name,
+    description: req.body.description,
+    warehouse_id: req.body.warehouseId,
+    quantity: req.body.quantity,
+    status: req.body.status,
+  })
+    .save()
+    .then((newInventory) => {
+      res.status(201).json({ newInventory });
+    });
 });
 module.exports = router;
