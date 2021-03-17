@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "name": "Driver"
+    },
+    {
+        "id": 2,
+        "name": "Dress Maker"
+    },
+    {
+        "id": 3,
+        "name": "Photographer"
+    },
+    {
+        "id": 4,
+        "name": "DJ"
+    }
+]
