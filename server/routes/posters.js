@@ -36,12 +36,13 @@ router.get("/:id", (req, res) => {
   const filteredClient = users.find((user) => user.id === clientId);
   const clientName = filteredClient.name;
 
+
   const helperId = singlePoster[0].helper_id;
   const filteredHelper = users.find((user) => user.id === helperId);
   const helperName = filteredHelper.name;
 
   singlePoster.length !== 0
-    ? res.json({ singlePoster, categoryName, clientName, helperName })
+    ? res.json({ singlePoster , categoryName , clientName , helperName })
     : res.status(404).json(singlePoster);
 });
 
