@@ -1,2 +1,2 @@
-.navbar__icon{width:1rem}
+.navbar{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.navbar__profile{display:-webkit-box;display:-ms-flexbox;display:flex}.navbar__icon{width:2.5rem;height:2.5rem}
 /*# sourceMappingURL=main.min.css.map */

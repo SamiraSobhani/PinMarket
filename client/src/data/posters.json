@@ -7,8 +7,8 @@
         "pay_type": "perhours",
         "start_date": "2021-09-10",
         "end_date": "2021-09-11",
-        "latitude": 1234,
-        "longitude": 1237,
+        "latitude": 49.2865,
+        "longitude": -123.1263,
         "category_id": 4,
         "client_id": 1,
         "helper_id": 2
@@ -21,8 +21,8 @@
         "pay_type": "perhours",
         "start_date": "2021-09-10",
         "end_date": "2021-09-10",
-        "latitude": 4567,
-        "longitude": 8910,
+        "latitude": 49.2836,
+        "longitude": -123.1268,
         "category_id": 3,
         "client_id": 2,
         "helper_id": 1
@@ -35,8 +35,8 @@
         "pay_type": "perhours",
         "start_date": "2021-09-10",
         "end_date": "2021-09-11",
-        "latitude": 1234,
-        "longitude": 1237,
+        "latitude": 49.2779,
+        "longitude": -123.1214,
         "category_id": 3,
         "client_id": 1,
         "helper_id": 2

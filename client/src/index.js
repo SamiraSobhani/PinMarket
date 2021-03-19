@@ -5,12 +5,12 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./styles/main.scss";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <BrowserRouter>
       <Switch>
         <Route path="/" component={App} />
       </Switch>
     </BrowserRouter>
-  </React.StrictMode>,
+    </React.Fragment>,
   document.getElementById("root")
 );

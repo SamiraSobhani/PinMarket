@@ -19,10 +19,12 @@ const posters = JSON.parse(loadPostersData());
 const users = JSON.parse(loadUserData());
 const categories = JSON.parse(loadCategoryData());
 
-router.get("/", (_req, res) => {
-  res.json(posters);
+// **********************get all posters
+router.get("/", (req, res) => {
+  res.json({posters, categories, users});
 });
 
+//*******************/ get poster by id and all details
 router.get("/:id", (req, res) => {
   const singlePoster = posters.filter((poster) => poster.id === req.params.id);
 
@@ -36,16 +38,16 @@ router.get("/:id", (req, res) => {
   const filteredClient = users.find((user) => user.id === clientId);
   const clientName = filteredClient.name;
 
-
   const helperId = singlePoster[0].helper_id;
   const filteredHelper = users.find((user) => user.id === helperId);
   const helperName = filteredHelper.name;
 
   singlePoster.length !== 0
-    ? res.json({ singlePoster , categoryName , clientName , helperName })
+    ? res.json({ singlePoster, categoryName, clientName, helperName })
     : res.status(404).json(singlePoster);
 });
 
+// ********************delete poster
 router.delete("/:id", (req, res) => {
   const newList = posters.filter((poster) => poster.id !== req.params.id);
   console.log(newList);
@@ -53,6 +55,7 @@ router.delete("/:id", (req, res) => {
   res.json(newList);
 });
 
+// ***********************create new poster
 router.post("/", (req, res) => {
   if (req.body.title === "") {
     res.status(422).send("please enter a title.");

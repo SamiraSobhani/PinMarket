@@ -14,7 +14,7 @@ app.use(express.json());
 app.use("/posters", posters);
 
 
-app.get("/", (_req, res) => {
+app.get("/", (req, res) => {
   res.json({
     greeting: "Welcome to My api 👽",
   });
