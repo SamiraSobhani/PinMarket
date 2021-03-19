@@ -1,141 +1,3 @@
-// import { useState, useContext } from "react";
-// import { makeStyles } from "@material-ui/core/styles";
-// import InputLabel from "@material-ui/core/InputLabel";
-// import MenuItem from "@material-ui/core/MenuItem";
-// import FormControl from "@material-ui/core/FormControl";
-// import Select from "@material-ui/core/Select";
-// import InputAdornment from "@material-ui/core/InputAdornment";
-// import TextField from "@material-ui/core/TextField";
-// import Autocomplete from "@material-ui/lab/Autocomplete";
-// import Places from "../Location/Places";
-// import Grid from "@material-ui/core/Grid";
-// import DateFnsUtils from "@date-io/date-fns";
-// import {
-//   MuiPickersUtilsProvider,
-//   KeyboardDatePicker,
-// } from "@material-ui/pickers";
-// import "date-fns";
-// import React, { Component } from "react";
-// import axios from "axios";
-// import { appContext } from "./../appContext";
-
-// export default function PosterForm () {
-//   const { setCoord } = useContext(appContext);
-//   componentDidMount() {}
-
-//   handleFormSubmit = (event) => {
-//     event.preventDefault();
-
-//     axios
-//       .post(`http://localhost:8080/posters`, {
-//         title: event.target.title.value,
-//         description: event.target.descriptiondescription.value,
-//         category: "DJ",
-//         location: event.target.location.value,
-//         price: event.target.price.value,
-//         pay_type: event.target.pay_type.value,
-//         start_date: event.target.start_date.value,
-//         end_date: event.target.end_date.value,
-//         client_id: "2",
-//         // latitude: result.geometry.location.lat,
-//         // longitude: result.geometry.location.lng,
-//       })
-//       .then((response) => {
-//         console.log("Here rests the Api", response);
-//       })
-//       .catch((err) => console.log(err));
-//   };
-
-//   handleChange = (event) => {
-//     setPayType(event.target.value);
-//   };
-
-//   handleStartDateChange = (date) => {
-//     setStartDate(date);
-//   };
-
-//   handleEndDateChange = (date) => {
-//     setEndDate(date);
-//   };
-
-//     return (
-//       <div>
-//         <h3>Post a New Job</h3>
-//         <div className="post-form">
-//           <div className="post-form-container">
-//             <label>Title</label>
-//             <TextField />
-//             <br />
-//             <lable>Description</lable>
-//             <TextField />
-//             {/* <Autocomplete /> */}
-//             {/* <input id="autocomplete" placeholder="Loation" type="text"></input> */}
-//             <Places setCoord={setCoord} coord={coord} />
-//             <TextField
-//               InputProps={{
-//                 startAdornment: (
-//                   <InputAdornment position="start">$</InputAdornment>
-//                 ),
-//               }}
-//             />
-//             <FormControl
-//               //   className={classes.formControl}
-//               onSubmit={(event) => event.preventDefault()}
-//             >
-//               <InputLabel id="pay-type">Pay Type</InputLabel>
-//               <Select
-//                 labelId="demo-simple-select-label"
-//                 id="pay-type-select"
-//                 name="pay-type-select"
-//                 // value={state.pay_type}
-//                 // onChange={handleChange}
-//                 style={{ width: 208 }}
-//               >
-//                 <MenuItem value={"/hr"}>Per Hour</MenuItem>
-//                 <MenuItem value={" total"}>Total</MenuItem>
-//               </Select>
-//             </FormControl>
-
-//             <MuiPickersUtilsProvider utils={DateFnsUtils}>
-//               <Grid container>
-//                 <KeyboardDatePicker
-//                   style={{ width: 208, margin: 8, marginRight: 25 }}
-//                   disableToolbar
-//                   variant="inline"
-//                   format="yyyy/MM/dd"
-//                   margin="normal"
-//                   label="Start Date"
-//                   // value={start_date}
-//                   // onChange={handleStartDateChange}
-//                   KeyboardButtonProps={{
-//                     "aria-label": "change date",
-//                   }}
-//                 />
-//                 <br />
-//                 <KeyboardDatePicker
-//                   style={{ width: 208, margin: 8 }}
-//                   disableToolbar
-//                   variant="inline"
-//                   format="yyyy/MM/dd"
-//                   margin="normal"
-//                   label="End Date"
-//                   // value={end_date}
-//                   // onChange={handleEndDateChange}
-//                   KeyboardButtonProps={{
-//                     "aria-label": "change date",
-//                   }}
-//                 />
-//               </Grid>
-//             </MuiPickersUtilsProvider>
-
-//             <button onClick={this.handleFormSubmit} className="btn">
-//               POST
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
 
 import { useState, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
@@ -155,10 +17,11 @@ import {
 } from "@material-ui/pickers";
 import "date-fns";
 import { appContext } from "./../appContext";
+import axios from "axios";
 
-export default function Post({ onSave }) {
+export default function Post() {
   const classes = useStyles();
-  const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category_id, setCategory] = useState("");
   const [price, setPrice] = useState("");
@@ -168,25 +31,24 @@ export default function Post({ onSave }) {
   const [error, setError] = useState("");
   const { coord, setCoord, state, setState } = useContext(appContext);
 
-  function validate(e) {
-    e.preventDefault();
-    const newJob = {
-      client_id: "2",
-      name,
-      // category_id: state.categories.id,
+  function validate(event) {
+    event.preventDefault();
+    const newPoster = {
+      title,
       category_id,
       description,
-      lat: coord.lat,
-      lng: coord.lng,
       price,
       pay_type,
-
-      start_date,
-      end_date,
+      start_date: "2021-09-10",
+      end_date: "2021-09-10",
+      lat: coord.lat,
+      lng: coord.lng,
+      client_id: 2,
+      helper_id: 1,
     };
 
     if (
-      name === "" ||
+      title === "" ||
       category_id === "" ||
       description === "" ||
       price === "" ||
@@ -199,8 +61,20 @@ export default function Post({ onSave }) {
     }
     setError("");
 
-    onSave(newJob);
+    handleFormSubmit(newPoster);
   }
+
+  const handleFormSubmit = (newPoster) => {
+    console.log(newPoster);
+    axios
+      .post(`http://localhost:8080/posters`, {
+        newPoster,
+      })
+      .then((response) => {
+        console.log("Here rests the Api", response);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const handleChange = (event) => {
     setPayType(event.target.value);
@@ -216,16 +90,16 @@ export default function Post({ onSave }) {
 
   return (
     <div>
-      <h3>Post a New Job</h3>
+      <h3>Post a New Poster</h3>
       <div className="post-form">
         <div className="post-form-container">
           <TextField
-            id="job-name"
+            id="job-title"
             style={{ width: 450, margin: 8, marginTop: 0 }}
-            label="Job"
+            label="title"
             placeholder="What do you need help with?"
             fullWidth
-            onChange={(event) => setName(event.target.value)}
+            onChange={(event) => setTitle(event.target.value)}
             autoComplete="off"
           />
           <br />
@@ -316,7 +190,7 @@ export default function Post({ onSave }) {
           </MuiPickersUtilsProvider>
           <br />
           <span>{error}</span>
-          <button onClick={(e) => validate(e)} className="btn">
+          <button onClick={(event) => validate(event)} className="btn">
             POST
           </button>
         </div>

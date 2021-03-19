@@ -6,13 +6,13 @@ import {
   Marker,
   InfoWindow,
 } from "react-google-maps";
-import postersData from "../../data/posters.json";
+// import postersData from "../../data/posters.json";
 import mapStyle from "./mapStyle";
 import { appContext } from "./../appContext";
 
 function Map() {
   const [selectedPoster, setSelectedPoster] = useState(null);
-  const { coord } = useContext(appContext);
+  const { coord, state } = useContext(appContext);
 
   useEffect(() => {
     const listener = (e) => {
@@ -33,7 +33,7 @@ function Map() {
       defaultCenter={coord}
       defaultOptions={{ styles: mapStyle }}
     >
-      {postersData.map((poster) => (
+      {(state.posters).map((poster) => (
         <Marker
           key={poster.id}
           position={{

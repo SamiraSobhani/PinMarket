@@ -21,7 +21,7 @@ const categories = JSON.parse(loadCategoryData());
 
 // **********************get all posters
 router.get("/", (req, res) => {
-  res.json({posters, categories, users});
+  res.json({ posters, categories, users });
 });
 
 //*******************/ get poster by id and all details
@@ -63,19 +63,20 @@ router.post("/", (req, res) => {
     const posters = JSON.parse(loadPostersData());
 
     const newPoster = {
-      id: v4(),
-      title: req.body.title,
-      description: req.body.description,
-      price: req.body.price,
-      pay_type: req.body.pay_type,
-      start_date: req.body.start_date,
-      end_date: req.body.end_date,
-      latitude: req.body.latitude,
-      longitude: req.body.longitude,
-      category_id: req.body.category_id,
-      client_id: req.body.client_id,
-      helper_id: req.body.helper_id,
+      id: posters.length + 1,
+      title: req.body.newPoster.title,
+      description: req.body.newPoster.description,
+      price: req.body.newPoster.price,
+      pay_type: req.body.newPoster.pay_type,
+      start_date: req.body.newPoster.start_date,
+      end_date: req.body.newPoster.end_date,
+      latitude: req.body.newPoster.lat,
+      longitude: req.body.newPoster.lng,
+      category_id: req.body.newPoster.category_id,
+      client_id: req.body.newPoster.client_id,
+      helper_id: req.body.newPoster.helper_id,
     };
+    console.log(req);
     posters.push(newPoster);
     fs.writeFileSync("./data/posters.json", JSON.stringify(posters));
 
