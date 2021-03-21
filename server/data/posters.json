@@ -41,7 +41,6 @@
         "client_id": 1,
         "helper_id": 2
     },
-
     {
         "id": 4,
         "title": "uuuu",
@@ -53,6 +52,20 @@
         "latitude": 49.2778,
         "longitude": -123.1263,
         "category_id": 3,
+        "client_id": 2,
+        "helper_id": 1
+    },
+    {
+        "id": 5,
+        "title": "wedding dress",
+        "description": "I need special wedding dress",
+        "price": "1000",
+        "pay_type": " total",
+        "start_date": "2021-09-10",
+        "end_date": "2021-09-10",
+        "latitude": 49.2765,
+        "longitude": -123.1363,
+        "category_id": 2,
         "client_id": 2,
         "helper_id": 1
     }

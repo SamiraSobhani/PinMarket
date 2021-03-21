@@ -82,7 +82,6 @@ export default function Places() {
         onChange={handleInput}
         style={{ width: 450, margin: 8 }}
         disabled={!ready}
-        autoFocus={true}
         label="Location"
       />
       {status === "OK" && renderSuggestions()}

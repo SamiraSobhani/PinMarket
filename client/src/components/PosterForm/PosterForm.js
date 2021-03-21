@@ -1,4 +1,3 @@
-
 import { useState, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -18,6 +17,7 @@ import {
 import "date-fns";
 import { appContext } from "./../appContext";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 export default function Post() {
   const classes = useStyles();
@@ -190,9 +190,11 @@ export default function Post() {
           </MuiPickersUtilsProvider>
           <br />
           <span>{error}</span>
-          <button onClick={(event) => validate(event)} className="btn">
-            POST
-          </button>
+          <NavLink to="/userpage">
+            <button onClick={(event) => validate(event)} className="btn">
+              POST
+            </button>
+          </NavLink>
         </div>
       </div>
     </div>

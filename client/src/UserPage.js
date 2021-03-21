@@ -1,21 +1,20 @@
 import React from "react";
+import PostersList from "./components/PostersList/PostersList";
 import MapContainer from "./components/Map/MapContainer";
-import PosterForm from "./components/PosterForm/PosterForm";
 import { appContext } from "./components/appContext";
 import useApplicationData from "./hooks/useApplicationData";
 
-function App() {
+function UserPage() {
   const { coord, setCoord, state, setState } = useApplicationData();
   return (
     <appContext.Provider value={{ coord, setCoord, state, setState }}>
+ 
       <div className="container">
-        <div className="main">
-          <MapContainer className="map" />
-          <PosterForm className="posterForm" />
-        </div>
+        <MapContainer className="map" />
+        <PostersList />
       </div>
     </appContext.Provider>
   );
 }
 
-export default App;
+export default UserPage;

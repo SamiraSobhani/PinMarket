@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
+import mapStyle from "./mapStyle";
+import { appContext } from "./../appContext";
 import {
   withGoogleMap,
   withScriptjs,
@@ -6,9 +8,6 @@ import {
   Marker,
   InfoWindow,
 } from "react-google-maps";
-// import postersData from "../../data/posters.json";
-import mapStyle from "./mapStyle";
-import { appContext } from "./../appContext";
 
 function Map() {
   const [selectedPoster, setSelectedPoster] = useState(null);
@@ -27,13 +26,21 @@ function Map() {
     };
   }, []);
 
+  // function drop() {
+  //   for (var i = 0; i < state.posters.length; i++) {
+  //     setTimeout(function () {
+  //       addMarkerMethod();
+  //     }, i * 200);
+  //   }
+  // }
+
   return (
     <GoogleMap
       defaultZoom={14}
       defaultCenter={coord}
       defaultOptions={{ styles: mapStyle }}
     >
-      {(state.posters).map((poster) => (
+      {state.posters.map((poster) => (
         <Marker
           key={poster.id}
           position={{
@@ -44,7 +51,7 @@ function Map() {
             setSelectedPoster(poster);
           }}
           icon={{
-            url: `/camera-retro-solid.svg`,
+            url: `camera-red.png`,
             scaledSize: new window.google.maps.Size(25, 25),
           }}
         />
@@ -74,7 +81,7 @@ const MapWrapped = withScriptjs(withGoogleMap(Map));
 
 export default function App() {
   return (
-    <div style={{ width: "100vw", height: "60vh" }}>
+    <div style={{ width: "93vw", height: "60vh" }}>
       <MapWrapped
         googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBRUYC8MMdlwDjIzBVvo7U5oHa3h2tQ09k&libraries=places`}
         loadingElement={<div style={{ height: `95%` }} />}
