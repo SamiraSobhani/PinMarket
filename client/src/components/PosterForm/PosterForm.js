@@ -190,7 +190,7 @@ export default function Post() {
           </MuiPickersUtilsProvider>
           <br />
           <span>{error}</span>
-          <NavLink to="/userpage">
+          <NavLink to="posters/userpage">
             <button onClick={(event) => validate(event)} className="btn">
               POST
             </button>

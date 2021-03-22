@@ -7,7 +7,6 @@ const Page = styled.div`
   height: 100vh;
   width: 100%;
   align-items: center;
-  background-color: #46516e;
   flex-direction: column;
 `;
 

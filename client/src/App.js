@@ -5,6 +5,7 @@ import { appContext } from "./components/appContext";
 import useApplicationData from "./hooks/useApplicationData";
 import MyButtons from "./components/ThreeButton/MyButtons";
 import Chat from "./components/Chat/Chat";
+import Login from "./components/Login/Login";
 function App() {
   const { coord, setCoord, state, setState } = useApplicationData();
   return (
@@ -13,6 +14,7 @@ function App() {
         <div className="main">
           <MapContainer className="map" />
           <MyButtons />
+          {/* <Login /> */}
           <PosterForm className="posterForm" />
           <Chat />
         </div>
