@@ -11,11 +11,11 @@ function UserPage() {
   return (
     <appContext.Provider value={{ coord, setCoord, state, setState }}>
       <div className="container">
-        <MapContainer className="map" />
+        <MapContainer className="user__map" />
         <MyButtons />
-        <div>
-          <PostersList />
-          <AppliedList />
+        <div className="user__posterList">
+          <PostersList className="user__post" />
+          <AppliedList className="user__apply" />
         </div>
       </div>
     </appContext.Provider>

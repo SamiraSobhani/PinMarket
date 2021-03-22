@@ -3,18 +3,19 @@ import MapContainer from "./components/Map/MapContainer";
 import MyButtons from "./components/ThreeButton/MyButtons";
 import { appContext } from "./components/appContext";
 import useApplicationData from "./hooks/useApplicationData";
-import SearchPoster from "./components/SearchPoster/SearchPoster";
-function Search() {
+import Chat from "./components/Chat/Chat";
+
+function ChatPage() {
   const { coord, setCoord, state, setState } = useApplicationData();
   return (
     <appContext.Provider value={{ coord, setCoord, state, setState }}>
       <div className="container">
         <MapContainer className="map" />
         <MyButtons />
-        <SearchPoster />
+        <Chat />
       </div>
     </appContext.Provider>
   );
 }
 
-export default Search;
+export default ChatPage;

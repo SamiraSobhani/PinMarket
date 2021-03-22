@@ -17,7 +17,7 @@ import {
 import "date-fns";
 import { appContext } from "./../appContext";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Post() {
   const classes = useStyles();
@@ -39,12 +39,12 @@ export default function Post() {
       description,
       price,
       pay_type,
-      start_date: "2021-09-10",
-      end_date: "2021-09-10",
+      start_date,
+      end_date,
       lat: coord.lat,
       lng: coord.lng,
-      client_id: 2,
-      helper_id: 1,
+      client_id: 1,
+      helper_id: 2,
     };
 
     if (
@@ -190,11 +190,11 @@ export default function Post() {
           </MuiPickersUtilsProvider>
           <br />
           <span>{error}</span>
-          <NavLink to="posters/userpage">
+          <Link to="/posters/userpage">
             <button onClick={(event) => validate(event)} className="btn">
               POST
             </button>
-          </NavLink>
+          </Link>
         </div>
       </div>
     </div>
