@@ -16,7 +16,6 @@ export default class PostersList extends Component {
       .get("http://localhost:8080/posters")
       .then((res) => {
         this.setState({ response: res.data });
-        console.log("im here");
       })
       .catch((error) => console.log(error));
   }
@@ -24,25 +23,29 @@ export default class PostersList extends Component {
   componentDidMount() {
     this.getData();
   }
+  componentDidUpdate() {}
+  getCategoryNameById(id) {
+    return this.state.response.categories.find(
+      (category) => category.id === id
+    );
+  }
 
-  // deleteInventory = (id) => {
-  //   axios
-  //     .delete(`http://localhost:8080/posters/${id}`)
-  //     .then((response) => {
-  //       this.setState({ list: response.data });
-  //     })
-  //     .catch((error) => console.log(error));
-  //   this.getData();
-  // };
+  deletePoster = (id) => {
+    axios
+      .delete(`http://localhost:8080/posters/${id}`)
+      .then((response) => {
+        this.setState({ posters: response.data });
+        console.log("inside delete fun");
+      })
+      .catch((error) => console.log(error));
+    this.getData();
+  };
 
   render() {
-    console.log(this.state.response);
     const filteredPoster = this.state.response.posters.filter(
       (poster) => poster.client_id === 1
     );
     const clientName = this.state.response.users.filter((user) => user.id == 1);
-
-    // console.log(clientName[0]["name"]);
 
     return (
       <div className="posters__main">
@@ -51,10 +54,12 @@ export default class PostersList extends Component {
           <ul className={"posters__list"}>
             {filteredPoster.map((item, index) => (
               <PosterItem
+                path={"userpage"}
                 key={index}
                 eachPoster={item}
                 clientName={clientName[0].name}
-                // delete={this.deletePoster}
+                categoryName={this.getCategoryNameById(item.category_id).name}
+                delete={this.deletePoster}
               />
             ))}
           </ul>

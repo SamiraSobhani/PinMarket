@@ -1,0 +1,15 @@
+@import "../../partials/general";
+@import "../../partials/variables";
+@import "../../partials/mixin";
+@import "./NavHeader";
+@import "../../userPageStyle/modal";
+
+.container {
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

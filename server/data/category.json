@@ -1,18 +1,27 @@
 [
     {
         "id": 1,
-        "name": "Driver"
+        "name": "Driver",
+        "icon": "driver.svg"
     },
     {
         "id": 2,
-        "name": "Dress Maker"
+        "name": "Dressmaker",
+        "icon": "dressmaker.png"
     },
     {
         "id": 3,
-        "name": "Photographer"
+        "name": "Photographer",
+        "icon": "camera-red.png"
     },
     {
         "id": 4,
-        "name": "DJ"
+        "name": "DJ",
+        "icon": "DJ.png"
+    },
+    {
+        "id": 5,
+        "name": "makeup artist",
+        "icon": "makeup.png"
     }
 ]

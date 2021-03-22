@@ -4,7 +4,7 @@ import React from "react";
 import App from "./App";
 import UserPage from "./UserPage";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import "./styles/main.scss";
+import "./styles/pagesStyle/App/main.scss";
 
 
 ReactDOM.render(

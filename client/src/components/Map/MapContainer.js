@@ -26,6 +26,11 @@ function Map() {
     };
   }, []);
 
+  function selectedIcon(id) {
+    const SC = state.categories.find((category) => category.id === id);
+    return SC.icon;
+  }
+
   // function drop() {
   //   for (var i = 0; i < state.posters.length; i++) {
   //     setTimeout(function () {
@@ -51,8 +56,8 @@ function Map() {
             setSelectedPoster(poster);
           }}
           icon={{
-            url: `camera-red.png`,
-            scaledSize: new window.google.maps.Size(25, 25),
+            url: selectedIcon(poster.category_id),
+            scaledSize: new window.google.maps.Size(45, 45),
           }}
         />
       ))}

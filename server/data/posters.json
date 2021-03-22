@@ -9,7 +9,7 @@
         "end_date": "2021-09-11",
         "latitude": 49.2865,
         "longitude": -123.1263,
-        "category_id": 4,
+        "category_id": 5,
         "client_id": 1,
         "helper_id": 2
     },
@@ -23,7 +23,7 @@
         "end_date": "2021-09-10",
         "latitude": 49.2836,
         "longitude": -123.1268,
-        "category_id": 3,
+        "category_id": 1,
         "client_id": 2,
         "helper_id": 1
     },
@@ -43,15 +43,15 @@
     },
     {
         "id": 4,
-        "title": "uuuu",
-        "description": "uuuu",
+        "title": "DJ for our wedding",
+        "description": "need a great DJ",
         "price": "55",
         "pay_type": "/hr",
         "start_date": "2021-09-10",
         "end_date": "2021-09-10",
         "latitude": 49.2778,
         "longitude": -123.1263,
-        "category_id": 3,
+        "category_id": 4,
         "client_id": 2,
         "helper_id": 1
     },
