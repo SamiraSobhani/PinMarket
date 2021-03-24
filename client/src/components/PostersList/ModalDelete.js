@@ -27,7 +27,8 @@ export default class posterAction extends Component {
   }
 
   render() {
-    const myPath = this.props.path;
+    // const myPath = this.props.path;
+    // console.log(myPath);
     return (
       <div className={"action"}>
         <Modal
@@ -52,7 +53,7 @@ export default class posterAction extends Component {
                 Cancel
               </button>
 
-              <Link to={myPath}>
+              <Link to={"/posters/userpage"}>
                 <button
                   className="modal__button modal__button-delete"
                   onClick={this.deleteButtonFunc}

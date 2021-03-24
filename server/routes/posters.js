@@ -49,8 +49,7 @@ router.get("/:id", (req, res) => {
 
 // ********************delete poster
 router.delete("/:id", (req, res) => {
-  const newList = posters.filter((poster) => poster.id !== req.params.id);
-  console.log(newList);
+  const newList = posters.filter((poster) => poster.id != req.params.id);
   fs.writeFileSync("./data/posters.json", JSON.stringify(newList));
   res.json(newList);
 });

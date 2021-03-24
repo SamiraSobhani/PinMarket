@@ -17,7 +17,8 @@ import {
 import "date-fns";
 import { appContext } from "./../appContext";
 import axios from "axios";
-import { Link } from "react-router-dom";
+
+import { Redirect } from "react-router-dom";
 
 export default function Post() {
   const classes = useStyles();
@@ -30,6 +31,8 @@ export default function Post() {
   const [end_date, setEndDate] = useState(new Date());
   const [error, setError] = useState("");
   const { coord, setCoord, state, setState } = useContext(appContext);
+
+  const [toUserPage, setToUserPage] = useState(false);
 
   function validate(event) {
     event.preventDefault();
@@ -70,8 +73,12 @@ export default function Post() {
       .post(`http://localhost:8080/posters`, {
         newPoster,
       })
-      .then((response) => {
-        console.log("Here rests the Api", response);
+      .then(() => {
+        window.location.reload(false);
+        setToUserPage(true);
+        // console.log(history);
+        // history.pushState("", "/posters/userpage");
+        // return <Redirect to="/posters" />;
       })
       .catch((err) => console.log(err));
   };
@@ -87,6 +94,10 @@ export default function Post() {
   const handleEndDateChange = (date) => {
     setEndDate(date);
   };
+
+  // if (toUserPage === true) {
+  //   return <Redirect to="/posters/userpage" />;
+  // }
 
   return (
     <div>
@@ -190,11 +201,10 @@ export default function Post() {
           </MuiPickersUtilsProvider>
           <br />
           <span>{error}</span>
-          <Link to="/posters/userpage">
-            <button onClick={(event) => validate(event)} className="btn">
-              POST
-            </button>
-          </Link>
+
+          <button onClick={(event) => validate(event)} className="btn">
+            POST
+          </button>
         </div>
       </div>
     </div>

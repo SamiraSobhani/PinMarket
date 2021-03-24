@@ -17,10 +17,11 @@ const Container = styled.div`
   max-height: 500px;
   overflow: auto;
   width: 400px;
-  border: 1px solid lightgray;
+  border: 1px solid black;
   border-radius: 10px;
   padding-bottom: 10px;
   margin-top: 25px;
+  background-color: white;
 `;
 
 const TextArea = styled.textarea`
@@ -31,8 +32,8 @@ const TextArea = styled.textarea`
   padding-left: 10px;
   padding-top: 10px;
   font-size: 17px;
-  background-color: transparent;
-  border: 1px solid lightgray;
+  background-color: white;
+  border: 1px solid black;
   outline: none;
   color: darkgray;
   letter-spacing: 1px;
@@ -47,8 +48,9 @@ const Button = styled.button`
   border: none;
   height: 50px;
   border-radius: 10px;
-  color: #46516e;
+  color: white;
   font-size: 17px;
+  background-color: darkred;
 `;
 
 const Form = styled.form`

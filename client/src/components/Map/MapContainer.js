@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import mapStyle from "./mapStyle";
-import { Link } from "react-router-dom";
 import { appContext } from "./../appContext";
 import {
   withGoogleMap,
@@ -13,7 +12,7 @@ import {
 function Map() {
   const [selectedPoster, setSelectedPoster] = useState(null);
   const { coord, state } = useContext(appContext);
-
+  
   useEffect(() => {
     const listener = (e) => {
       if (e.key === "Escape") {
@@ -41,7 +40,7 @@ function Map() {
   // }
 
   return (
-    <GoogleMap 
+    <GoogleMap
       defaultZoom={14}
       defaultCenter={coord}
       defaultOptions={{ styles: mapStyle }}
@@ -58,29 +57,27 @@ function Map() {
           }}
           icon={{
             url: selectedIcon(poster.category_id),
-            scaledSize: new window.google.maps.Size(45, 45),
+            scaledSize: new window.google.maps.Size(42, 42),
           }}
         />
       ))}
 
-      <Link to="/posters/chat">
-        {selectedPoster && (
-          <InfoWindow
-            onCloseClick={() => {
-              setSelectedPoster(null);
-            }}
-            position={{
-              lat: selectedPoster.latitude,
-              lng: selectedPoster.longitude,
-            }}
-          >
-            <div>
-              <h2>{selectedPoster.title}</h2>
-              <p>{selectedPoster.description}</p>
-            </div>
-          </InfoWindow>
-        )}
-      </Link>
+      {selectedPoster && (
+        <InfoWindow
+          onCloseClick={() => {
+            setSelectedPoster(null);
+          }}
+          position={{
+            lat: selectedPoster.latitude,
+            lng: selectedPoster.longitude,
+          }}
+        >
+          <div>
+            <h2>{selectedPoster.title}</h2>
+            <p>{selectedPoster.description}</p>
+          </div>
+        </InfoWindow>
+      )}
     </GoogleMap>
   );
 }
@@ -89,12 +86,12 @@ const MapWrapped = withScriptjs(withGoogleMap(Map));
 
 export default function App() {
   return (
-    <div  style={{ width: "93vw", height: "60vh" }}>
+    <div className="myMap" style={{ width: "93vw", height: "60vh" }}>
       <MapWrapped
         googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBRUYC8MMdlwDjIzBVvo7U5oHa3h2tQ09k&libraries=places`}
         loadingElement={<div style={{ height: `95%` }} />}
         containerElement={<div style={{ height: `100%` }} />}
-        mapElement={<div  style={{ height: `100%` }} />}
+        mapElement={<div style={{ height: `100%` }} />}
       />
     </div>
   );

@@ -12,6 +12,7 @@ export default class PostersList extends Component {
   };
 
   getData() {
+    console.log("inside get data");
     axios
       .get("http://localhost:8080/posters")
       .then((res) => {
@@ -23,6 +24,7 @@ export default class PostersList extends Component {
   componentDidMount() {
     this.getData();
   }
+
   componentDidUpdate() {}
   getCategoryNameById(id) {
     return this.state.response.categories.find(
@@ -34,11 +36,17 @@ export default class PostersList extends Component {
     axios
       .delete(`http://localhost:8080/posters/${id}`)
       .then((response) => {
-        this.setState({ posters: response.data });
-        console.log("inside delete fun");
+        window.location.reload(false);
+        const respobj = Object.assign({}, this.state.response, {
+          posters: response.data,
+        });
+        this.setState({
+          response: respobj,
+        });
+        console.log("inside delete fun", response);
+      
       })
       .catch((error) => console.log(error));
-    this.getData();
   };
 
   render() {
@@ -54,7 +62,7 @@ export default class PostersList extends Component {
           <ul className={"posters__list"}>
             {filteredPoster.map((item, index) => (
               <PosterItem
-                path={"userpage"}
+                path={"/userpage"}
                 key={index}
                 eachPoster={item}
                 clientName={clientName[0].name}

@@ -2,8 +2,9 @@
 @import "../../partials/variables";
 @import "../../partials/mixin";
 @import "./NavHeader";
-@import "../../userPageStyle/modal";
-@import "../../userPageStyle/UserPage";
+@import "../userPageStyle/modal";
+@import "../userPageStyle/UserPage";
+@import "../search/searchPoster";
 
 .container {
   margin-right: 2rem;
