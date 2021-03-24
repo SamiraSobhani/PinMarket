@@ -1,3 +1,11 @@
 .slider {
   margin: 3rem;
+  border: solid white 0.4rem;
+}
+.input-range__slider {
+  border: 1px solid darkslategray;
+  background: darkslategray;
+}
+.input-range__track--active {
+  background: darkslategray;
 }

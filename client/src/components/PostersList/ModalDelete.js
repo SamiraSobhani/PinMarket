@@ -30,13 +30,16 @@ export default class posterAction extends Component {
     // const myPath = this.props.path;
     // console.log(myPath);
     return (
-      <div className={"action"}>
+      <div className="action">
         <Modal
           className="modal"
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
         >
           <div className="modal__container">
+            <form>
+              <input></input>
+            </form>
             <button onClick={this.closeModal}>
               <img className="modal__icon" src={close} alt="close"></img>
             </button>

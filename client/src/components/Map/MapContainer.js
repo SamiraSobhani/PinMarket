@@ -9,10 +9,11 @@ import {
   InfoWindow,
 } from "react-google-maps";
 
+
 function Map() {
   const [selectedPoster, setSelectedPoster] = useState(null);
   const { coord, state } = useContext(appContext);
-  
+
   useEffect(() => {
     const listener = (e) => {
       if (e.key === "Escape") {
@@ -72,10 +73,12 @@ function Map() {
             lng: selectedPoster.longitude,
           }}
         >
-          <div>
-            <h2>{selectedPoster.title}</h2>
-            <p>{selectedPoster.description}</p>
-          </div>
+          <a href="./posters/search">
+            <div>
+              <h2>{selectedPoster.title}</h2>
+              <p>{selectedPoster.description}</p>
+            </div>
+          </a>
         </InfoWindow>
       )}
     </GoogleMap>

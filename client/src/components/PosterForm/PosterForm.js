@@ -76,9 +76,7 @@ export default function Post() {
       .then(() => {
         window.location.reload(false);
         setToUserPage(true);
-        // console.log(history);
-        // history.pushState("", "/posters/userpage");
-        // return <Redirect to="/posters" />;
+
       })
       .catch((err) => console.log(err));
   };
@@ -95,9 +93,7 @@ export default function Post() {
     setEndDate(date);
   };
 
-  // if (toUserPage === true) {
-  //   return <Redirect to="/posters/userpage" />;
-  // }
+
 
   return (
     <div>

@@ -106,6 +106,7 @@ body {
 }
 
 .user__posterList {
+  color: darkslategray;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -115,7 +116,142 @@ body {
 }
 
 .slider {
-  margin: 2rem;
+  margin: 3rem;
+  border: solid white 0.4rem;
+}
+
+.input-range__slider {
+  border: 1px solid darkslategray;
+  background: darkslategray;
+}
+
+.input-range__track--active {
+  background: darkslategray;
+}
+
+.search {
+  color: darkslategray;
+  border: solid white 0.2rem;
+  border-radius: 0.5rem;
+  width: 30%;
+  height: 45%;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  font-style: italic;
+  background-color: white;
+}
+.search__profilePic {
+  width: 1.5rem;
+  height: auto;
+}
+
+.chat-detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 55vh;
+  width: 50%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.Container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 500px;
+  max-height: 500px;
+  overflow: auto;
+  width: 400px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  margin-top: 25px;
+  background-color: white;
+}
+
+.TextArea {
+  width: 98%;
+  height: 100px;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 17px;
+  background-color: white;
+  border: 1px solid black;
+  outline: none;
+  color: darkgray;
+  letter-spacing: 1px;
+  line-height: 20px;
+}
+.TextArea ::-webkit-input-placeholder {
+  color: gray;
+}
+.TextArea ::-moz-placeholder {
+  color: gray;
+}
+.TextArea :-ms-input-placeholder {
+  color: gray;
+}
+.TextArea ::-ms-input-placeholder {
+  color: gray;
+}
+.TextArea ::placeholder {
+  color: gray;
+}
+
+.Button {
+  width: 100%;
+  border: none;
+  height: 50px;
+  border-radius: 10px;
+  color: white;
+  font-size: 17px;
+  background-color: darkred;
+}
+
+.Form {
+  width: 400px;
+}
+
+.MyRow {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.MyMessage {
+  width: 45%;
+  color: black;
+  padding: 10px;
+  margin-right: 5px;
+  text-align: center;
+  border-top-right-radius: 10%;
+  border-bottom-right-radius: 10%;
 }
 
 .container {

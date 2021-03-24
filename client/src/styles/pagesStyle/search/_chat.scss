@@ -1,0 +1,72 @@
+.Page {
+  display: flex;
+  height: 55vh;
+  width: 50%;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  max-height: 500px;
+  overflow: auto;
+  width: 400px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  margin-top: 25px;
+  background-color: white;
+}
+
+.TextArea {
+  width: 98%;
+  height: 100px;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 17px;
+  background-color: white;
+  border: 1px solid black;
+  outline: none;
+  color: darkgray;
+  letter-spacing: 1px;
+  line-height: 20px;
+  ::placeholder {
+    color: gray;
+  }
+}
+
+.Button {
+  width: 100%;
+  border: none;
+  height: 50px;
+  border-radius: 10px;
+  color: white;
+  font-size: 17px;
+  background-color: darkred;
+}
+
+.Form {
+  width: 400px;
+}
+
+.MyRow {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.MyMessage {
+  width: 45%;
+
+  color: black;
+  padding: 10px;
+  margin-right: 5px;
+  text-align: center;
+  border-top-right-radius: 10%;
+  border-bottom-right-radius: 10%;
+}

@@ -5,7 +5,7 @@ import axios from "axios";
 
 class SearchPoster extends Component {
   state = {
-    value: 0,
+    value: 2,
     response: {
       posters: [],
       categories: [],
@@ -44,7 +44,7 @@ class SearchPoster extends Component {
             Math.sin(lat1) * Math.sin(lat2) +
               Math.cos(lat1) * Math.cos(lat2) * Math.cos(lng1 - lng2)
           );
-        console.log({ distance, p2id });
+        // console.log({ distance, p2id });
         myResult.push({ distance, p2id });
       } catch (error) {
         return null;
@@ -53,11 +53,14 @@ class SearchPoster extends Component {
     return myResult;
   };
 
-
-
   render() {
-    this.distBtw2Ptss();
-    
+    const myResult = this.distBtw2Ptss();
+    myResult.map((distanceArray) => {
+      if (distanceArray.distance < this.state.value) {
+        console.log(distanceArray);
+        return distanceArray;
+      }
+    });
     return (
       <div className="slider">
         <InputRange
@@ -67,7 +70,7 @@ class SearchPoster extends Component {
           value={this.state.value}
           onChange={(value) => {
             this.setState({ value });
-            this.distBtw2Ptss();
+            // this.distBtw2Ptss();
           }}
         />
       </div>

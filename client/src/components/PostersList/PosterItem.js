@@ -12,10 +12,10 @@ function PosterItem(props) {
           <span>{props.categoryName}</span>
 
           <PosterAction
+            className="action"
             path={props.path}
             delete={props.delete}
             id={props.eachPoster.id}
-
           />
         </div>
       </li>
