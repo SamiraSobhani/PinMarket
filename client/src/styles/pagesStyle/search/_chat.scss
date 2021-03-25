@@ -1,7 +1,7 @@
-.Page {
+.chat {
   display: flex;
   height: 55vh;
-  width: 50%;
+  width: 80%;
   align-items: center;
   flex-direction: column;
 }
@@ -9,7 +9,7 @@
 .Container {
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 400px;
   max-height: 500px;
   overflow: auto;
   width: 400px;
@@ -21,8 +21,8 @@
 }
 
 .TextArea {
-  width: 98%;
-  height: 100px;
+  width: 97%;
+  height: 65px;
   border-radius: 10px;
   margin-top: 10px;
   padding-left: 10px;

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
 import axios from "axios";
+import MapForSearch from "../Map/MapForSearch";
 
 class SearchPoster extends Component {
   state = {
@@ -11,10 +12,12 @@ class SearchPoster extends Component {
       categories: [],
       users: [],
     },
+    myResult: [],
   };
 
-  componentDidMount() {
-    this.getData();
+  componentDidUpdate() {
+    if (this.state.value !== 2) {
+    }
   }
 
   getData() {
@@ -25,10 +28,14 @@ class SearchPoster extends Component {
       })
       .catch((error) => console.log(error));
   }
+  componentDidMount() {
+    this.getData();
+    this.distBtw2Ptss();
+  }
 
   // HAVERSINE FORMULA USED FOR GREAT CIRCLE DISTANCE BETWEEN TWO POINTS, AKA 'AS-THE-CROW-FLIES'
   distBtw2Ptss = (p1, p2, p2id) => {
-    const myResult = [];
+    const myArray = [];
     this.state.response.posters.map((poster) => {
       const p1 = [49.2834, -123.1157];
       const p2 = [poster.latitude, poster.longitude];
@@ -44,23 +51,28 @@ class SearchPoster extends Component {
             Math.sin(lat1) * Math.sin(lat2) +
               Math.cos(lat1) * Math.cos(lat2) * Math.cos(lng1 - lng2)
           );
-        // console.log({ distance, p2id });
-        myResult.push({ distance, p2id });
+        myArray.push({ distance, p2id, p2 });
       } catch (error) {
         return null;
       }
     });
-    return myResult;
+    return this.filterDistance(myArray);
+  };
+
+  filterDistance = (myRes) => {
+    const disArray = [];
+    myRes.map((distanceObj) => {
+      if (distanceObj.distance < this.state.value) {
+        console.log(distanceObj);
+        disArray.push(distanceObj);
+        return disArray;
+      }
+    });
   };
 
   render() {
-    const myResult = this.distBtw2Ptss();
-    myResult.map((distanceArray) => {
-      if (distanceArray.distance < this.state.value) {
-        console.log(distanceArray);
-        return distanceArray;
-      }
-    });
+    this.distBtw2Ptss();
+
     return (
       <div className="slider">
         <InputRange
@@ -70,9 +82,9 @@ class SearchPoster extends Component {
           value={this.state.value}
           onChange={(value) => {
             this.setState({ value });
-            // this.distBtw2Ptss();
           }}
         />
+        {/* <MapForSearch newArray={filterDistance} /> */}
       </div>
     );
   }

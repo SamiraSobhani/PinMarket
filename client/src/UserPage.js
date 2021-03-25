@@ -10,13 +10,13 @@ function UserPage() {
   const { coord, setCoord, state, setState } = useApplicationData();
   return (
     <appContext.Provider value={{ coord, setCoord, state, setState }}>
-      <div className="container">
-        <MapContainer className="user__map" />
-        <MyButtons />
-        <div className="user__posterList">
-          <PostersList className="user__post" />
-          <AppliedList className="user__apply" />
+      <div className="user__container container">
+        <PostersList className="user__post" />
+        <div className="MapButton">
+          <MapContainer className="user__map" />
+          <MyButtons />
         </div>
+        <AppliedList className="user__apply" />
       </div>
     </appContext.Provider>
   );

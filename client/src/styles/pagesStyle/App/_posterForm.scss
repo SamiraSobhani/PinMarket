@@ -1,0 +1,11 @@
+.post-form {
+  border: white solid 0.5rem;
+  padding: 2rem;
+  &__button {
+    color: white;
+    background-color: darkred;
+    border-radius: 0.5rem;
+    padding: 1rem 2.5rem;
+    border-style: none;
+  }
+}

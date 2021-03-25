@@ -13,7 +13,8 @@ ReactDOM.render(
       <NavHeader />
       <Switch>
         <Route path="/posters/userpage" component={UserPage} exact />
-        <Route path="/posters/search" component={Search} exact />
+        <Route path="/posters/search/:id" component={Search} />
+        <Route path="/posters/search" component={Search} />
         <Route path="/posters" component={App} />
         <Route path="/" component={App} />
       </Switch>

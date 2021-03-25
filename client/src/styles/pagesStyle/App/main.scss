@@ -8,13 +8,22 @@
 @import "../search/showPosterDetail";
 @import "../search/searchPage";
 @import "../search/chat";
-
+@import "./threeButton";
+@import "./posterForm";
 .container {
   margin-right: 2rem;
   margin-left: 2rem;
 }
 .main {
   display: flex;
+  justify-content: space-between;
+}
+.myMap {
+  height: 35rem;
+  width: 35rem;
+}
+.mapButton {
+  display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: right;
 }

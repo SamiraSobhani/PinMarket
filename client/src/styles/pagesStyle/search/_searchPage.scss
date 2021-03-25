@@ -1,8 +1,9 @@
 .chat-detail {
+  width: 50%;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 }
-.chat {
-}
-.detail {
+.search__container {
+  display: flex;
 }

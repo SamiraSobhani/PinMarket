@@ -2,15 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 function MyButtons() {
   return (
-    <div>
+    <div className="threeButtons">
       <Link to="/posters">
-        <button>Post a New Poster</button>
+        <button className="threeButtons__post">Post a New Poster</button>
       </Link>
       <Link to="/posters/userpage">
-        <button>All Activity</button>
+        <button className="threeButtons__all">All Activity</button>
       </Link>
       <Link to="/posters/search">
-        <button>Search</button>
+        <button className="threeButtons__search">Search</button>
       </Link>
     </div>
   );

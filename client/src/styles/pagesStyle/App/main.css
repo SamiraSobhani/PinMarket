@@ -254,6 +254,36 @@ body {
   border-bottom-right-radius: 10%;
 }
 
+.threeButtons {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.threeButtons__post {
+  color: white;
+  background: darkred;
+  border-radius: 0.7rem;
+  padding: 0.7rem;
+}
+.threeButtons__all {
+  color: white;
+  background: darkred;
+  border-radius: 0.7rem;
+  padding: 0.7rem;
+}
+.threeButtons__search {
+  color: white;
+  background: darkred;
+  border-radius: 0.7rem;
+  padding: 0.7rem;
+}
+
 .container {
   margin-right: 2rem;
   margin-left: 2rem;
@@ -263,12 +293,26 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.myMap {
+  height: 35rem;
+  width: 35rem;
+}
+
+.mapButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
 }
 /*# sourceMappingURL=main.css.map */

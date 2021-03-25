@@ -6,17 +6,18 @@ import useApplicationData from "./hooks/useApplicationData";
 import MyButtons from "./components/ThreeButton/MyButtons";
 import Login from "./components/Login/Login";
 
-
 function App() {
   const { coord, setCoord, state, setState } = useApplicationData();
   return (
     <appContext.Provider value={{ coord, setCoord, state, setState }}>
       <div className="container">
         <div className="main">
-          <MapContainer className="map" />
-          <MyButtons />
-          {/* <Login /> */}
           <PosterForm className="posterForm" />
+          <div className="MapButton">
+            <MapContainer className="map" />
+            <MyButtons />
+          </div>
+          {/* <Login /> */}
         </div>
       </div>
     </appContext.Provider>

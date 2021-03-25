@@ -1,7 +1,8 @@
 .user {
-  &__posterList {
-    color: darkslategray;
+  &__container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    color: darkslategray;
   }
+ 
 }

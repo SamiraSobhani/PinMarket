@@ -1,0 +1,28 @@
+.threeButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 50%;
+  &__post {
+    color: white;
+    background: darkred;
+    border-radius: 0.7rem;
+    padding: 0.7rem;
+    border-style: none;
+  }
+  &__all {
+    color: white;
+    background: darkred;
+    border-radius: 0.7rem;
+    padding: 0.7rem;
+    border-style: none;
+  }
+  &__search {
+    color: white;
+    background: darkred;
+    border-radius: 0.7rem;
+    padding: 0.7rem;
+    border-style: none;
+  }
+}

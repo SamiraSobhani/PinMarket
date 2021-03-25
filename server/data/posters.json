@@ -67,7 +67,7 @@
         "longitude": -123.1363,
         "category_id": 2,
         "client_id": 2,
-        "helper_id": 1
+        "helper_id": 4
     },
     {
         "id": 6,
@@ -81,7 +81,7 @@
         "longitude": -123.1424,
         "category_id": 4,
         "client_id": 2,
-        "helper_id": 1
+        "helper_id": 3
     },
     {
         "id": 7,
@@ -178,20 +178,6 @@
         "latitude": 49.32846439999999,
         "longitude": -123.1535332,
         "category_id": 5,
-        "client_id": 1,
-        "helper_id": 2
-    },
-    {
-        "id": 14,
-        "title": "ttttt",
-        "description": "ttttt",
-        "price": "1111",
-        "pay_type": " total",
-        "start_date": "2021-03-24T04:24:07.362Z",
-        "end_date": "2021-03-24T04:24:07.362Z",
-        "latitude": 49.2741785,
-        "longitude": -123.1253505,
-        "category_id": 2,
         "client_id": 1,
         "helper_id": 2
     }

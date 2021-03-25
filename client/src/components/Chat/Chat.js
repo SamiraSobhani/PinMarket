@@ -114,7 +114,7 @@ const App = () => {
   }
 
   return (
-    <div className="Page">
+    <div className="chat">
       <section className="Container">
         {messages.map((message, index) => {
           if (message.id === yourID) {
@@ -132,7 +132,7 @@ const App = () => {
         })}
       </section>
       <form className="Form" onSubmit={sendMessage}>
-        <textArea
+        <textarea
           className="TextArea"
           value={message}
           onChange={handleChange}

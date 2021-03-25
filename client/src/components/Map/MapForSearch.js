@@ -9,7 +9,7 @@ import {
   InfoWindow,
 } from "react-google-maps";
 
-function Map() {
+function Map(props) {
   const [selectedPoster, setSelectedPoster] = useState(null);
   const { coord, state } = useContext(appContext);
 
@@ -40,6 +40,7 @@ function Map() {
   // }
 
   return (
+    // console.log(props.newArray),
     <GoogleMap
       defaultZoom={14}
       defaultCenter={coord}
@@ -61,7 +62,6 @@ function Map() {
           }}
         />
       ))}
-
       {selectedPoster && (
         <InfoWindow
           onCloseClick={() => {
@@ -88,7 +88,7 @@ const MapWrapped = withScriptjs(withGoogleMap(Map));
 
 export default function App() {
   return (
-    <div className="myMap" >
+    <div className="myMap">
       <MapWrapped
         googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBRUYC8MMdlwDjIzBVvo7U5oHa3h2tQ09k&libraries=places`}
         loadingElement={<div style={{ height: `95%` }} />}

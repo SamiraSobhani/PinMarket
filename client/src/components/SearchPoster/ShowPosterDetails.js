@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import profilePic from "../../assets/Icons/profile-user.png";
+
 export default class ShowPosterDetails extends Component {
   state = {
     response: {
@@ -12,35 +13,35 @@ export default class ShowPosterDetails extends Component {
 
   getData() {
     axios
-      .get(`http://localhost:8080/posters/${id}`)
+      .get(`http://localhost:8080/posters/${this.props.id}`)
       .then((res) => {
         this.setState({ response: res.data });
       })
       .catch((error) => console.log(error));
   }
-
+  componentDidMount() {
+    this.getData();
+  }
   render() {
-    console.log(this.state);
+    const posterobj = this.state.response.singlePoster[0];
     return (
       <div className="search">
         <img className="search__profilePic" src={profilePic}></img>
-        <h2 className="search__name">
-          Name:
-          {/* {this.state.clientName} */}
-        </h2>
-        <h3>Title:</h3>
-        <p>{/* {this.state.response.posters.title} */}</p>
-        <h3>Description:</h3>
-        <p>{/* {this.state.response.posters.description} */}</p>
-        <h3>Start Date:</h3>
-        <p>{/* {this.state.response.posters.start_date} */}</p>
-        <h3>End Date:</h3>
-        <p>{/* {this.state.response.posters.end_date} */}</p>
-        <h3>Price: $</h3>
-        <p>
-          {/* {this.state.response.posters.price}{" "}
-          {this.state.response.posters.pay_type} */}
-        </p>
+        <h2 className="search__name">Name: {this.state.response.clientName}</h2>
+        <h3>Category: {this.state.response.categoryName}</h3>
+        <h3>Title: {posterobj && posterobj.title}</h3>
+
+        <h3>Description: {posterobj && posterobj.description}</h3>
+
+        <h3>Start Date: {posterobj && posterobj.start_date}</h3>
+
+        <h3>End Date: {posterobj && posterobj.end_date}</h3>
+
+        <h3>
+          Price: $ {posterobj && posterobj.price}{" "}
+          {posterobj && posterobj.pay_type}
+        </h3>
+        <button className="apply-button">Apply</button>
       </div>
     );
   }

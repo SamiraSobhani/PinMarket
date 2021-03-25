@@ -76,7 +76,6 @@ export default function Post() {
       .then(() => {
         window.location.reload(false);
         setToUserPage(true);
-
       })
       .catch((err) => console.log(err));
   };
@@ -92,8 +91,6 @@ export default function Post() {
   const handleEndDateChange = (date) => {
     setEndDate(date);
   };
-
-
 
   return (
     <div>
@@ -198,7 +195,10 @@ export default function Post() {
           <br />
           <span>{error}</span>
 
-          <button onClick={(event) => validate(event)} className="btn">
+          <button
+            onClick={(event) => validate(event)}
+            className="post-form__button"
+          >
             POST
           </button>
         </div>
