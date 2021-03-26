@@ -78,7 +78,7 @@ class SearchPoster extends Component {
       <div className="slider">
         <InputRange
           formatLabel={(value) => `${value}KM`}
-          maxValue={50}
+          maxValue={40}
           minValue={0}
           value={this.state.value}
           onChange={(value) => {

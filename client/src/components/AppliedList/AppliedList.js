@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import PosterItem from "../PostersList/PosterItem";
-import "../../styles/pagesStyle/userPageStyle/_appliedList.scss";
 
 export class AppliedList extends Component {
   state = {

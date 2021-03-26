@@ -49,6 +49,7 @@ function Map(props) {
       {state.posters.map((poster) => (
         <Marker
           key={poster.id}
+          animation={window.google.maps.Animation.DROP}
           position={{
             lat: poster.latitude,
             lng: poster.longitude,

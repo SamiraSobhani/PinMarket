@@ -9,27 +9,28 @@
 .Container {
   display: flex;
   flex-direction: column;
-  height: 400px;
+  height: 250px;
   max-height: 500px;
   overflow: auto;
-  width: 400px;
-  border: 1px solid black;
+  width: 380px;
+  border: 1px solid $darkBlue;
   border-radius: 10px;
   padding-bottom: 10px;
-  margin-top: 25px;
   background-color: white;
+  margin-top: 1.2rem;
+  padding-right: 0.7rem;
 }
 
 .TextArea {
   width: 97%;
-  height: 65px;
+  height: 55px;
   border-radius: 10px;
   margin-top: 10px;
   padding-left: 10px;
   padding-top: 10px;
   font-size: 17px;
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid $darkBlue;
   outline: none;
   color: darkgray;
   letter-spacing: 1px;
@@ -58,13 +59,14 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  margin-top: 10px;
+  color: $darkBlue;
+  height: 0.7rem;
 }
 
 .MyMessage {
   width: 45%;
 
-  color: black;
+  color: $darkBlue;
   padding: 10px;
   margin-right: 5px;
   text-align: center;

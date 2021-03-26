@@ -48,6 +48,7 @@ function Map() {
       {state.posters.map((poster) => (
         <Marker
           key={poster.id}
+          animation={window.google.maps.Animation.DROP}
           position={{
             lat: poster.latitude,
             lng: poster.longitude,
@@ -72,7 +73,10 @@ function Map() {
             lng: selectedPoster.longitude,
           }}
         >
-          <a className="infoWindow__click" href={`http://localhost:3000/posters/search/${selectedPoster.id}`}>
+          <a
+            className="infoWindow__click"
+            href={`http://localhost:3000/posters/search/${selectedPoster.id}`}
+          >
             <div>
               <h2>{selectedPoster.title}</h2>
               <p>{selectedPoster.description}</p>

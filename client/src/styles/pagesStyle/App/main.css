@@ -16,6 +16,10 @@ body {
           align-items: center;
   max-height: 7rem;
 }
+.navbar__pin {
+  width: 14rem;
+  height: auto;
+}
 .navbar__logo {
   width: 9rem;
   height: auto;
@@ -29,7 +33,6 @@ body {
 }
 .navbar__welcome {
   font-size: 1rem;
-  font-style: italic;
   color: #011a2f;
 }
 .navbar__icon {
@@ -117,42 +120,30 @@ body {
   outline: none;
 }
 
-.user__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  color: #011a2f;
-  margin-top: 3rem;
-  z-index: 1;
-}
-
 .slider {
-  margin-bottom: 1.5rem;
-  border: solid white 0.4rem;
+  margin: 2rem 0 1.5rem 3rem;
+  padding: 0.25rem;
+  border: solid #011a2f 0.1rem;
   width: 80%;
 }
 
 .input-range__slider {
-  border: 1px solid darkslategray;
-  background: darkslategray;
+  border: 1px solid #011a2f;
+  background: #011a2f;
 }
 
 .input-range__track--active {
-  background: darkslategray;
+  background: #011a2f;
 }
 
 .search {
-  color: darkslategray;
+  color: #011a2f;
   border: solid white 0.2rem;
   border-radius: 0.5rem;
   width: 80%;
   height: 45%;
   padding-left: 1rem;
   padding-top: 1rem;
-  font-style: italic;
   background-color: white;
 }
 .search__profilePic {
@@ -181,28 +172,28 @@ body {
 }
 
 .search {
-  color: darkslategray;
-  border: solid white 0.2rem;
+  color: #011a2f;
   border-radius: 0.5rem;
   width: 80%;
-  height: 45%;
+  height: 42%;
   padding-left: 1rem;
-  padding-top: 1rem;
-  font-style: italic;
   background-color: white;
 }
 .search__profilePic {
-  width: 3rem;
+  width: 2.5rem;
   height: auto;
   margin-right: 0.5rem;
 }
 .search__boxheader {
+  border: solid 0.3rem #011a2f;
+  background-color: #011a2f;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  max-height: 2.2rem;
 }
 .search__div {
   display: -webkit-box;
@@ -211,9 +202,19 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  max-height: 2.2rem;
 }
 .search__name {
-  color: darkred;
+  padding-left: 0.5rem;
+  font-size: 0.9rem;
+  color: white;
+}
+.search__priceTag {
+  padding-right: 3rem;
+}
+.search__lable {
+  padding-right: 0.5rem;
+  font-size: 0.8rem;
 }
 
 .apply-button {
@@ -222,7 +223,7 @@ body {
   color: white;
   padding: 1rem 3rem;
   border-radius: 0.5rem;
-  margin-left: 17rem;
+  margin-left: 5rem;
   margin-bottom: 1rem;
   outline: none;
 }
@@ -270,7 +271,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 400px;
+  height: 280px;
   max-height: 500px;
   overflow: auto;
   width: 400px;
@@ -283,7 +284,7 @@ body {
 
 .TextArea {
   width: 97%;
-  height: 65px;
+  height: 55px;
   border-radius: 10px;
   margin-top: 10px;
   padding-left: 10px;
@@ -427,6 +428,18 @@ body {
   margin-top: 0.45rem;
 }
 
+.user__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #011a2f;
+  margin-top: 3rem;
+  z-index: 1;
+}
+
 .infoWindow__click {
   text-decoration: none;
 }
@@ -455,9 +468,9 @@ body {
 }
 
 .myMap {
-  margin-top: 3.43rem;
-  height: 30rem;
-  width: 35rem;
+  margin-top: 1.8rem;
+  height: 27rem;
+  width: 33rem;
 }
 
 .mapButton {

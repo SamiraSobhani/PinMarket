@@ -16,9 +16,9 @@ function Search() {
         <div>
           <MapForSearch />
           <MyButtons />
+          <SearchPoster className="slider" />
         </div>
         <div className="chat-detail">
-          <SearchPoster className="slider" />
           <ShowPosterDetails id={id} className="detail" />
           <Chat className="chat" />
         </div>

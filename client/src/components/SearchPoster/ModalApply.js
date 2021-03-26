@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
-import { Link } from "react-router-dom";
 import close from "../../assets/Icons/close-24px.svg";
+import { Link } from "react-router-dom";
 
-export default class posterAction extends Component {
+export default class ModalApply extends Component {
   state = {
     modalIsOpen: false,
   };
@@ -15,21 +15,13 @@ export default class posterAction extends Component {
   closeModal = () => {
     this.setState({ modalIsOpen: false });
   };
-
-  deleteButtonFunc = () => {
-    const id = this.props.id;
-    this.closeModal();
-    this.props.delete(id);
-  };
-
   componentWillMount() {
     Modal.setAppElement("body");
   }
 
   render() {
-    
     return (
-      <div className="action">
+      <div>
         <Modal
           className="modal"
           isOpen={this.state.modalIsOpen}
@@ -40,31 +32,23 @@ export default class posterAction extends Component {
               <img className="modal__icon" src={close} alt="close"></img>
             </button>
             <div className="modal__content">
-             
               <p className="modal__font lg">
-                Please confirm that you'd like to delete this poster from the
-                list.
-                <br /> You won't be able to undo this action.
+                Congratulations! you successfully applied for this job post.
+                <br /> You will recive a confirmation email shortly.
               </p>
             </div>
             <div className="modal__button-container">
-              <button className="modal__button" onClick={this.closeModal}>
-                Cancel
+              <button
+                onClick={this.closeModal}
+                className="modal__button modal__button-delete"
+              >
+                Close
               </button>
-
-              <Link to={"/posters/userpage"}>
-                <button
-                  className="modal__button modal__button-delete"
-                  onClick={this.deleteButtonFunc}
-                >
-                  Delete
-                </button>
-              </Link>
             </div>
           </div>
         </Modal>
-        <button onClick={this.openModal} className="action__delete">
-          Delete
+        <button onClick={this.openModal} className="apply-button">
+          A<br />P<br />P<br />L<br />Y
         </button>
       </div>
     );

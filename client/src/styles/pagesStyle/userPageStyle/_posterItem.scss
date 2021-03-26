@@ -5,9 +5,17 @@
   &__header {
     padding: 0.6rem;
     text-align: center;
-    border: solid 0.3rem rgb(1, 26, 47);
+    border: solid 0.3rem $darkBlue;
     border-radius: 0.3rem;
     margin-top: 0.45rem;
-    
+  }
+}
+.user {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(1, 26, 47);
+    margin-top: 1.32rem;
+    z-index: 1;
   }
 }
