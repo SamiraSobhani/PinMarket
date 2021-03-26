@@ -65,6 +65,7 @@ class SearchPoster extends Component {
       if (distanceObj.distance < this.state.value) {
         console.log(distanceObj);
         disArray.push(distanceObj);
+        console.log(disArray);
         return disArray;
       }
     });

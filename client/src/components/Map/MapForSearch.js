@@ -72,7 +72,10 @@ function Map(props) {
             lng: selectedPoster.longitude,
           }}
         >
-          <a href={`./posters/search/${selectedPoster.id}`}>
+          <a
+            className="infoWindow__click"
+            href={`http://localhost:3000/posters/search/${selectedPoster.id}`}
+          >
             <div>
               <h2>{selectedPoster.title}</h2>
               <p>{selectedPoster.description}</p>

@@ -44,7 +44,7 @@ export class AppliedList extends Component {
     );
     return (
       <div>
-        <h2>Applied List</h2>
+        <h2 className="posters__header">Applied List</h2>
         <ul className={"posters__list"}>
           {filteredPoster.map((item, index) => (
             <PosterItem

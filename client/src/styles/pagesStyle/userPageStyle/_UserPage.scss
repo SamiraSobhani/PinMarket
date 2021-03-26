@@ -2,7 +2,9 @@
   &__container {
     display: flex;
     justify-content: space-between;
-    color: darkslategray;
+    color: rgb(1, 26, 47);
+   
+    margin-top: 3rem;
+    z-index: 1;
   }
- 
 }

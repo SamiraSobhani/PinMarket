@@ -61,6 +61,7 @@ export default function Places() {
 
       return (
         <Grid
+          className="suggestion"
           container
           alignItems="center"
           key={place_id}

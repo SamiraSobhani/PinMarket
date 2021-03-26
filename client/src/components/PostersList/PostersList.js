@@ -44,7 +44,6 @@ export default class PostersList extends Component {
           response: respobj,
         });
         console.log("inside delete fun", response);
-      
       })
       .catch((error) => console.log(error));
   };
@@ -57,12 +56,12 @@ export default class PostersList extends Component {
 
     return (
       <div className="posters__main">
-        <div className={"posters"}>
-          <h2>Posted Posters</h2>
-          <ul className={"posters__list"}>
+        <div className="posters">
+          <h2 className="posters__header">Posted Posters</h2>
+          <ul className="posters__list">
             {filteredPoster.map((item, index) => (
               <PosterItem
-                path={"/userpage"}
+                path="/userpage"
                 key={index}
                 eachPoster={item}
                 clientName={clientName[0].name}

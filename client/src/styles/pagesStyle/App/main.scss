@@ -10,16 +10,21 @@
 @import "../search/chat";
 @import "./threeButton";
 @import "./posterForm";
+@import "../userPageStyle/posterItem";
+@import "./map";
+@import "./myFont.css";
 .container {
   margin-right: 2rem;
   margin-left: 2rem;
+  font-family: "Open Sans", sans-serif;
 }
 .main {
   display: flex;
   justify-content: space-between;
 }
 .myMap {
-  height: 35rem;
+  margin-top: 3.43rem;
+  height: 30rem;
   width: 35rem;
 }
 .mapButton {

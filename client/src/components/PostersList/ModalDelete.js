@@ -37,9 +37,6 @@ export default class posterAction extends Component {
           onRequestClose={this.closeModal}
         >
           <div className="modal__container">
-            <form>
-              <input></input>
-            </form>
             <button onClick={this.closeModal}>
               <img className="modal__icon" src={close} alt="close"></img>
             </button>

@@ -42,11 +42,11 @@
         "helper_id": 2
     },
     {
-        "id": 4,
+        "id": "4",
         "title": "DJ for our wedding",
         "description": "need a great DJ",
         "price": "55",
-        "pay_type": "/hr",
+        "pay_type": "perhours",
         "start_date": "2021-09-10",
         "end_date": "2021-09-10",
         "latitude": 49.2778,
@@ -56,11 +56,11 @@
         "helper_id": 1
     },
     {
-        "id": 5,
+        "id": "5",
         "title": "wedding dress",
         "description": "I need special wedding dress",
         "price": "1000",
-        "pay_type": " total",
+        "pay_type": "total",
         "start_date": "2021-09-10",
         "end_date": "2021-09-10",
         "latitude": 49.2765,
@@ -70,7 +70,7 @@
         "helper_id": 4
     },
     {
-        "id": 6,
+        "id": "6",
         "title": "DJ for BD party",
         "description": "My son BD party with 20 kids!",
         "price": "150",
@@ -84,7 +84,7 @@
         "helper_id": 3
     },
     {
-        "id": 7,
+        "id": "7",
         "title": "DJ for BD party",
         "description": "My son BD party with 20 kids!",
         "price": "150",
@@ -98,11 +98,11 @@
         "helper_id": 1
     },
     {
-        "id": 8,
+        "id": "8",
         "title": "some photos",
         "description": "My wife BD party with 20 guests",
         "price": "120",
-        "pay_type": " total",
+        "pay_type": "total",
         "start_date": "2021-09-10",
         "end_date": "2021-09-10",
         "latitude": 49.2745967,
@@ -112,25 +112,25 @@
         "helper_id": 1
     },
     {
-        "id": 9,
+        "id": "9",
         "title": "flower for design",
         "description": "need some white rose for my wedding party",
         "price": "1120",
-        "pay_type": " total",
+        "pay_type": "total",
         "start_date": "2021-09-23",
         "end_date": "2021-09-23",
         "latitude": 49.339,
         "longitude": -123.1709,
         "category_id": 6,
-        "client_id": 1,
+        "client_id": 3,
         "helper_id": 2
     },
     {
-        "id": 10,
+        "id": "10",
         "title": "makeup",
         "description": "perfect makeup",
         "price": "1120",
-        "pay_type": " total",
+        "pay_type": "total",
         "start_date": "2021-09-23",
         "end_date": "2021-09-23",
         "latitude": 49.339,
@@ -140,11 +140,11 @@
         "helper_id": 4
     },
     {
-        "id": 11,
+        "id": "11",
         "title": "flower for my party",
         "description": "need some white rose for my party",
         "price": "1120",
-        "pay_type": " total",
+        "pay_type": "total",
         "start_date": "2021-09-23",
         "end_date": "2021-09-23",
         "latitude": 49.2883,
@@ -154,11 +154,11 @@
         "helper_id": 3
     },
     {
-        "id": 12,
+        "id": "12",
         "title": "flower for my party",
         "description": "need some white rose for my party",
         "price": "1120",
-        "pay_type": " total",
+        "pay_type": "total",
         "start_date": "2021-09-23",
         "end_date": "2021-09-23",
         "latitude": 49.2817,
@@ -166,19 +166,5 @@
         "category_id": 6,
         "client_id": 4,
         "helper_id": 3
-    },
-    {
-        "id": 13,
-        "title": "samsam",
-        "description": "aaaa",
-        "price": "120",
-        "pay_type": " total",
-        "start_date": "2021-03-27T03:13:00.000Z",
-        "end_date": "2021-03-27T03:13:00.000Z",
-        "latitude": 49.32846439999999,
-        "longitude": -123.1535332,
-        "category_id": 5,
-        "client_id": 1,
-        "helper_id": 2
     }
 ]

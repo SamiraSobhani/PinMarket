@@ -72,7 +72,7 @@ function Map() {
             lng: selectedPoster.longitude,
           }}
         >
-          <a href={`./posters/search/${selectedPoster.id}`}>
+          <a className="infoWindow__click" href={`http://localhost:3000/posters/search/${selectedPoster.id}`}>
             <div>
               <h2>{selectedPoster.title}</h2>
               <p>{selectedPoster.description}</p>
@@ -88,7 +88,7 @@ const MapWrapped = withScriptjs(withGoogleMap(Map));
 
 export default function App() {
   return (
-    <div className="myMap" >
+    <div className="myMap">
       <MapWrapped
         googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBRUYC8MMdlwDjIzBVvo7U5oHa3h2tQ09k&libraries=places`}
         loadingElement={<div style={{ height: `95%` }} />}

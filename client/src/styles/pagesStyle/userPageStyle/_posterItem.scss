@@ -1,0 +1,13 @@
+.useritem {
+  font-size: 0.75rem;
+}
+.posters {
+  &__header {
+    padding: 0.6rem;
+    text-align: center;
+    border: solid 0.3rem rgb(1, 26, 47);
+    border-radius: 0.3rem;
+    margin-top: 0.45rem;
+    
+  }
+}

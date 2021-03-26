@@ -1,17 +1,21 @@
 import React from "react";
-import PosterAction from "./ModalDelete.js";
+import ModalDelete from "./ModalDelete.js";
 
 function PosterItem(props) {
   return (
     <div>
-      <li className={"poster__item"}>
-        <div className={"item"}>
+      <li className="useritems">
+        <div className="useritem">
           <h4>{props.eachPoster.title}</h4>
-          <p>{props.eachPoster.price}</p>
           <p>{props.clientName}</p>
-          <span>{props.categoryName}</span>
-
-          <PosterAction
+          <div>
+            <p>
+              {props.categoryName} for
+              <span> ${props.eachPoster.price}/</span>
+              <span>{props.eachPoster.pay_type}</span>
+            </p>
+          </div>
+          <ModalDelete
             className="action"
             path={props.path}
             delete={props.delete}

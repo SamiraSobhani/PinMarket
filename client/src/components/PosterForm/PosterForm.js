@@ -47,7 +47,7 @@ export default function Post() {
       lat: coord.lat,
       lng: coord.lng,
       client_id: 1,
-      helper_id: 2,
+      helper_id: 4,
     };
 
     if (
@@ -93,9 +93,9 @@ export default function Post() {
   };
 
   return (
-    <div>
-      <h3>Post a New Poster</h3>
-      <div className="post-form">
+    <div className="post-form">
+      <h3 className="post-form__header">Post a New Poster</h3>
+      <div className="post-form__content">
         <div className="post-form-container">
           <TextField
             id="job-title"
@@ -157,7 +157,7 @@ export default function Post() {
               style={{ width: 208 }}
             >
               <MenuItem value={"/hr"}>Per Hour</MenuItem>
-              <MenuItem value={" total"}>Total</MenuItem>
+              <MenuItem value={"total"}>Total</MenuItem>
             </Select>
           </FormControl>
 
