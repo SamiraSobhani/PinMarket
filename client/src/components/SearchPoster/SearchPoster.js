@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
 import axios from "axios";
-import MapForSearch from "../Map/MapForSearch";
+
 
 class SearchPoster extends Component {
   state = {
@@ -85,7 +85,6 @@ class SearchPoster extends Component {
             this.setState({ value });
           }}
         />
-        {/* <MapForSearch newArray={filterDistance} /> */}
       </div>
     );
   }

@@ -29,14 +29,14 @@
   padding-left: 10px;
   padding-top: 10px;
   font-size: 17px;
-  background-color: white;
+  background-color:$white;
   border: 1px solid $darkBlue;
   outline: none;
-  color: darkgray;
+  color: $darkgray;
   letter-spacing: 1px;
   line-height: 20px;
   ::placeholder {
-    color: gray;
+    color: $gray;
   }
 }
 
@@ -45,9 +45,9 @@
   border: none;
   height: 50px;
   border-radius: 10px;
-  color: white;
+  color: $white;
   font-size: 17px;
-  background-color: darkred;
+  background-color: $darkred;
   outline: none;
 }
 

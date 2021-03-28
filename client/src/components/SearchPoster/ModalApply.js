@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
 import close from "../../assets/Icons/close-24px.svg";
-import { Link } from "react-router-dom";
+
 
 export default class ModalApply extends Component {
   state = {

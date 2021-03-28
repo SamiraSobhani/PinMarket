@@ -5,39 +5,12 @@
   margin-bottom: 1rem;
   width: 60%;
   &__post {
-    color: white;
-    background: darkred;
-    border-radius: 0.7rem;
-    padding: 0.7rem;
-    border-style: none;
-    outline: none;
-    &:hover {
-      transform: scale(1.3);
-      background-color: $darkBlue;
-    }
+    @include mybutton;
   }
   &__all {
-    color: white;
-    background: darkred;
-    border-radius: 0.7rem;
-    padding: 0.7rem;
-    border-style: none;
-    outline: none;
-    &:hover {
-      transform: scale(1.3);
-      background-color: $darkBlue;
-    }
+    @include mybutton;
   }
   &__search {
-    color: white;
-    background: darkred;
-    border-radius: 0.7rem;
-    padding: 0.7rem;
-    border-style: none;
-    outline: none;
-    &:hover {
-      transform: scale(1.3);
-      background-color: $darkBlue;
-    }
+    @include mybutton;
   }
 }

@@ -45,7 +45,7 @@
     border: 1px solid $cloud;
   }
   &__button-delete {
-    background-color: darkred;
+    background-color: $darkred;
     text-decoration: none;
     color: $white;
     outline: none;
@@ -54,7 +54,7 @@
 
 .action__delete {
   border-style: none;
-  background-color: rgb(1, 26, 47);
+  background-color: $darkBlue;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;

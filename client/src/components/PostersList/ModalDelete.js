@@ -27,7 +27,6 @@ export default class posterAction extends Component {
   }
 
   render() {
-    
     return (
       <div className="action">
         <Modal
@@ -40,7 +39,6 @@ export default class posterAction extends Component {
               <img className="modal__icon" src={close} alt="close"></img>
             </button>
             <div className="modal__content">
-             
               <p className="modal__font lg">
                 Please confirm that you'd like to delete this poster from the
                 list.
@@ -52,7 +50,7 @@ export default class posterAction extends Component {
                 Cancel
               </button>
 
-              <Link to={"/posters/userpage"}>
+              <Link to={"/posters"}>
                 <button
                   className="modal__button modal__button-delete"
                   onClick={this.deleteButtonFunc}

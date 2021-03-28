@@ -12,11 +12,11 @@ ReactDOM.render(
     <BrowserRouter>
       <NavHeader />
       <Switch>
-        <Route path="/posters/userpage" component={UserPage} exact />
+        <Route path="/posters/userpage" component={App} exact />
         <Route path="/posters/search/:id" component={Search} />
         <Route path="/posters/search" component={Search} />
-        <Route path="/posters" component={App} />
-        <Route path="/" component={App} />
+        <Route path="/posters" component={UserPage} />
+        <Route path="/" component={UserPage} />
       </Switch>
     </BrowserRouter>
   </React.Fragment>,

@@ -1,5 +1,5 @@
 import React from "react";
-import MapForSearch from "./components/Map/MapForSearch";
+import MapContainer from "./components/Map/MapContainer";
 import { appContext } from "./components/appContext";
 import useApplicationData from "./hooks/useApplicationData";
 import SearchPoster from "./components/SearchPoster/SearchPoster";
@@ -14,7 +14,7 @@ function Search() {
     <appContext.Provider value={{ coord, setCoord, state, setState }}>
       <div className=" search__container container">
         <div>
-          <MapForSearch />
+          <MapContainer />
           <MyButtons />
           <SearchPoster className="slider" />
         </div>

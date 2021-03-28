@@ -1,5 +1,4 @@
 import { useState, useContext } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
@@ -18,10 +17,8 @@ import "date-fns";
 import { appContext } from "./../appContext";
 import axios from "axios";
 
-import { Redirect } from "react-router-dom";
-
 export default function Post() {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category_id, setCategory] = useState("");
@@ -143,10 +140,7 @@ export default function Post() {
             onChange={(event) => setPrice(event.target.value)}
             autoComplete="off"
           />
-          <FormControl
-            className={classes.formControl}
-            onSubmit={(event) => event.preventDefault()}
-          >
+          <FormControl onSubmit={(event) => event.preventDefault()}>
             <InputLabel id="pay-type">Pay Type</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -206,22 +200,3 @@ export default function Post() {
     </div>
   );
 }
-
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: "25ch",
-  },
-}));

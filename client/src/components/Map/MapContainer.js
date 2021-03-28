@@ -31,13 +31,6 @@ function Map() {
     return SC.icon;
   }
 
-  // function drop() {
-  //   for (var i = 0; i < state.posters.length; i++) {
-  //     setTimeout(function () {
-  //       addMarkerMethod();
-  //     }, i * 200);
-  //   }
-  // }
 
   return (
     <GoogleMap

@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 function MyButtons() {
   return (
     <div className="threeButtons">
-      <Link to="/posters">
+      <Link to="/posters/userpage">
         <button className="threeButtons__post">Post a New Poster</button>
       </Link>
-      <Link to="/posters/userpage">
+      <Link to="/posters">
         <button className="threeButtons__all">All Activity</button>
       </Link>
       <Link to="/posters/search">

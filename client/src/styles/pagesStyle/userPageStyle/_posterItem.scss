@@ -14,8 +14,7 @@
   &__container {
     display: flex;
     justify-content: space-between;
-    color: rgb(1, 26, 47);
+    color: $darkBlue;
     margin-top: 1.32rem;
-    z-index: 1;
   }
 }

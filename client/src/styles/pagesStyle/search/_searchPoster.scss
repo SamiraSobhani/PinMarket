@@ -1,19 +1,19 @@
 .slider {
   margin: 2rem 0 1.5rem 3rem;
   padding: 0.25rem;
-  border: solid rgb(1, 26, 47) 0.1rem;
+  border: solid $darkBlue 0.1rem;
   width: 80%;
 }
 .input-range__slider {
-  border: 1px solid rgb(1, 26, 47);
-  background: rgb(1, 26, 47);
+  border: 1px solid $darkBlue;
+  background: $darkBlue;
 }
 .input-range__track--active {
-  background: rgb(1, 26, 47);
+  background: $darkBlue;
 }
 
 .search {
-  color: rgb(1, 26, 47);
+  color: $darkBlue;
   border: solid white 0.2rem;
   border-radius: 0.5rem;
   width: 80%;
