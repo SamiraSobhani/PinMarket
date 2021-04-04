@@ -1,5 +1,5 @@
 const express = require("express");
-
+const jwt = require("jsonwebtoken");
 const router = express.Router();
 const fs = require("fs");
 
@@ -20,12 +20,12 @@ const users = JSON.parse(loadUserData());
 const categories = JSON.parse(loadCategoryData());
 
 // **********************get all posters
-router.get("/", (req, res) => {
+router.get("/",  (req, res) => {
   res.json({ posters, categories, users });
 });
 
 //*******************/ get poster by id and all details
-router.get("/:id", (req, res) => {
+router.get("/:id",authenticateToken, (req, res) => {
   const singlePoster = posters.filter((poster) => poster.id === req.params.id);
 
   const categoryId = singlePoster[0].category_id;
@@ -48,14 +48,14 @@ router.get("/:id", (req, res) => {
 });
 
 // ********************delete poster
-router.delete("/:id", (req, res) => {
+router.delete("/:id",authenticateToken, (req, res) => {
   const newList = posters.filter((poster) => poster.id != req.params.id);
   fs.writeFileSync("./data/posters.json", JSON.stringify(newList));
   res.json(newList);
 });
 
 // ***********************create new poster
-router.post("/", (req, res) => {
+router.post("/",authenticateToken, (req, res) => {
   if (req.body.title === "") {
     res.status(422).send("please enter a title.");
   } else {
@@ -84,5 +84,18 @@ router.post("/", (req, res) => {
     });
   }
 });
+
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+  if (token == null) return res.sendStatus(401);
+
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+    console.log(err);
+    if (err) return res.sendStatus(403);
+    req.user = user;
+    next();
+  });
+}
 
 module.exports = router;

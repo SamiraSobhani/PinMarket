@@ -6,7 +6,7 @@ import UserPage from "./UserPage";
 import Search from "./Search";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./styles/pagesStyle/App/main.scss";
-
+import Home from "./Home";
 ReactDOM.render(
   <React.Fragment>
     <BrowserRouter>
@@ -16,7 +16,8 @@ ReactDOM.render(
         <Route path="/posters/search/:id" component={Search} />
         <Route path="/posters/search" component={Search} />
         <Route path="/posters" component={UserPage} />
-        <Route path="/" component={UserPage} />
+        <Route path="/login" component={Home} />
+        <Route path="/" component={Home} />
       </Switch>
     </BrowserRouter>
   </React.Fragment>,
