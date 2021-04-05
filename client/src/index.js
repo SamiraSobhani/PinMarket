@@ -10,7 +10,7 @@ import Home from "./Home";
 ReactDOM.render(
   <React.Fragment>
     <BrowserRouter>
-      <NavHeader />
+      {/* <NavHeader /> */}
       <Switch>
         <Route path="/posters/userpage" component={App} exact />
         <Route path="/posters/search/:id" component={Search} />

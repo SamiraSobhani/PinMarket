@@ -26,7 +26,8 @@ router.post("/register", (req, res) => {
       "INSERT INTO user (username, password) VALUES (?,?)",
       [username, hash],
       (err, result) => {
-        console.log(err);
+        console.log(username);
+        res.send(username);
       }
     );
   });

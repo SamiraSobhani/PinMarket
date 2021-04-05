@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-
+import { useHistory } from "react-router-dom";
+import Navbar from "./components/Navbar/NavHeader";
+import NavHeader from "./components/Navbar/NavHeader";
 export default function Registration() {
   const [usernameReg, setUsernameReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
@@ -9,6 +11,8 @@ export default function Registration() {
   const [password, setPassword] = useState("");
 
   const [loginStatus, setLoginStatus] = useState("");
+  const [registerStatus, setRegisterStatus] = useState("");
+  const history = useHistory();
 
   Axios.defaults.withCredentials = true;
 
@@ -18,6 +22,7 @@ export default function Registration() {
       password: passwordReg,
     }).then((response) => {
       console.log(response);
+      setRegisterStatus("welcome " + response.data);
     });
   };
 
@@ -29,6 +34,7 @@ export default function Registration() {
       if (response.data.message) {
         setLoginStatus(response.data.message);
       } else {
+        history.push("/posters");
         setLoginStatus(response.data[0].username);
       }
     });
@@ -45,6 +51,7 @@ export default function Registration() {
 
   return (
     <div className="App">
+      <Navbar loginStatus={loginStatus} />
       <div className="registration">
         <h1>Registration</h1>
         <label>Username</label>
@@ -62,6 +69,7 @@ export default function Registration() {
           }}
         />
         <button onClick={register}> Register </button>
+        <h1>{registerStatus}</h1>
       </div>
 
       <div className="login">
@@ -83,7 +91,7 @@ export default function Registration() {
         <button onClick={login}> Login </button>
       </div>
 
-      <h1>{loginStatus}</h1>
+      {/* <h1>{loginStatus}</h1> */}
     </div>
   );
 }

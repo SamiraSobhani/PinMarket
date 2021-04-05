@@ -7,11 +7,22 @@ import Chat from "./components/Chat/Chat";
 import ShowPosterDetails from "./components/SearchPoster/ShowPosterDetails";
 import { useParams } from "react-router-dom";
 import MyButtons from "./components/ThreeButton/MyButtons";
+import Navbar from "./components/Navbar/NavHeader";
 function Search() {
   const { id } = useParams();
-  const { coord, setCoord, state, setState } = useApplicationData();
+  const {
+    coord,
+    setCoord,
+    state,
+    setState,
+    loginStatus,
+    setLoginStatus,
+  } = useApplicationData();
   return (
-    <appContext.Provider value={{ coord, setCoord, state, setState }}>
+    <appContext.Provider
+      value={{ coord, setCoord, state, setState, loginStatus, setLoginStatus }}
+    >
+      <Navbar loginStatus={loginStatus} />
       <div className=" search__container container">
         <div>
           <MapContainer />

@@ -8,7 +8,9 @@ import Chat from "./components/Chat/Chat";
 function ChatPage() {
   const { coord, setCoord, state, setState } = useApplicationData();
   return (
-    <appContext.Provider value={{ coord, setCoord, state, setState }}>
+    <appContext.Provider
+      value={{ coord, setCoord, state, setState, loginStatus, setLoginStatus }}
+    >
       <div className="container">
         <MapContainer className="map" />
         <MyButtons />

@@ -18,7 +18,7 @@ import { appContext } from "./../appContext";
 import axios from "axios";
 
 export default function Post() {
-  // const classes = useStyles();
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category_id, setCategory] = useState("");
