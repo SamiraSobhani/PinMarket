@@ -20,7 +20,7 @@ function Search() {
   } = useApplicationData();
   return (
     <appContext.Provider
-      value={{ coord, setCoord, state, setState, loginStatus, setLoginStatus }}
+    value={{ coord, setCoord, state, setState, loginStatus, setLoginStatus }}
     >
       <Navbar loginStatus={loginStatus} />
       <div className=" search__container container">

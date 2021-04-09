@@ -1,15 +1,52 @@
-.App {
-    text-align: center;
+.Home {
+  text-align: center;
+  color: $darkBlue;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5rem;
+}
+.regModal {
+  border: solid 0.2rem $darkBlue;
+}
+.registration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // border: solid 0.2rem $darkBlue;
+  padding: 0.8rem;
+}
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 0.2rem $darkBlue;
+  padding: 2rem;
+}
+
+input {
+  width: 300px;
+  height: 50px;
+  border-radius: 0.5rem;
+  background-color: $cloud;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-style: none;
+  outline: none;
+}
+
+input[type="text"] {
+  font-size: 0.9rem;
+  :focus {
+    background-color: white;
   }
-  
-  .registration, .login {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  input {
-    width: 250px;
-    height: 40px;
-  }
+}
+button {
+  background-color: $darkred;
+  color: $white;
+  border-style: none;
+  padding: 0.5rem 1.5rem;
+  margin-top: 0.7rem;
+  border-radius: 0.3rem;
+}

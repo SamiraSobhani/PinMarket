@@ -20,12 +20,12 @@ const users = JSON.parse(loadUserData());
 const categories = JSON.parse(loadCategoryData());
 
 // **********************get all posters
-router.get("/",  (req, res) => {
+router.get("/", (req, res) => {
   res.json({ posters, categories, users });
 });
 
 //*******************/ get poster by id and all details
-router.get("/:id",authenticateToken, (req, res) => {
+router.get("/:id", (req, res) => {
   const singlePoster = posters.filter((poster) => poster.id === req.params.id);
 
   const categoryId = singlePoster[0].category_id;
@@ -42,20 +42,22 @@ router.get("/:id",authenticateToken, (req, res) => {
   const filteredHelper = users.find((user) => user.id === helperId);
   const helperName = filteredHelper.name;
 
+  const lat = singlePoster[0].latitude;
+  const lng = singlePoster[0].longitude;
   singlePoster.length !== 0
-    ? res.json({ singlePoster, categoryName, clientName, helperName })
+    ? res.json({ singlePoster, categoryName, clientName, helperName, lat, lng })
     : res.status(404).json(singlePoster);
 });
 
 // ********************delete poster
-router.delete("/:id",authenticateToken, (req, res) => {
+router.delete("/:id", (req, res) => {
   const newList = posters.filter((poster) => poster.id != req.params.id);
   fs.writeFileSync("./data/posters.json", JSON.stringify(newList));
   res.json(newList);
 });
 
 // ***********************create new poster
-router.post("/",authenticateToken, (req, res) => {
+router.post("/", (req, res) => {
   if (req.body.title === "") {
     res.status(422).send("please enter a title.");
   } else {

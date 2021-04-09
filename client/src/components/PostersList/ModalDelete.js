@@ -46,7 +46,7 @@ export default class posterAction extends Component {
               </p>
             </div>
             <div className="modal__button-container">
-              <button className="modal__button" onClick={this.closeModal}>
+              <button className="modal__button cancelButton" onClick={this.closeModal}>
                 Cancel
               </button>
 
