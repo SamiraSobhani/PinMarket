@@ -5,6 +5,23 @@
   border: solid rgb(31, 31, 31) 0.05rem;
   border-radius: 0.5rem;
   overflow: hidden;
-  
+  display: flex;
   box-shadow: 1rem 1rem 0.8rem rgb(114, 114, 114);
+}
+
+.locate {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
+  background-color: white;
+  border: solid rgb(31, 31, 31) 0.05rem;
+  z-index: 1;
+  color: $darkred;
+  width: 55px;
+  margin: 0 auto;
+}
+
+.locateIcon {
+  cursor: pointer;
+  margin-left: -0.7rem;
 }

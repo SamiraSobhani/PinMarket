@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+// import Cookies from "universal-cookie";
 export default function useApplicationData() {
-  const [coord, setCoord] = useState({ lat: 49.2835, lng: -123.1184 });
-  const [loginStatus, setLoginStatus] = useState("");
+  const [coord, setCoord] = useState({
+    lat: 49.32852231235496,
+    lng: -123.15352875409197,
+  });
+  // const [loginStatus, setLoginStatus] = useState("");
+  const [zoom, setZoom] = useState(null);
   const [state, setState] = useState({
     categories: [],
     posters: [],
@@ -38,20 +42,6 @@ export default function useApplicationData() {
       .catch((err) => console.log(err));
   }, []);
 
-  useEffect(() => {
-    axios.get("http://localhost:8080/login").then((response) => {
-      console.log({ response });
-      if (response.data.loggedIn == true) {
-        setLoginStatus(response.data.user[0].username);
-        console.log(loginStatus);
-        // setLoginStatus((prev) => ({
-        //   ...prev,
-        //   loginStatus: response.data.user[0].username
-        // }));
-      }
-    });
-  });
-
   // function showPosition() {}
 
   // const options = {
@@ -75,5 +65,14 @@ export default function useApplicationData() {
 
   // navigator.geolocation.getCurrentPosition(success, error, options);
 
-  return { coord, setCoord, state, setState, loginStatus, setLoginStatus };
+  return {
+    coord,
+    setCoord,
+    state,
+    setState,
+    // loginStatus,
+    // setLoginStatus,
+    zoom,
+    setZoom,
+  };
 }

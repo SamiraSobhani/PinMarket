@@ -5,6 +5,7 @@ import { appContext } from "./components/appContext";
 import useApplicationData from "./hooks/useApplicationData";
 import MyButtons from "./components/ThreeButton/MyButtons";
 import Navbar from "./components/Navbar/NavHeader";
+
 function App() {
   const {
     coord,
@@ -13,23 +14,36 @@ function App() {
     setState,
     loginStatus,
     setLoginStatus,
+    zoom,
+    setZoom,
   } = useApplicationData();
 
   return (
-    <appContext.Provider
-      value={{ coord, setCoord, state, setState, loginStatus, setLoginStatus }}
-    >
-      <Navbar loginStatus={loginStatus} />
-      <div className="container">
-        <div className="main">
-          <PosterForm className="posterForm" />
-          <div className="MapButton">
-            <MapContainer className="map" />
-            <MyButtons />
+   
+      <appContext.Provider
+        value={{
+          coord,
+          setCoord,
+          state,
+          setState,
+          loginStatus,
+          setLoginStatus,
+          zoom,
+          setZoom,
+        }}
+      >
+        <Navbar />
+        <div className="container">
+          <div className="main">
+            <PosterForm className="posterForm" />
+            <div className="MapButton">
+              <MapContainer className="map" />
+              <MyButtons />
+            </div>
           </div>
         </div>
-      </div>
-    </appContext.Provider>
+      </appContext.Provider>
+   
   );
 }
 

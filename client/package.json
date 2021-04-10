@@ -23,6 +23,7 @@
     "date-fns": "^2.19.0",
     "google-maps-react": "^2.0.6",
     "react": "^17.0.1",
+    "react-cookie": "^4.0.3",
     "react-cool-onclickoutside": "^1.6.1",
     "react-dom": "^17.0.1",
     "react-geocode": "^0.2.3",
@@ -38,6 +39,7 @@
     "sass": "^1.32.8",
     "socket.io-client": "^4.0.0",
     "styled-components": "^5.2.1",
+    "universal-cookie": "^4.0.4",
     "use-places-autocomplete": "^1.9.1"
   },
   "browserslist": {

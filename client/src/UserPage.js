@@ -6,6 +6,7 @@ import { appContext } from "./components/appContext";
 import useApplicationData from "./hooks/useApplicationData";
 import MyButtons from "./components/ThreeButton/MyButtons";
 import Navbar from "./components/Navbar/NavHeader";
+
 function UserPage() {
   const {
     coord,
@@ -16,10 +17,11 @@ function UserPage() {
     setLoginStatus,
   } = useApplicationData();
   return (
+    
     <appContext.Provider
       value={{ coord, setCoord, state, setState, loginStatus, setLoginStatus }}
     >
-      <Navbar loginStatus={loginStatus} />
+      <Navbar />
       <div className="user__container container">
         <PostersList className="user__post" />
         <div className="MapButton">
@@ -29,6 +31,7 @@ function UserPage() {
         <AppliedList className="user__apply" />
       </div>
     </appContext.Provider>
+   
   );
 }
 
