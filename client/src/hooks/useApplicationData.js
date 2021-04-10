@@ -10,7 +10,6 @@ export default function useApplicationData() {
     users: [],
   });
 
-
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
@@ -24,7 +23,7 @@ export default function useApplicationData() {
     } else {
       alert("Sorry, your browser does not support HTML5 geolocation.");
     }
-  });
+  }, []);
   useEffect(() => {
     axios
       .get("http://localhost:8080/posters")
@@ -41,9 +40,8 @@ export default function useApplicationData() {
 
   useEffect(() => {
     axios.get("http://localhost:8080/login").then((response) => {
+      console.log({ response });
       if (response.data.loggedIn == true) {
-        console.log(loginStatus);
-        console.log(response.data.user[0].username);
         setLoginStatus(response.data.user[0].username);
         console.log(loginStatus);
         // setLoginStatus((prev) => ({

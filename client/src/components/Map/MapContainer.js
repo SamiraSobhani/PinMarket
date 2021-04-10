@@ -1,147 +1,171 @@
-import React, { useState, useEffect, useContext } from "react";
-import mapStyle from "./mapStyle";
-import { appContext } from "./../appContext";
-import {
-  withGoogleMap,
-  withScriptjs,
-  GoogleMap,
-  Marker,
-  InfoWindow,
-} from "react-google-maps";
+// #############################START################################
+// import React, {
+//   useCallback,
+//   useState,
+//   useRef,
+//   useEffect,
+//   useContext,
+// } from "react";
+// import mapStyle from "./mapStyle";
+// import { appContext } from "./../appContext";
+// import {
+//   withGoogleMap,
+//   withScriptjs,
+//   GoogleMap,
+//   Marker,
+//   InfoWindow,
+// } from "react-google-maps";
+// import Locate from "./Locate";
 
-function Map() {
-  const [selectedPoster, setSelectedPoster] = useState(null);
-  const { coord, state } = useContext(appContext);
+// function Map() {
+//   const [selectedPoster, setSelectedPoster] = useState(null);
+//   const { coord, setcoord, state } = useContext(appContext);
 
-  //   function showLocation(position) {
-  //     var latitude = position.coords.latitude;
-  //     var longitude = position.coords.longitude;
-  //     var latlongvalue = position.coords.latitude + ","
-  //     + position.coords.longitude;
-  //     // var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
-  //     // +latlongvalue+"&amp;zoom=14&amp;size=400x300&amp;key
-  //     // =AIzaSyBRUYC8MMdlwDjIzBVvo7U5oHa3h2tQ09k";
-  //     // document.getElementById("mapholder").innerHTML =
-  //     // "<img src='"+img_url+"'>";
-  //  }
-  //  function errorHandler(err) {
-  //     if(err.code == 1) {
-  //        alert("Error: Access is denied!");
-  //     } else if( err.code == 2) {
-  //        alert("Error: Position is unavailable!");
+//   useEffect(() => {
+//     const listener = (e) => {
+//       if (e.key === "Escape") {
+//         setSelectedPoster(null);
+//       }
+//     };
+//     window.addEventListener("keydown", listener);
+
+//     return () => {
+//       window.removeEventListener("keydown", listener);
+//     };
+//   }, []);
+
+//   function selectedIcon(id) {
+//     const SC = state.categories.find((category) => category.id === id);
+//     return SC.icon;
+//   }
+//   const options = {
+//     styles: mapStyle,
+//     disableDefaultUI: true,
+//     zoomControl: true,
+//   };
+//   const mapRef = useRef();
+//   const onMapLoad = useCallback((map) => {
+//     mapRef.current = map;
+//   }, []);
+
+//   const panTo = useCallback(({ lat, lng }) => {
+//     if (mapRef.current) {
+//       mapRef.current.panTo({ lat, lng });
+//       mapRef.current.setZoom(15);
+//     }
+//   }, []);
+//   useEffect(() => {
+//     const lat = coord.lat;
+//     const lng = coord.lng;
+//     panTo({ lat, lng });
+//   }, [coord]);
+
+//   // if (loadError) return "Error loading maps";
+//   // if (!isLoaded) return "Loading maps";
+
+//   return (
+//     <appContext.Provider value={{ coord, state, setcoord }}>
+//       <GoogleMap
+//         defaultZoom={14}
+//         center={coord}
+//         options={options}
+//         onLoad={onMapLoad}
+//         defaultOptions={{ styles: mapStyle }}
+//       >
+//         {state.posters.map((poster) => (
+//           <Marker
+//             key={poster.id}
+//             animation={window.google.maps.Animation.DROP}
+//             position={{
+//               lat: poster.latitude,
+//               lng: poster.longitude,
+//             }}
+//             onClick={() => {
+//               setSelectedPoster(poster);
+//             }}
+//             icon={{
+//               url: selectedIcon(poster.category_id),
+//               scaledSize: new window.google.maps.Size(42, 42),
+//             }}
+//           />
+//         ))}
+
+//         {selectedPoster && (
+//           <InfoWindow
+//             onCloseClick={() => {
+//               setSelectedPoster(null);
+//             }}
+//             position={{
+//               lat: selectedPoster.latitude,
+//               lng: selectedPoster.longitude,
+//             }}
+//             onClick={() => {
+//               setcoord({
+//                 lat: selectedPoster.latitude,
+//                 lng: selectedPoster.longitude,
+//               });
+//             }}
+//           >
+//             <a
+//               className="infoWindow__click"
+//               href={`http://localhost:3000/posters/search/${selectedPoster.id}`}
+//             >
+//               <div>
+//                 <h2>{selectedPoster.title}</h2>
+//                 <p>{selectedPoster.description}</p>
+//               </div>
+//             </a>
+//           </InfoWindow>
+//         )}
+//       </GoogleMap>
+//     </appContext.Provider>
+//   );
+// }
+
+// import useApplicationData from "../../hooks/useApplicationData";
+// const MapWrapped = withScriptjs(withGoogleMap(Map));
+// export default function App() {
+//   const something = (function () {
+//     let executed = false;
+//     return function () {
+//       if (!executed) {
+//         executed = true;
+//         window.location.reload();
+//       }
+//     };
+//   })();
+// #################################END###########################################3
+  // const something = function () {
+  //   const { coord, setCoord } = useApplicationData();
+  //   return function () {
+  //     if (navigator.geolocation) {
+  //       navigator.geolocation.getCurrentPosition(function (position) {
+  //         let positionInfo = {
+  //           lat: position.coords.latitude,
+  //           lng: position.coords.longitude,
+  //         };
+
+  //         console.log(positionInfo);
+  //         setCoord(positionInfo);
+  //         console.log(coord);
+  //       });
   //     }
-  //  }
-  //  function getLocation(){
-  //     if(navigator.geolocation){
-  //        // timeout at 60000 milliseconds (60 seconds)
-  //        var options = {timeout:60000};
-  //        navigator.geolocation.getCurrentPosition
-  //        (showLocation, errorHandler, options);
-  //     } else{
-  //        alert("Sorry, browser does not support geolocation!");
-  //     }
-  //  }
-
-  useEffect(() => {
-    const listener = (e) => {
-      if (e.key === "Escape") {
-        setSelectedPoster(null);
-      }
-    };
-    window.addEventListener("keydown", listener);
-
-    return () => {
-      window.removeEventListener("keydown", listener);
-    };
-  }, []);
-
-  function selectedIcon(id) {
-    const SC = state.categories.find((category) => category.id === id);
-    return SC.icon;
-  }
-
-  return (
-    <appContext.Provider value={{ coord, state }}>
-      <button onClick="">show my location</button>
-      <GoogleMap
-        defaultZoom={14}
-        defaultCenter={coord}
-        defaultOptions={{ styles: mapStyle }}
-      >
-        {state.posters.map((poster) => (
-          <Marker
-            key={poster.id}
-            animation={window.google.maps.Animation.DROP}
-            position={{
-              lat: poster.latitude,
-              lng: poster.longitude,
-            }}
-            onClick={() => {
-              setSelectedPoster(poster);
-            }}
-            icon={{
-              url: selectedIcon(poster.category_id),
-              scaledSize: new window.google.maps.Size(42, 42),
-            }}
-          />
-        ))}
-
-        {selectedPoster && (
-          <InfoWindow
-            onCloseClick={() => {
-              setSelectedPoster(null);
-            }}
-            position={{
-              lat: selectedPoster.latitude,
-              lng: selectedPoster.longitude,
-            }}
-          >
-            <a
-              className="infoWindow__click"
-              href={`http://localhost:3000/posters/search/${selectedPoster.id}`}
-            >
-              <div>
-                <h2>{selectedPoster.title}</h2>
-                <p>{selectedPoster.description}</p>
-              </div>
-            </a>
-          </InfoWindow>
-        )}
-      </GoogleMap>
-    </appContext.Provider>
-  );
-}
-
-const MapWrapped = withScriptjs(withGoogleMap(Map));
-
-export default function App() {
-  const { coord, setcoord } = useContext(appContext);
-  const something = (function () {
-    let executed = false;
-    return function () {
-      if (!executed) {
-        executed = true;
-        window.location.reload();
-      }
-    };
-  })();
-
-  // const refresh = () => window.location.reload();
-  return (
-    <div className="myMap">
-      <button type="button" onClick={something}>
-        show my location
-      </button>
-      <MapWrapped
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBRUYC8MMdlwDjIzBVvo7U5oHa3h2tQ09k&libraries=places`}
-        loadingElement={<div style={{ height: `95%` }} />}
-        containerElement={<div style={{ height: `100%` }} />}
-        mapElement={<div style={{ height: `100%` }} />}
-      />
-    </div>
-  );
-}
-
+  //   };
+  // };
+// ###############################START#######################################
+//   return (
+//     <div className="myMap">
+//       <Locate panTo={panTo} />
+//       <MapWrapped
+//         googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBRUYC8MMdlwDjIzBVvo7U5oHa3h2tQ09k&libraries=places`}
+//         loadingElement={<div style={{ height: `95%` }} />}
+//         containerElement={<div style={{ height: `100%` }} />}
+//         mapElement={<div style={{ height: `100%` }} />}
+//       />
+//     </div>
+//   );
+// }
+// #############################END########################################
 // import React from "react";
 
 // class Map extends React.Component {
