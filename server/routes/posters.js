@@ -64,7 +64,7 @@ router.post("/", (req, res) => {
     const posters = JSON.parse(loadPostersData());
 
     const newPoster = {
-      id: posters.length + 1,
+      id:posters.length + 1,
       title: req.body.newPoster.title,
       description: req.body.newPoster.description,
       price: req.body.newPoster.price,
