@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import axios from "axios";
 import profilePic from "../../assets/Icons/Mr.png";
 import ModalApply from "./ModalApply";
-
+import { useContext } from "react";
+import { appContext } from "./../appContext";
+import DateFnsUtils from "@date-io/date-fns";
+const { format } = require("date-fns");
+import moment from "moment";
 export default class ShowPosterDetails extends Component {
   state = {
     response: {
@@ -17,6 +21,9 @@ export default class ShowPosterDetails extends Component {
       .get(`http://localhost:8080/posters/${this.props.id}`)
       .then((res) => {
         this.setState({ response: res.data });
+        const mydate = this.state.response.singlePoster[0].end_date;
+        // console.log(parseISOString(mydate));
+        console.log(moment(mydate).format("YYYY-MM-DD"));
       })
       .catch((error) => console.log(error));
   }
@@ -51,11 +58,17 @@ export default class ShowPosterDetails extends Component {
           </div>
           <div className="search__div">
             <h3 className="search__lable">Start Date: </h3>
-            <span> {posterobj && posterobj.start_date}</span>
+            <span>
+              {" "}
+              {posterobj && moment(posterobj.start_date).format("YYYY-MM-DD")}
+            </span>
           </div>
           <div className="search__div">
             <h3 className="search__lable">End Date: </h3>
-            <span> {posterobj && posterobj.end_date}</span>
+            <span>
+              {" "}
+              {posterobj && moment (posterobj.end_date).format("YYYY-MM-DD")}
+            </span>
           </div>
           <div className="search__div">
             <h3 className="search__lable">Price: $ </h3>

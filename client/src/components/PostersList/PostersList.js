@@ -12,7 +12,6 @@ export default class PostersList extends Component {
   };
 
   getData() {
-    console.log("inside get data");
     axios
       .get("http://localhost:8080/posters")
       .then((res) => {

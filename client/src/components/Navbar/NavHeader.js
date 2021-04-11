@@ -7,16 +7,13 @@ import Cookies from "universal-cookie";
 import { useEffect } from "react";
 import axios from "axios";
 function NavHeader(props) {
-
   const cookies = new Cookies();
 
   useEffect(() => {
     axios.get("http://localhost:8080/login").then((response) => {
-      console.log({ response });
       if (response.data.loggedIn == true) {
         cookies.set("name", response.data.user[0].username, { path: "/" });
         return cookies;
-         
       }
     });
   });

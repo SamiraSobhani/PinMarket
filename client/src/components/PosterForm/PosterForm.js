@@ -18,7 +18,6 @@ import { appContext } from "./../appContext";
 import axios from "axios";
 
 export default function Post() {
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category_id, setCategory] = useState("");
@@ -28,7 +27,7 @@ export default function Post() {
   const [end_date, setEndDate] = useState(new Date());
   const [error, setError] = useState("");
   const { coord, setCoord, state, setState } = useContext(appContext);
-
+  const { format } = require("date-fns");
   const [toUserPage, setToUserPage] = useState(false);
 
   function validate(event) {
