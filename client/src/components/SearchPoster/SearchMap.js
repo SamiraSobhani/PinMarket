@@ -1,13 +1,9 @@
-import {
-  GoogleMap,
-  useJsApiLoader,
-  InfoWindow,
-  Marker,
-} from "@react-google-maps/api";
-import mapStyle from "./mapStyle";
-import Locate from "./Locate";
+import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import mapStyle from "../Map/mapStyle";
+import Locate from "../Map/Locate";
 import { useRef, useCallback, useContext, useEffect, useState } from "react";
 import { appContext } from "./../appContext";
+import Markers from "./Markers";
 
 const mapContainerStyle = {
   width: "40vw",
@@ -24,7 +20,7 @@ const options = {
 // ENABLED GMAPS LIBRARIES
 const libraries = ["places"];
 
-export default function MapContainer() {
+export default function SearchMap(props) {
   const {
     coord,
     setCoord,
@@ -39,6 +35,7 @@ export default function MapContainer() {
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
     libraries,
   });
+
   const [selectedPoster, setSelectedPoster] = useState(null);
   const mapRef = useRef();
 
@@ -54,11 +51,6 @@ export default function MapContainer() {
       window.removeEventListener("keydown", listener);
     };
   }, []);
-
-  function selectedIcon(id) {
-    const SC = state.categories.find((category) => category.id === id);
-    return SC.icon;
-  }
 
   const panTo = useCallback(({ lat, lng }) => {
     if (mapRef.current) {
@@ -86,51 +78,7 @@ export default function MapContainer() {
         }}
       >
         <Locate panTo={panTo} />
-        {state.posters.map((poster) => (
-          <Marker
-            key={poster.id}
-            animation={window.google.maps.Animation.DROP}
-            position={{
-              lat: poster.latitude,
-              lng: poster.longitude,
-            }}
-            onClick={() => {
-              setSelectedPoster(poster);
-            }}
-            icon={{
-              url: selectedIcon(poster.category_id),
-              scaledSize: new window.google.maps.Size(42, 42),
-            }}
-          />
-        ))}
-
-        {selectedPoster && (
-          <InfoWindow
-            onCloseClick={() => {
-              setSelectedPoster(null);
-            }}
-            position={{
-              lat: selectedPoster.latitude,
-              lng: selectedPoster.longitude,
-            }}
-            onClick={() => {
-              setcoord({
-                lat: selectedPoster.latitude,
-                lng: selectedPoster.longitude,
-              });
-            }}
-          >
-            <a
-              className="infoWindow__click"
-              href={`http://localhost:3000/posters/search/${selectedPoster.id}`}
-            >
-              <div>
-                <h2>{selectedPoster.title}</h2>
-                <p>{selectedPoster.description}</p>
-              </div>
-            </a>
-          </InfoWindow>
-        )}
+        <Markers nearPosters={props.nearPosters} />
       </GoogleMap>
     </>
   ) : (

@@ -35,7 +35,7 @@ export default class PostersList extends Component {
     axios
       .delete(`http://localhost:8080/posters/${id}`)
       .then((response) => {
-        window.location.reload(false);
+        // window.location.reload(false);
         const respobj = Object.assign({}, this.state.response, {
           posters: response.data,
         });

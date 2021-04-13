@@ -3,10 +3,10 @@ import axios from "axios";
 // import Cookies from "universal-cookie";
 export default function useApplicationData() {
   const [coord, setCoord] = useState({
-    lat: 49.32852231235496,
-    lng: -123.15352875409197,
+    lat: 49.328739,
+    lng: -123.15345,
   });
-  // const [loginStatus, setLoginStatus] = useState("");
+
   const [zoom, setZoom] = useState(null);
   const [state, setState] = useState({
     categories: [],

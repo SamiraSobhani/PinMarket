@@ -1,5 +1,5 @@
 import React from "react";
-import MapContainer from "./components/Map/MapContainer";
+import SearchMap from "./components/SearchPoster/SearchMap";
 import { appContext } from "./components/appContext";
 import useApplicationData from "./hooks/useApplicationData";
 import SearchPoster from "./components/SearchPoster/SearchPoster";
@@ -20,15 +20,14 @@ function Search() {
     setLoginStatus,
   } = useApplicationData();
   return (
-   
     <appContext.Provider
-    value={{ coord, setCoord, state, setState, loginStatus, setLoginStatus }}
+      value={{ coord, setCoord, state, setState, loginStatus, setLoginStatus }}
     >
       <Navbar />
       <div className=" search__container container">
         <div>
-          <MapContainer />
-          <MyButtons />
+          {/* <SearchMap />
+          <MyButtons /> */}
           <SearchPoster className="slider" />
         </div>
         <div className="chat-detail">
@@ -37,7 +36,6 @@ function Search() {
         </div>
       </div>
     </appContext.Provider>
-   
   );
 }
 
