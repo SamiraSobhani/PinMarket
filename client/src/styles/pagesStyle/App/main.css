@@ -21,7 +21,7 @@ body {
   height: auto;
 }
 .navbar__logo {
-  width: 9rem;
+  width: 22rem;
   height: auto;
   margin-left: 1.5rem;
 }
@@ -118,6 +118,10 @@ body {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   outline: none;
+}
+
+.cancelButton {
+  color: black;
 }
 
 .slider {
@@ -475,33 +479,101 @@ body {
   border: solid #1f1f1f 0.05rem;
   border-radius: 0.5rem;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-shadow: 1rem 1rem 0.8rem #727272;
           box-shadow: 1rem 1rem 0.8rem #727272;
 }
 
-.App {
+.locate {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
+  background-color: white;
+  border: solid #1f1f1f 0.05rem;
+  z-index: 1;
+  color: darkred;
+  width: 55px;
+  margin: 0 auto;
+}
+
+.locateIcon {
+  cursor: pointer;
+  margin-left: -0.7rem;
+}
+
+.login-container {
   text-align: center;
 }
 
-.registration, .login {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.login-content {
+  background: #fff;
+  -webkit-box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
+          box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
+  border-radius: 2px;
+  width: 500px;
+  display: inline-block;
+  margin-top: 30px;
+  vertical-align: middle;
+  position: relative;
+  padding: 35px;
+}
+
+.social-btn {
+  margin-bottom: 15px;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.social-btn img {
+  height: 32px;
+  float: left;
+  margin-top: 10px;
+}
+
+.social-btn.google {
+  margin-top: 7px;
+}
+
+.signup-link {
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+}
+
+.login-title {
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: rgba(0, 0, 0, 0.65);
 }
 
 input {
-  width: 250px;
-  height: 40px;
+  width: 300px;
+  height: 50px;
+  border-radius: 0.5rem;
+  background-color: #bdc5d5;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-style: none;
+  outline: none;
+}
+
+input[type=text] {
+  font-size: 0.9rem;
+}
+input[type=text] :focus {
+  background-color: white;
+}
+
+button {
+  background-color: darkred;
+  color: white;
+  border-style: none;
+  padding: 0.5rem 1.5rem;
+  margin-top: 0.7rem;
+  border-radius: 0.3rem;
 }
 
 .container {

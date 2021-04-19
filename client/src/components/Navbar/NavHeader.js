@@ -17,12 +17,13 @@ function NavHeader(props) {
       }
     });
   });
+
   return (
     <div className="navbar">
       <img className="navbar__pin" src={Pin}></img>
       <img src={logo} className="navbar__logo"></img>
-      <div className="navbar__profile">
-        <h2 className="navbar__welcome">Welcome , {cookies.get("name")}</h2>
+      <div className="navbar__profile navbar__active">
+        <h2 className="navbar__welcome ">Welcome , {cookies.get("name")}</h2>
         <NavLink to="/">
           <img className="navbar__icon" src={profileIcon} alt="profile"></img>
         </NavLink>
