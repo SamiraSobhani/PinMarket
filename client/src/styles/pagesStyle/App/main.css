@@ -505,12 +505,30 @@ body {
 
 .login-container {
   text-align: center;
+  background-image: url("../../../assets/pin1.jpg");
+  background-repeat: no-repeat;
+}
+
+.myform {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.or-separator {
+  margin-top: 2rem;
 }
 
 .login-content {
+  margin-top: 3rem;
   background: #fff;
-  -webkit-box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
-          box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
   border-radius: 2px;
   width: 500px;
   display: inline-block;
@@ -518,6 +536,7 @@ body {
   vertical-align: middle;
   position: relative;
   padding: 35px;
+  border: solid 0.5rem #011a2f;
 }
 
 .social-btn {
@@ -526,10 +545,21 @@ body {
   font-size: 16px;
 }
 
+.social-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .social-btn img {
   height: 32px;
   float: left;
-  margin-top: 10px;
 }
 
 .social-btn.google {
@@ -539,6 +569,7 @@ body {
 .signup-link {
   color: rgba(0, 0, 0, 0.65);
   font-size: 14px;
+  padding-top: 1rem;
 }
 
 .login-title {
@@ -560,13 +591,6 @@ input {
   outline: none;
 }
 
-input[type=text] {
-  font-size: 0.9rem;
-}
-input[type=text] :focus {
-  background-color: white;
-}
-
 button {
   background-color: darkred;
   color: white;
@@ -574,6 +598,78 @@ button {
   padding: 0.5rem 1.5rem;
   margin-top: 0.7rem;
   border-radius: 0.3rem;
+}
+
+.app-header {
+  height: 60px;
+  position: relative;
+  z-index: 10;
+}
+
+.app-title {
+  line-height: 60px;
+  vertical-align: middle;
+  font-size: 1.35em;
+}
+
+.app-branding {
+  float: left;
+}
+
+.app-options {
+  float: right;
+}
+
+.app-nav ul {
+  list-style-position: none;
+  margin: 0;
+  padding: 0;
+}
+
+.app-nav ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.app-nav ul li a {
+  display: inline-block;
+  line-height: 60px;
+  vertical-align: middle;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.app-nav ul li a:hover {
+  color: #0f96f6;
+}
+
+.app-nav ul li a.active {
+  color: #0f96f6;
+}
+
+.page-not-found {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 40px;
+  border: 1px solid #c8c8c8;
+  text-align: center;
+}
+
+.page-not-found .title {
+  font-size: 50px;
+  letter-spacing: 10px;
+  margin-bottom: 10px;
+}
+
+.page-not-found .desc {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.go-back-btn {
+  min-width: 160px;
 }
 
 .container {
@@ -608,5 +704,37 @@ button {
   -webkit-box-pack: right;
       -ms-flex-pack: right;
           justify-content: right;
+}
+
+.s-alert-box {
+  min-width: 250px;
+}
+
+.s-alert-close::before, .s-alert-close::after {
+  width: 2px;
+}
+
+.page-not-found {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 40px;
+  border: 1px solid #c8c8c8;
+  text-align: center;
+}
+
+.page-not-found .title {
+  font-size: 50px;
+  letter-spacing: 10px;
+  margin-bottom: 10px;
+}
+
+.page-not-found .desc {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.go-back-btn {
+  min-width: 160px;
 }
 /*# sourceMappingURL=main.css.map */

@@ -34,7 +34,6 @@ export default function Post() {
     event.preventDefault();
     const newPoster = {
       title,
-      category_id,
       description,
       price,
       pay_type,
@@ -42,13 +41,14 @@ export default function Post() {
       end_date,
       lat: coord.lat,
       lng: coord.lng,
-      client_id: 1,
-      helper_id: 4,
+      isActive,
+      category,
+
     };
 
     if (
       title === "" ||
-      category_id === "" ||
+      category === "" ||
       description === "" ||
       price === "" ||
       pay_type === "" ||

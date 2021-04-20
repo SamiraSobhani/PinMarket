@@ -30,8 +30,8 @@ export default function MapContainer() {
     setCoord,
     state,
     setState,
-    loginStatus,
-    setLoginStatus,
+    // loginStatus,
+    // setLoginStatus,
     zoom,
     setZoom,
   } = useContext(appContext);
@@ -91,14 +91,14 @@ export default function MapContainer() {
             key={poster.id}
             animation={window.google.maps.Animation.DROP}
             position={{
-              lat: poster.latitude,
-              lng: poster.longitude,
+              lat: poster.lat,
+              lng: poster.lng,
             }}
             onClick={() => {
               setSelectedPoster(poster);
             }}
             icon={{
-              url: selectedIcon(poster.category_id),
+              url: selectedIcon(poster.category.id),
               scaledSize: new window.google.maps.Size(42, 42),
             }}
           />
@@ -110,19 +110,19 @@ export default function MapContainer() {
               setSelectedPoster(null);
             }}
             position={{
-              lat: selectedPoster.latitude,
-              lng: selectedPoster.longitude,
+              lat: selectedPoster.lat,
+              lng: selectedPoster.lng,
             }}
             onClick={() => {
               setcoord({
-                lat: selectedPoster.latitude,
-                lng: selectedPoster.longitude,
+                lat: selectedPoster.lat,
+                lng: selectedPoster.lng,
               });
             }}
           >
             <a
               className="infoWindow__click"
-              href={`http://localhost:3000/posters/search/${selectedPoster.id}`}
+              href={`http://localhost:3001/posters/search/${selectedPoster.id}`}
             >
               <div>
                 <h2>{selectedPoster.title}</h2>

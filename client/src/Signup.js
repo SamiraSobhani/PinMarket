@@ -4,12 +4,9 @@ import { Link, Redirect } from "react-router-dom";
 import { signup } from "./components/Auth/APIUtils";
 import googleLogo from "./assets/google-logo.png";
 import Alert from "react-s-alert";
+import { GOOGLE_AUTH_URL } from "./components/constants";
 import "./styles/pagesStyle/Signup/_signup.scss";
-const API_BASE_URL = "http://localhost:8080";
-const OAUTH2_REDIRECT_URI = "http://localhost:3000/oauth2/redirect";
 
-const GOOGLE_AUTH_URL =
-  API_BASE_URL + "/oauth2/authorize/google?redirect_uri=" + OAUTH2_REDIRECT_URI;
 class Signup extends Component {
   render() {
     if (this.props.authenticated) {

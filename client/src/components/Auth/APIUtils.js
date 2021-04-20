@@ -1,6 +1,4 @@
-const API_BASE_URL = "http://localhost:8080";
-const ACCESS_TOKEN = "accessToken";
-
+import { API_BASE_URL, ACCESS_TOKEN } from "../constants";
 const request = (options) => {
   const headers = new Headers({
     "Content-Type": "application/json",

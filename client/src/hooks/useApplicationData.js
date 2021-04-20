@@ -1,17 +1,49 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-// import Cookies from "universal-cookie";
+// import { ACCESS_TOKEN } from "../components/constants";
 export default function useApplicationData() {
   const [coord, setCoord] = useState({
     lat: 49.328739,
     lng: -123.15345,
   });
+  const [ACCESS_TOKEN] = useState(localStorage.accessToken);
 
   const [zoom, setZoom] = useState(null);
   const [state, setState] = useState({
-    categories: [],
+    categories: [
+      {
+        id: 1,
+        name: "Driver",
+        icon: "/driver.svg",
+      },
+      {
+        id: 2,
+        name: "Dressmaker",
+        icon: "/dressmaker.png",
+      },
+      {
+        id: 3,
+        name: "Photographer",
+        icon: "/camera-red.png",
+      },
+      {
+        id: 4,
+        name: "DJ",
+        icon: "/DJ.png",
+      },
+      {
+        id: 5,
+        name: "makeup artist",
+        icon: "/makeup.png",
+      },
+      {
+        id: 6,
+        name: "florist",
+        icon: "/flower2.svg",
+      },
+    ],
     posters: [],
-    users: [],
+    // users: [],
   });
 
   useEffect(() => {
@@ -30,13 +62,16 @@ export default function useApplicationData() {
   }, []);
   useEffect(() => {
     axios
-      .get("http://localhost:8080/posters")
+      .get("http://localhost:8080/posters/all", {
+        headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
+      })
       .then((res) => {
+        console.log(res);
         setState((prev) => ({
           ...prev,
-          users: res.data.users,
-          posters: res.data.posters,
-          categories: res.data.categories,
+          // users: res.data.users,
+          posters: res.data,
+          // categories: res.data.categories,
         }));
       })
       .catch((err) => console.log(err));
@@ -70,8 +105,6 @@ export default function useApplicationData() {
     setCoord,
     state,
     setState,
-    // loginStatus,
-    // setLoginStatus,
     zoom,
     setZoom,
   };
