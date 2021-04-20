@@ -23,17 +23,6 @@ export default class PostersList extends Component {
       .catch((error) => console.log(error));
   }
 
-  // getMyAppliedPosters() {
-  //   const ACCESS_TOKEN = localStorage.accessToken;
-  //   axios
-  //     .get("http://localhost:8080/posters/applied", {
-  //       headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
-  //     })
-  //     .then((res) => {
-  //       this.setState({ posters: res.data });
-  //     })
-  //     .catch((error) => console.log(error));
-  // }
 
   componentDidMount() {
     this.getMyPosters();

@@ -9,21 +9,39 @@ const { format } = require("date-fns");
 import moment from "moment";
 export default class ShowPosterDetails extends Component {
   state = {
-    response: {
-      singlePoster: [],
-      categoryName: "",
-      clientName: "",
-    },
+    categoryName: "",
+    ownerName: "",
+    title: "",
+    description: "",
+    startDate: "",
+    endDate: "",
+    price: "",
+    payType: "",
   };
 
   getData() {
+    const ACCESS_TOKEN = localStorage.accessToken;
     axios
-      .get(`http://localhost:8080/posters/${this.props.id}`)
+      .get(`http://localhost:8080/posters?id=${this.props.id}`, {
+        headers: {
+          authorization: `Bearer ${ACCESS_TOKEN}`,
+        },
+      })
       .then((res) => {
-        this.setState({ response: res.data });
-        const mydate = this.state.response.singlePoster[0].end_date;
-        // console.log(parseISOString(mydate));
-        console.log(moment(mydate).format("YYYY-MM-DD"));
+        console.log(res);
+
+        // const mydate = this.state.response.singlePoster.end_date;
+        // // console.log(parseISOString(mydate));
+        // console.log(moment(mydate).format("YYYY-MM-DD"));
+
+        this.setState({ ownerName: res.data.owner.name });
+        this.setState({ categoryName: res.data.category.name });
+        this.setState({ title: res.data.title });
+        this.setState({ description: res.data.description });
+        this.setState({ startDate: res.data.startDate });
+        this.setState({ endDate: res.data.endDate });
+        this.setState({ price: res.data.price });
+        this.setState({ payType: res.data.payType });
       })
       .catch((error) => console.log(error));
   }
@@ -34,46 +52,37 @@ export default class ShowPosterDetails extends Component {
     window.alert("sometext");
   }
   render() {
-    const posterobj = this.state.response.singlePoster[0];
     return (
       <div className="search">
         <section className="search__result">
           <div className="search__boxheader">
-            <h2 className="search__name">
-              Name: {this.state.response.clientName}
-            </h2>
+            <h2 className="search__name">Name: {this.state.ownerName}</h2>
             <img className="search__profilePic" src={profilePic}></img>
           </div>
           <div className="search__div">
             <h3 className="search__lable">Category: </h3>
-            <span>{this.state.response.categoryName}</span>
+            <span>{this.state.categoryName}</span>
           </div>
           <div className="search__div">
             <h3 className="search__lable">Title: </h3>
-            <span>{posterobj && posterobj.title}</span>
+            <span>{this.state.title}</span>
           </div>
           <div className="search__div">
             <h3 className="search__lable">Description: </h3>
-            <span> {posterobj && posterobj.description}</span>
+            <span> {this.state.description}</span>
           </div>
           <div className="search__div">
             <h3 className="search__lable">Start Date: </h3>
-            <span>
-              {" "}
-              {posterobj && moment(posterobj.start_date).format("YYYY-MM-DD")}
-            </span>
+            <span> {this.state.startDate}</span>
           </div>
           <div className="search__div">
             <h3 className="search__lable">End Date: </h3>
-            <span>
-              {" "}
-              {posterobj && moment (posterobj.end_date).format("YYYY-MM-DD")}
-            </span>
+            <span> {this.state.endDate}</span>
           </div>
           <div className="search__div">
             <h3 className="search__lable">Price: $ </h3>
             <span className="search__priceTag">
-              {posterobj && posterobj.price} {posterobj && posterobj.pay_type}
+              {this.state.price} {this.state.payType}
             </span>
           </div>
         </section>

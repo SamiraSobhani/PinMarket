@@ -32,7 +32,7 @@ function Search() {
         </div>
         <div className="chat-detail">
           <ShowPosterDetails id={id} className="detail" />
-          <Chat className="chat" />
+          {/* <Chat className="chat" /> */}
         </div>
       </div>
     </appContext.Provider>

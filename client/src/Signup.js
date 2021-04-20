@@ -59,8 +59,6 @@ class SignupForm extends Component {
       email: "",
       password: "",
     };
-    // this.handleInputChange = this.handleInputChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInputChange = (event) => {

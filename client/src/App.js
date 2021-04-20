@@ -52,7 +52,6 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import AppHeader from "./components/common/AppHeader";
-
 import Login from "./Login";
 import Signup from "./Signup";
 import Profile from "./components/Auth/Profile";
@@ -60,7 +59,6 @@ import OAuth2RedirectHandler from "./components/Auth/OAuth2RedirectHandler";
 import NotFound from "./components/common/NotFound";
 import LoadingIndicator from "./components/common/LoadingIndicator";
 import { getCurrentUser } from "./components/Auth/APIUtils";
-
 import PrivateRoute from "./components/common/PrivateRoute";
 import Alert from "react-s-alert";
 import "react-s-alert/dist/s-alert-default.css";

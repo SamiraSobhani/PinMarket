@@ -22,9 +22,9 @@ export default function Post() {
   const [description, setDescription] = useState("");
   const [category_id, setCategory] = useState("");
   const [price, setPrice] = useState("");
-  const [pay_type, setPayType] = useState("");
-  const [start_date, setStartDate] = useState(new Date());
-  const [end_date, setEndDate] = useState(new Date());
+  const [payType, setPayType] = useState("");
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
   const [error, setError] = useState("");
   const { coord, setCoord, state, setState } = useContext(appContext);
   const { format } = require("date-fns");
@@ -33,27 +33,40 @@ export default function Post() {
   function validate(event) {
     event.preventDefault();
     const newPoster = {
-      title,
-      description,
-      price,
-      pay_type,
-      start_date,
-      end_date,
+      title: title,
+      description: description,
+      price: price,
+      payType: payType,
+      startDate: startDate,
+      endDate: endDate,
       lat: coord.lat,
       lng: coord.lng,
-      isActive,
-      category,
-
+      isActive: true,
+      category: category_id,
     };
 
+    // "id": 4,
+    // "title": "DJ for our wedding",
+    // "description": "need a great DJ",
+    // "price": 100,
+    // "payType": "hourly",
+    // "startDate": "2021-09-09T00:00:00.000+0000",
+    // "endDate": "2021-09-09T00:00:00.000+0000",
+    // "lat": 49.328465,
+    // "lng": -123.153534,
+    // "isActive": true,
+    // "category": {
+    //     "id": 2,
+    //     "name": "Driver",
+    //     "icon": "/driver.svg"
+    // }
     if (
       title === "" ||
-      category === "" ||
       description === "" ||
       price === "" ||
-      pay_type === "" ||
-      start_date === "" ||
-      end_date === ""
+      payType === "" ||
+      startDate === "" ||
+      endDate === ""
     ) {
       setError("Please fill all fields");
       return;
@@ -64,11 +77,17 @@ export default function Post() {
   }
 
   const handleFormSubmit = (newPoster) => {
-    console.log(newPoster);
+    
+    const ACCESS_TOKEN = localStorage.accessToken;
+
     axios
-      .post(`http://localhost:8080/posters`, {
-        newPoster,
+      .post("http://localhost:8080/poster", newPoster, {
+        headers: {
+          authorization: `Bearer ${ACCESS_TOKEN}`,
+          "Content-Type": "application/json",
+        },
       })
+
       .then(() => {
         window.location.reload(false);
         setToUserPage(true);
@@ -81,11 +100,14 @@ export default function Post() {
   };
 
   const handleStartDateChange = (date) => {
-    setStartDate(date);
+    setStartDate(String(date));
   };
 
   const handleEndDateChange = (date) => {
     setEndDate(date);
+  };
+  const findCategory = (category_id) => {
+    return state.categories.find((category) => category.id == category_id);
   };
 
   return (
@@ -115,10 +137,12 @@ export default function Post() {
             onChange={(event) => setDescription(event.target.value)}
           />
           <Autocomplete
-            onChange={(event, value) => setCategory(value ? value.id : "")}
+            onChange={(event, value) =>
+              setCategory(value ? findCategory(value.id) : "")
+            }
             id="category-search"
             name="category-search"
-            value={state.categories.category_id}
+            value={state.categories.id}
             options={Object.values(state.categories)}
             getOptionLabel={(option) => option.name}
             style={{ width: 450, margin: 8 }}
@@ -136,7 +160,7 @@ export default function Post() {
                 <InputAdornment position="start">$</InputAdornment>
               ),
             }}
-            onChange={(event) => setPrice(event.target.value)}
+            onChange={(event) => setPrice(Number(event.target.value))}
             autoComplete="off"
           />
           <FormControl onSubmit={(event) => event.preventDefault()}>
@@ -145,12 +169,12 @@ export default function Post() {
               labelId="demo-simple-select-label"
               id="pay-type-select"
               name="pay-type-select"
-              value={state.pay_type}
+              value={state.payType}
               onChange={handleChange}
               style={{ width: 208 }}
             >
-              <MenuItem value={"/hr"}>Per Hour</MenuItem>
-              <MenuItem value={"total"}>Total</MenuItem>
+              <MenuItem value={"hourly"}>Hourly</MenuItem>
+              <MenuItem value={"fix"}>Fix</MenuItem>
             </Select>
           </FormControl>
 
@@ -163,7 +187,7 @@ export default function Post() {
                 format="yyyy/MM/dd"
                 margin="normal"
                 label="Start Date"
-                value={start_date}
+                value={startDate}
                 onChange={handleStartDateChange}
                 KeyboardButtonProps={{
                   "aria-label": "change date",
@@ -177,7 +201,7 @@ export default function Post() {
                 format="yyyy/MM/dd"
                 margin="normal"
                 label="End Date"
-                value={end_date}
+                value={endDate}
                 onChange={handleEndDateChange}
                 KeyboardButtonProps={{
                   "aria-label": "change date",
