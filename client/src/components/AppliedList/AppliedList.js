@@ -4,53 +4,42 @@ import PosterItem from "../PostersList/PosterItem";
 
 export class AppliedList extends Component {
   state = {
-    response: {
-      posters: [],
-      categories: [],
-      users: [],
-    },
+    posters: [],
   };
 
-  getData() {
+  getMyAppliedPosters() {
+    const ACCESS_TOKEN = localStorage.accessToken;
     axios
-      .get("http://localhost:8080/posters")
+      .get("http://localhost:8080/posters/applied", {
+        headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
+      })
       .then((res) => {
-        this.setState({ response: res.data });
+        this.setState({ posters: res.data });
       })
       .catch((error) => console.log(error));
   }
 
-  getCategoryNameById(id) {
-    return this.state.response.categories.find(
-      (category) => category.id === id
-    );
-  }
+  
 
-  getClientNameById(id) {
-    return this.state.response.users.find((user) => user.id === id);
-  }
+  // getClientNameById(id) {
+  //   return this.state.response.users.find((user) => user.id === id);
+  // }
 
   componentDidMount() {
-    this.getData();
+    this.getMyAppliedPosters();
   }
 
   render() {
-    const filteredPoster = this.state.response.posters.filter(
-      (poster) => poster.helper_id === 1
-    );
-    const clientName = this.state.response.users.filter(
-      (user) => user.id == filteredPoster.client_id
-    );
     return (
       <div>
         <h2 className="posters__header">Applied List</h2>
         <ul className={"posters__list"}>
-          {filteredPoster.map((item, index) => (
+          {this.state.posters.map((item, index) => (
             <PosterItem
               key={index}
               eachPoster={item}
-              clientName={this.getClientNameById(item.client_id).name}
-              categoryName={this.getCategoryNameById(item.category_id).name}
+              // clientName={this.getClientNameById(item.client_id).name}
+             
             />
           ))}
         </ul>

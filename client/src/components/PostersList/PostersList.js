@@ -1,46 +1,57 @@
 import React, { Component } from "react";
 import axios from "axios";
 import PosterItem from "./PosterItem";
-
+import { ACCESS_TOKEN } from "../../components/constants";
 export default class PostersList extends Component {
   state = {
-    response: {
-      posters: [],
-      categories: [],
-      users: [],
-    },
+    posters: [],
+
   };
 
-  getData() {
+ 
+  getMyPosters() {
+    const ACCESS_TOKEN = localStorage.accessToken;
+
     axios
-      .get("http://localhost:8080/posters")
+      .get("http://localhost:8080/posters/me", {
+        headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
+      })
       .then((res) => {
-        this.setState({ response: res.data });
+        console.log("inside getmyposters", res);
+        this.setState({ posters: res.data });
       })
       .catch((error) => console.log(error));
   }
 
-  componentDidMount() {
-    this.getData();
-  }
+  // getMyAppliedPosters() {
+  //   const ACCESS_TOKEN = localStorage.accessToken;
+  //   axios
+  //     .get("http://localhost:8080/posters/applied", {
+  //       headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
+  //     })
+  //     .then((res) => {
+  //       this.setState({ posters: res.data });
+  //     })
+  //     .catch((error) => console.log(error));
+  // }
 
-  componentDidUpdate() {}
-  getCategoryNameById(id) {
-    return this.state.response.categories.find(
-      (category) => category.id === id
-    );
+  componentDidMount() {
+    this.getMyPosters();
   }
 
   deletePoster = (id) => {
+    const ACCESS_TOKEN = localStorage.accessToken;
     axios
-      .delete(`http://localhost:8080/posters/${id}`)
+      .delete(`http://localhost:8080/poster?id=${id}`, {
+        headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
+      })
       .then((response) => {
         // window.location.reload(false);
-        const respobj = Object.assign({}, this.state.response, {
+        const respobj = Object.assign({}, this.state, {
           posters: response.data,
         });
         this.setState({
-          response: respobj,
+          posters: respobj,
         });
         console.log("inside delete fun", response);
       })
@@ -48,23 +59,18 @@ export default class PostersList extends Component {
   };
 
   render() {
-    const filteredPoster = this.state.response.posters.filter(
-      (poster) => poster.client_id === 1
-    );
-    const clientName = this.state.response.users.filter((user) => user.id == 1);
-
     return (
       <div className="posters__main">
         <div className="posters">
           <h2 className="posters__header">Posted Posters</h2>
           <ul className="posters__list">
-            {filteredPoster.map((item, index) => (
+            {this.state.posters.map((item, index) => (
               <PosterItem
                 path="/userpage"
                 key={index}
                 eachPoster={item}
-                clientName={clientName[0].name}
-                categoryName={this.getCategoryNameById(item.category_id).name}
+                // clientName={clientName[0].name}
+
                 delete={this.deletePoster}
               />
             ))}
