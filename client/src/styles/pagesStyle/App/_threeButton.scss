@@ -3,7 +3,7 @@
   justify-content: space-between;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  width: 60%;
+  width: 97%;
   &__post {
     @include mybutton;
   }
@@ -11,6 +11,9 @@
     @include mybutton;
   }
   &__search {
+    @include mybutton;
+  }
+  &__details{
     @include mybutton;
   }
 }

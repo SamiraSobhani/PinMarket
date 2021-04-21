@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import profilePic from "../../assets/Icons/Mr.png";
-import ModalApply from "./ModalApply";
+import ModalApply from "../SearchPoster/ModalApply";
 import { useContext } from "react";
-import { appContext } from "./../appContext";
+import { appContext } from "../appContext";
 import DateFnsUtils from "@date-io/date-fns";
 const { format } = require("date-fns");
 import moment from "moment";

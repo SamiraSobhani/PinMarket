@@ -11,12 +11,14 @@
   @mixin mybutton {
     color: $white;
     background: $darkred;
-    border-radius: 0.7rem;
+    border-radius: 0.35rem;
     padding: 0.7rem;
+    height: 2rem;
+    width: 5.7rem;
     border-style: none;
     outline: none;
     &:hover {
-      transform: scale(1.3);
+      transform: scale(1.25);
       background-color: $darkBlue;
     }
       

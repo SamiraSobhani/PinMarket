@@ -1,11 +1,5 @@
 @import "../../partials/variables";
 
-// .app-header {
-//   height: 60px;
-//   position: relative;
-//   z-index: 10;
-//   width: 100%;
-// }
 .app-header {
   display: flex;
   justify-content: space-between;
@@ -14,10 +8,7 @@
 .app-options {
   float: right;
 }
-// .app-top-box{
-//   height: 6.5rem;
-//   border-bottom: solid $gray 0.055rem;
-// }
+
 .app-nav ul {
   list-style-position: none;
   margin: 0;
@@ -34,10 +25,12 @@
 .app-nav ul li a {
   display: inline-block;
   line-height: 60px;
-  vertical-align: middle;
-  padding-left: 15px;
-  padding-right: 15px;
-  color: rgba(0, 0, 0, 0.65);
+  // padding-left: 0.5rem;
+  margin-top: 3rem;
+  padding-right: 0.7rem;
+  color: $darkBlue;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .app-nav ul li a:hover {
@@ -45,7 +38,6 @@
 }
 .app-body {
   min-height: 850px;
-  // background-color: $darkBlue;
 }
 .app-nav ul li a.active {
   color: $darkred;
