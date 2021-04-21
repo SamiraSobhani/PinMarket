@@ -4,6 +4,12 @@
   border: solid $darkBlue 0.1rem;
   width: 80%;
 }
+.search__container {
+  display: flex;
+}
+.category__filter {
+  margin-left: 5rem;
+}
 .input-range__slider {
   border: 1px solid $darkBlue;
   background: $darkBlue;
@@ -11,7 +17,13 @@
 .input-range__track--active {
   background: $darkBlue;
 }
-
+.map__slider {
+  display: flex;
+}
+.map__filter {
+  display: flex;
+  justify-content: space-between;
+}
 .search {
   color: $darkBlue;
   border: solid white 0.2rem;
@@ -33,4 +45,7 @@
 }
 .search__container {
   display: flex;
+}
+.filter {
+  width: 500px;
 }

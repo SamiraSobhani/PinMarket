@@ -25,13 +25,7 @@ function Search() {
     >
       <div className=" search__container container">
         <div>
-          {/* <SearchMap />
-          <MyButtons /> */}
           <SearchPoster className="slider" />
-        </div>
-        <div className="chat-detail">
-          {/* <ShowPosterDetails id={id} className="detail" /> */}
-          {/* <Chat className="chat" /> */}
         </div>
       </div>
     </appContext.Provider>

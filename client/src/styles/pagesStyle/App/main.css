@@ -132,6 +132,12 @@ body {
   width: 80%;
 }
 
+.search__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .input-range__slider {
   border: 1px solid #011a2f;
   background: #011a2f;
@@ -139,6 +145,21 @@ body {
 
 .input-range__track--active {
   background: #011a2f;
+}
+
+.map__slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.map__filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .search {
@@ -173,6 +194,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.filter {
+  width: 500px;
 }
 
 .search {
@@ -242,26 +267,6 @@ body {
   outline: none;
   width: 2rem;
   height: 13.5rem;
-}
-
-.chat-detail {
-  width: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.search__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .chat {
@@ -376,52 +381,73 @@ body {
           justify-content: space-between;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  width: 60%;
+  width: 97%;
 }
 .threeButtons__post {
   color: white;
   background: darkred;
-  border-radius: 0.7rem;
+  border-radius: 0.35rem;
   padding: 0.7rem;
+  height: 2rem;
+  width: 5.7rem;
   border-style: none;
   outline: none;
 }
 .threeButtons__post:hover {
-  -webkit-transform: scale(1.3);
-          transform: scale(1.3);
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
   background-color: #011a2f;
 }
 .threeButtons__all {
   color: white;
   background: darkred;
-  border-radius: 0.7rem;
+  border-radius: 0.35rem;
   padding: 0.7rem;
+  height: 2rem;
+  width: 5.7rem;
   border-style: none;
   outline: none;
 }
 .threeButtons__all:hover {
-  -webkit-transform: scale(1.3);
-          transform: scale(1.3);
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
   background-color: #011a2f;
 }
 .threeButtons__search {
   color: white;
   background: darkred;
-  border-radius: 0.7rem;
+  border-radius: 0.35rem;
   padding: 0.7rem;
+  height: 2rem;
+  width: 5.7rem;
   border-style: none;
   outline: none;
 }
 .threeButtons__search:hover {
-  -webkit-transform: scale(1.3);
-          transform: scale(1.3);
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+  background-color: #011a2f;
+}
+.threeButtons__details {
+  color: white;
+  background: darkred;
+  border-radius: 0.35rem;
+  padding: 0.7rem;
+  height: 2rem;
+  width: 5.7rem;
+  border-style: none;
+  outline: none;
+}
+.threeButtons__details:hover {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
   background-color: #011a2f;
 }
 
 .post-form {
   border: #959595 solid 0.001rem;
   border-radius: 1rem;
-  margin-top: 1.75rem;
+  margin-top: -2.1rem;
   -webkit-box-shadow: #959595 0.5rem 0.5rem 1.5rem;
           box-shadow: #959595 0.5rem 0.5rem 1.5rem;
 }
@@ -501,6 +527,10 @@ body {
 .locateIcon {
   cursor: pointer;
   margin-left: -0.7rem;
+}
+
+.login-container {
+  text-align: center;
 }
 
 .myform {
@@ -668,9 +698,9 @@ button {
 }
 
 .profile-logo {
-  margin-left: 13rem;
   margin-top: -2rem;
   width: 17.5rem;
+  margin: 0 auto;
 }
 
 .container {

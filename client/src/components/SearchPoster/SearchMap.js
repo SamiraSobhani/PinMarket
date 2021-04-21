@@ -21,16 +21,7 @@ const options = {
 const libraries = ["places"];
 
 export default function SearchMap(props) {
-  const {
-    coord,
-    setCoord,
-    state,
-    setState,
-    loginStatus,
-    setLoginStatus,
-    zoom,
-    setZoom,
-  } = useContext(appContext);
+  const { coord, setCoord, state, setState, zoom } = useContext(appContext);
   const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
     libraries,
@@ -38,6 +29,7 @@ export default function SearchMap(props) {
 
   const [selectedPoster, setSelectedPoster] = useState(null);
   const mapRef = useRef();
+  const nearPosters = useState(null);
 
   useEffect(() => {
     const listener = (e) => {
