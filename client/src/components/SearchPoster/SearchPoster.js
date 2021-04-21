@@ -106,7 +106,7 @@ function SearchPoster() {
     const myArray = [];
     state.posters.map((poster) => {
       const p1 = [49.328739, -123.15345];
-      const p2 = [poster.latitude, poster.longitude];
+      const p2 = [poster.lat, poster.lng];
       const p2id = poster.id;
       try {
         const lat1 = p1[0] / (180 / Math.PI);

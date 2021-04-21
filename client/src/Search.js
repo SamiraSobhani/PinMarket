@@ -23,7 +23,7 @@ function Search() {
     <appContext.Provider
       value={{ coord, setCoord, state, setState, loginStatus, setLoginStatus }}
     >
-      <Navbar />
+     
       <div className=" search__container container">
         <div>
           {/* <SearchMap />

@@ -17,10 +17,11 @@ body {
   max-height: 7rem;
 }
 .navbar__pin {
-  width: 14rem;
+  width: 9rem;
   height: auto;
 }
 .navbar__logo {
+  text-align: center;
   width: 22rem;
   height: auto;
   margin-left: 1.5rem;
@@ -457,7 +458,7 @@ body {
   text-align: center;
   border: solid 0.3rem #011a2f;
   border-radius: 0.3rem;
-  margin-top: 0.45rem;
+  margin-top: -2.1rem;
 }
 
 .user__container {
@@ -468,7 +469,6 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   color: #011a2f;
-  margin-top: 1.32rem;
 }
 
 .infoWindow__click {
@@ -501,12 +501,6 @@ body {
 .locateIcon {
   cursor: pointer;
   margin-left: -0.7rem;
-}
-
-.login-container {
-  text-align: center;
-  background-image: url("../../../assets/pin1.jpg");
-  background-repeat: no-repeat;
 }
 
 .myform {
@@ -600,54 +594,6 @@ button {
   border-radius: 0.3rem;
 }
 
-.app-header {
-  height: 60px;
-  position: relative;
-  z-index: 10;
-}
-
-.app-title {
-  line-height: 60px;
-  vertical-align: middle;
-  font-size: 1.35em;
-}
-
-.app-branding {
-  float: left;
-}
-
-.app-options {
-  float: right;
-}
-
-.app-nav ul {
-  list-style-position: none;
-  margin: 0;
-  padding: 0;
-}
-
-.app-nav ul li {
-  list-style-type: none;
-  display: inline-block;
-}
-
-.app-nav ul li a {
-  display: inline-block;
-  line-height: 60px;
-  vertical-align: middle;
-  padding-left: 15px;
-  padding-right: 15px;
-  color: rgba(0, 0, 0, 0.65);
-}
-
-.app-nav ul li a:hover {
-  color: #0f96f6;
-}
-
-.app-nav ul li a.active {
-  color: #0f96f6;
-}
-
 .page-not-found {
   max-width: 500px;
   margin: 0 auto;
@@ -672,6 +618,61 @@ button {
   min-width: 160px;
 }
 
+.profile-container {
+  margin-top: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.profile-info {
+  text-align: center;
+}
+
+.profile-info .profile-avatar img {
+  border-radius: 50%;
+  max-width: 250px;
+}
+
+.profile-info .profile-name {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.profile-info .profile-email {
+  font-weight: 400;
+}
+
+.profile-img {
+  min-width: 7rem;
+}
+
+.text-avatar {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 50%;
+  background: #46b5e5;
+  background: linear-gradient(45deg, #46b5e5 1%, #1e88e5 64%, #40baf5 97%);
+  background-image: linear-gradient(45deg, #46b5e5 1%, #1e88e5 64%, #40baf5 97%);
+}
+
+.text-avatar span {
+  line-height: 200px;
+  color: #fff;
+  font-size: 3em;
+}
+
+.profile-logo {
+  margin-left: 13rem;
+  margin-top: -2rem;
+  width: 17.5rem;
+}
+
 .container {
   margin-right: 2rem;
   margin-left: 2rem;
@@ -688,7 +689,7 @@ button {
 }
 
 .myMap {
-  margin-top: 1.75rem;
+  margin-top: -2.2rem;
   height: 27rem;
   width: 33rem;
 }

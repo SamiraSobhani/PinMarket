@@ -77,7 +77,6 @@ export default function Post() {
   }
 
   const handleFormSubmit = (newPoster) => {
-    
     const ACCESS_TOKEN = localStorage.accessToken;
 
     axios
@@ -100,7 +99,7 @@ export default function Post() {
   };
 
   const handleStartDateChange = (date) => {
-    setStartDate(String(date));
+    setStartDate(date);
   };
 
   const handleEndDateChange = (date) => {

@@ -152,7 +152,7 @@ function Home() {
           setZoom,
         }}
       >
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="container">
           <div className="main">
             <PosterForm className="posterForm" />

@@ -21,7 +21,7 @@ function UserPage() {
     <appContext.Provider
       value={{ coord, setCoord, state, setState, loginStatus, setLoginStatus }}
     >
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="user__container container">
         <PostersList className="user__post" />
         <div className="MapButton">

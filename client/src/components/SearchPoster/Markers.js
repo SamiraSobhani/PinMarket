@@ -33,14 +33,14 @@ function Markers(props) {
           key={poster.id}
           animation={window.google.maps.Animation.DROP}
           position={{
-            lat: poster.latitude,
-            lng: poster.longitude,
+            lat: poster.lat,
+            lng: poster.lng,
           }}
           onClick={() => {
             setSelectedPoster(poster);
           }}
           icon={{
-            url: selectedIcon(poster.category_id),
+            url: selectedIcon(poster.category.id),
             scaledSize: new window.google.maps.Size(42, 42),
           }}
         ></Marker>
@@ -51,13 +51,13 @@ function Markers(props) {
             setSelectedPoster(null);
           }}
           position={{
-            lat: selectedPoster.latitude,
-            lng: selectedPoster.longitude,
+            lat: selectedPoster.lat,
+            lng: selectedPoster.lng,
           }}
           onClick={() => {
             setcoord({
-              lat: selectedPoster.latitude,
-              lng: selectedPoster.longitude,
+              lat: selectedPoster.lat,
+              lng: selectedPoster.lng,
             });
           }}
         >

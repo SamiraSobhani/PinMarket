@@ -5,10 +5,8 @@ import { ACCESS_TOKEN } from "../../components/constants";
 export default class PostersList extends Component {
   state = {
     posters: [],
-
   };
 
- 
   getMyPosters() {
     const ACCESS_TOKEN = localStorage.accessToken;
 
@@ -22,7 +20,6 @@ export default class PostersList extends Component {
       })
       .catch((error) => console.log(error));
   }
-
 
   componentDidMount() {
     this.getMyPosters();
@@ -58,8 +55,6 @@ export default class PostersList extends Component {
                 path="/userpage"
                 key={index}
                 eachPoster={item}
-                // clientName={clientName[0].name}
-
                 delete={this.deletePoster}
               />
             ))}

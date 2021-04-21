@@ -8,7 +8,7 @@ function PosterItem(props) {
       <li className="useritems">
         <div className="useritem">
           <h4>{props.eachPoster.title}</h4>
-          {/* <p>{props.clientName}</p> */}
+          <p>{props.eachPoster.owner.name}</p>
           <div>
             <p>
               {props.eachPoster.category.name} for

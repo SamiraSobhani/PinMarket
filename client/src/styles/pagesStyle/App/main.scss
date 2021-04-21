@@ -13,8 +13,8 @@
 @import "./map";
 @import "./myFont.css";
 @import "../Login/login";
-// @import "../Home/home";
-// @import "../Signup/signup";
+@import "../Profile/Profile.scss";
+
 
 .container {
   margin-right: 2rem;
@@ -26,7 +26,7 @@
   justify-content: space-between;
 }
 .myMap {
-  margin-top: 1.75rem;
+  margin-top: -2.2rem;
   height: 27rem;
   width: 33rem;
 }
