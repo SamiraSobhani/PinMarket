@@ -9,11 +9,11 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
 
 function SearchPoster() {
-  const { coord, setCoord, state, setState } = useContext(appContext);
+  const { coord, state, setState, nearPosters, setnearPosters } = useContext(
+    appContext
+  );
   const [value, setValue] = useState(0);
-  const [nearPosters, setnearPosters] = useState([]);
-  const [category_id, setCategory] = useState("");
-  console.log(state.posters);
+  const [category, setCategory] = useState("");
 
   const distBtw2Ptss = (p1, p2, p2id) => {
     const myArray = [];
@@ -70,8 +70,12 @@ function SearchPoster() {
   const categorisedPosters = () => {
     const res = [];
     state.posters.map((poster) => {
-      console.log(category_id.id);
-      if (poster.category.id == category_id.id) {
+      if (category) {
+        if (poster.category.id == category.id) {
+          res.push(poster);
+        }
+      }
+      if (!category) {
         res.push(poster);
       }
     });
@@ -82,40 +86,49 @@ function SearchPoster() {
 
   return (
     <div className="map__filter">
+      <div className="filter">
+        <div className="filter__distance">
+          <p className="filter__text">Filter by Distance:</p>
+          <div className="slider">
+            <InputRange
+              formatLabel={(value) => `${value}KM`}
+              maxValue={40}
+              minValue={0}
+              value={value}
+              onChange={(value) => {
+                setValue(parseInt(value));
+                distBtw2Ptss();
+                setState((prevState) => ({
+                  ...prevState,
+                  posters: [...prevState.posters, nearPosters],
+                }));
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="filter__category">
+          <p className="filter__text">Filter by Category:</p>
+          <div className="category__filter">
+            <Autocomplete
+              onChange={(event, value) => setCategory(value)}
+              id="category-search"
+              name="category-search"
+              value={state.categories.id}
+              options={Object.values(state.categories)}
+              getOptionLabel={(option) => option.name}
+              style={{ width: 280, margin: 8 }}
+              renderInput={(params) => <TextField {...params} label="" />}
+            />
+            <button className="filter__button" onClick={categorisedPosters}>
+              Set Filter
+            </button>
+          </div>
+        </div>
+      </div>
       <div>
         <SearchMap nearPosters={nearPosters} />
         <MyButtons />
-      </div>
-      <div className="filter">
-        <div className="slider">
-          <InputRange
-            formatLabel={(value) => `${value}KM`}
-            maxValue={40}
-            minValue={0}
-            value={value}
-            onChange={(value) => {
-              setValue(parseInt(value));
-              distBtw2Ptss();
-              setState((prevState) => ({
-                ...prevState,
-                posters: [...prevState.posters, nearPosters],
-              }));
-            }}
-          />
-        </div>
-        <div className="category__filter">
-          <Autocomplete
-            onChange={(event, value) => setCategory(value)}
-            id="category-search"
-            name="category-search"
-            value={state.categories.id}
-            options={Object.values(state.categories)}
-            getOptionLabel={(option) => option.name}
-            style={{ width: 250, margin: 8 }}
-            renderInput={(params) => <TextField {...params} label="Category" />}
-          />
-        </div>
-        <button onClick={categorisedPosters}>Set Filter</button>
       </div>
     </div>
   );

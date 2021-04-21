@@ -1,8 +1,8 @@
 .search {
   color: $darkBlue;
   border-radius: 0.5rem;
-  width: 80%;
-  height: 42%;
+  width: 45%;
+  // height: 42%;
   padding-left: 1rem;
   background-color: white;
   display: flex;
@@ -54,4 +54,7 @@
   outline: none;
   width: 2rem;
   height: 13.5rem;
+}
+.details__buttons {
+  width: 45%;
 }

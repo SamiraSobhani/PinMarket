@@ -10,18 +10,18 @@ import MyButtons from "./components/ThreeButton/MyButtons";
 import Navbar from "./components/Navbar/NavHeader";
 
 function Search() {
-  const { id } = useParams();
+  // const { id } = useParams();
   const {
     coord,
     setCoord,
     state,
     setState,
-    loginStatus,
-    setLoginStatus,
+    nearPosters,
+    setnearPosters,
   } = useApplicationData();
   return (
     <appContext.Provider
-      value={{ coord, setCoord, state, setState, loginStatus, setLoginStatus }}
+      value={{ coord, setCoord, state, setState, nearPosters, setnearPosters }}
     >
       <div className=" search__container container">
         <div>

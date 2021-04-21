@@ -12,9 +12,6 @@ function MyButtons() {
       <Link to="/posters/search">
         <button className="threeButtons__search">Search</button>
       </Link>
-      <Link to="/posters/details">
-        <button className="threeButtons__details">Details</button>
-      </Link>
     </div>
   );
 }

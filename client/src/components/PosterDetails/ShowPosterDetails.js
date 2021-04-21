@@ -7,6 +7,7 @@ import { appContext } from "../appContext";
 import DateFnsUtils from "@date-io/date-fns";
 const { format } = require("date-fns");
 import moment from "moment";
+
 export default class ShowPosterDetails extends Component {
   state = {
     categoryName: "",
@@ -28,7 +29,6 @@ export default class ShowPosterDetails extends Component {
         },
       })
       .then((res) => {
-        console.log(res);
 
         // const mydate = this.state.response.singlePoster.end_date;
         // // console.log(parseISOString(mydate));

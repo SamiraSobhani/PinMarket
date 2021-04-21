@@ -6,8 +6,8 @@ import { appContext } from "./../appContext";
 import Markers from "./Markers";
 
 const mapContainerStyle = {
-  width: "40vw",
-  height: "62.5vh",
+  width: "85vw",
+  height: "60.5vh",
 };
 
 //Google map options

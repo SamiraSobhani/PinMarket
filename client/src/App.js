@@ -68,7 +68,7 @@ import UserPage from "./UserPage";
 import Search from "./Search";
 import Home from "./Home";
 import { ACCESS_TOKEN } from "./components/constants";
-import Details from './Details';
+import Details from "./Details";
 
 class App extends Component {
   constructor(props) {
@@ -129,8 +129,8 @@ class App extends Component {
         <div className="app-body">
           <Switch>
             <Route path="/posters" component={UserPage} exact />
-            <Route path="/posters/search/:id" component={Search} />
             <Route path="/posters/search" component={Search} />
+            <Route path="/posters/details/:id" component={Details} />
             <Route path="/posters/details" component={Details} />
             <Route path="/posters/userpage" component={Home} />
             <Route exact path="/" component={Signup}></Route>

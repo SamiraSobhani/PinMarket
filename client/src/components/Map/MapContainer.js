@@ -113,7 +113,7 @@ export default function MapContainer() {
           >
             <a
               className="infoWindow__click"
-              href={`http://localhost:3000/posters/search/${selectedPoster.id}`}
+              href={`http://localhost:3000/posters/details/${selectedPoster.id}`}
             >
               <div>
                 <h2>{selectedPoster.title}</h2>
