@@ -34,8 +34,9 @@
   padding-left: 1rem;
   background-color: white;
   &__profilePic {
-    width: 1.5rem;
+    width: 1rem;
     height: auto;
+    border: solid $darkBlue 0.04rem;
   }
 }
 .chat-detail {

@@ -126,13 +126,14 @@ body {
 }
 
 .slider {
-  margin: 2rem 0 1.5rem 3rem;
-  padding: 0.25rem;
+  margin: 2rem 0 4rem 3rem;
+  padding: 0.33rem;
   border: solid #011a2f 0.1rem;
-  width: 80%;
+  width: 75%;
 }
 
-.search__container {
+.category__filter {
+  margin-left: 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -157,9 +158,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .search {
@@ -194,17 +196,48 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .filter {
-  width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: -2.4rem;
+  margin-bottom: 3.5rem;
+  width: 98%;
+  border: solid 0.3rem #011a2f;
+  height: 150px;
+}
+.filter__button {
+  margin-left: 1rem;
+}
+.filter__text {
+  color: #011a2f;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+.filter__distance {
+  width: 50%;
+}
+.filter__category {
+  width: 50%;
 }
 
 .search {
   color: #011a2f;
   border-radius: 0.5rem;
-  width: 80%;
-  height: 42%;
+  width: 45%;
   padding-left: 1rem;
   background-color: white;
   display: -webkit-box;
@@ -267,6 +300,10 @@ body {
   outline: none;
   width: 2rem;
   height: 13.5rem;
+}
+
+.details__buttons {
+  width: 45%;
 }
 
 .chat {
@@ -381,7 +418,7 @@ body {
           justify-content: space-between;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  width: 97%;
+  width: 90%;
 }
 .threeButtons__post {
   color: white;
@@ -389,7 +426,7 @@ body {
   border-radius: 0.35rem;
   padding: 0.7rem;
   height: 2rem;
-  width: 5.7rem;
+  width: 7.5rem;
   border-style: none;
   outline: none;
 }
@@ -404,7 +441,7 @@ body {
   border-radius: 0.35rem;
   padding: 0.7rem;
   height: 2rem;
-  width: 5.7rem;
+  width: 7.5rem;
   border-style: none;
   outline: none;
 }
@@ -419,7 +456,7 @@ body {
   border-radius: 0.35rem;
   padding: 0.7rem;
   height: 2rem;
-  width: 5.7rem;
+  width: 7.5rem;
   border-style: none;
   outline: none;
 }
@@ -434,7 +471,7 @@ body {
   border-radius: 0.35rem;
   padding: 0.7rem;
   height: 2rem;
-  width: 5.7rem;
+  width: 7.5rem;
   border-style: none;
   outline: none;
 }
@@ -741,7 +778,8 @@ button {
   min-width: 250px;
 }
 
-.s-alert-close::before, .s-alert-close::after {
+.s-alert-close::before,
+.s-alert-close::after {
   width: 2px;
 }
 

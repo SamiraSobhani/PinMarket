@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import profilePic from "../../assets/Icons/Mr.png";
-import ModalApply from "../SearchPoster/ModalApply";
+import ModalApply from "./ModalApply";
 import { useContext } from "react";
 import { appContext } from "../appContext";
 import DateFnsUtils from "@date-io/date-fns";
@@ -23,13 +23,12 @@ export default class ShowPosterDetails extends Component {
   getData() {
     const ACCESS_TOKEN = localStorage.accessToken;
     axios
-      .get(`http://localhost:8080/posters?id=${this.props.id}`, {
+      .get(`http://localhost:8080/poster?id=${this.props.id}`, {
         headers: {
           authorization: `Bearer ${ACCESS_TOKEN}`,
         },
       })
       .then((res) => {
-
         // const mydate = this.state.response.singlePoster.end_date;
         // // console.log(parseISOString(mydate));
         // console.log(moment(mydate).format("YYYY-MM-DD"));
