@@ -1,4 +1,9 @@
 import { API_BASE_URL, ACCESS_TOKEN } from "../constants";
+import {
+  GoogleReCaptchaProvider,
+  useGoogleReCaptcha,
+} from "react-google-recaptcha-v3";
+
 const request = (options) => {
   const headers = new Headers({
     "Content-Type": "application/json",
@@ -10,6 +15,17 @@ const request = (options) => {
       "Bearer " + localStorage.getItem(ACCESS_TOKEN)
     );
   }
+  const YourReCaptchaComponent = () => {
+    const { executeRecaptcha } = useGoogleReCaptcha();
+    const token = executeRecaptcha("login_page");
+
+    return;
+  };
+    <GoogleReCaptchaProvider reCaptchaKey={process.env.CLIENT_SITE_KEY}>
+      <YourReCaptchaComponent />
+    </GoogleReCaptchaProvider>,
+    document.getElementById("app")
+  
 
   const defaults = { headers: headers };
   options = Object.assign({}, defaults, options);

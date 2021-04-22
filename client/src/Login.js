@@ -4,7 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import googleLogo from "./assets/google-logo.png";
 import Alert from "react-s-alert";
 import { GOOGLE_AUTH_URL, ACCESS_TOKEN } from "./components/constants";
-
+// 6Lf7NLQaAAAAAAaI7qc3hNIB75a_3c7cpBMailtg
 class Login extends Component {
   componentDidMount() {
     // If the OAuth2 login encounters an error, the user is redirected to the /login page with an error.

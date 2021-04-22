@@ -76,7 +76,7 @@ import React from "react";
 import axios from "axios";
 import { Component } from "react";
 import MessageItem from "./MessageItem";
-
+import AddMessage from "./AddMessage";
 class Chat extends Component {
   state = {
     parentMessage: [],
@@ -104,7 +104,7 @@ class Chat extends Component {
   render() {
     return (
       <div>
-        
+        <AddMessage />
         <ul className="posters__list">
           {this.state.parentMessage.map((message, index) => (
             <MessageItem key={index} parentMessage={message} />
