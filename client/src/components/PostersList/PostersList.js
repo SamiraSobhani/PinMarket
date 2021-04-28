@@ -32,13 +32,7 @@ export default class PostersList extends Component {
         headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
       })
       .then((response) => {
-        // window.location.reload(false);
-        const respobj = Object.assign({}, this.state, {
-          posters: response.data,
-        });
-        this.setState({
-          posters: respobj,
-        });
+        window.location.reload(false);
         console.log("inside delete fun", response);
       })
       .catch((error) => console.log(error));
@@ -48,7 +42,7 @@ export default class PostersList extends Component {
     return (
       <div className="posters__main">
         <div className="posters">
-          <h2 className="posters__header">Posted Posters</h2>
+          <h2 className="posters__header">My Posters</h2>
           <ul className="posters__list">
             {this.state.posters.map((item, index) => (
               <PosterItem

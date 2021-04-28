@@ -4,7 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import googleLogo from "./assets/google-logo.png";
 import Alert from "react-s-alert";
 import { GOOGLE_AUTH_URL, ACCESS_TOKEN } from "./components/constants";
-// 6Lf7NLQaAAAAAAaI7qc3hNIB75a_3c7cpBMailtg
+
 class Login extends Component {
   componentDidMount() {
     // If the OAuth2 login encounters an error, the user is redirected to the /login page with an error.
@@ -65,13 +65,11 @@ class SocialLogin extends Component {
 }
 
 class LoginForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: "",
-    };
-  }
+  state = {
+    email: "",
+    password: "",
+    recaptchaToken: "",
+  };
 
   handleInputChange = (event) => {
     const target = event.target;
@@ -83,25 +81,55 @@ class LoginForm extends Component {
     });
   };
 
+  getToken = (loginRequest) => {
+    window.grecaptcha.ready(function () {
+      window.grecaptcha
+        .execute("6Lf7NLQaAAAAAAaI7qc3hNIB75a_3c7cpBMailtg", {
+          action: "submit",
+        })
+        .then(function (token) {
+          // Send form value as well as token to the server
+          login(loginRequest, token)
+            .then((response) => {
+              localStorage.setItem(ACCESS_TOKEN, response.accessToken);
+              console.log(response.accessToken);
+              console.log(localStorage.accessToken);
+              Alert.success("You're successfully logged in!");
+              this.props.history.push("/posters");
+            })
+            .catch((error) => {
+              error;
+              // (error && error.message) ||
+              //   "Oops! Something went wrong. Please try again!"
+            });
+          // console.log(token);
+
+          // return token;
+        });
+    });
+  };
   handleSubmit = (event) => {
     event.preventDefault();
 
     const loginRequest = Object.assign({}, this.state);
-
-    login(loginRequest)
-      .then((response) => {
-        localStorage.setItem(ACCESS_TOKEN, response.accessToken);
-        console.log(response.accessToken);
-        console.log(localStorage.accessToken);
-        Alert.success("You're successfully logged in!");
-        this.props.history.push("/posters");
-      })
-      .catch((error) => {
-        Alert.error(
-          (error && error.message) ||
-            "Oops! Something went wrong. Please try again!"
-        );
-      });
+    const recaptchaToken = this.getToken(loginRequest);
+    setTimeout(() => {
+      this.props.history.push("/posters");
+    }, 1000);
+    // login(loginRequest, recaptchaToken)
+    //   .then((response) => {
+    //     localStorage.setItem(ACCESS_TOKEN, response.accessToken);
+    //     console.log(response.accessToken);
+    //     console.log(localStorage.accessToken);
+    //     Alert.success("You're successfully logged in!");
+    //     this.props.history.push("/posters");
+    //   })
+    //   .catch((error) => {
+    //     Alert.error(
+    //       (error && error.message) ||
+    //         "Oops! Something went wrong. Please try again!"
+    //     );
+    //   });
   };
 
   render() {
@@ -130,7 +158,12 @@ class LoginForm extends Component {
           />
         </div>
         <div className="form-item">
-          <button type="submit" className="btn btn-block btn-primary">
+          <button
+            data-action="submit"
+            // onClick={(e) => onFormSubmit(e)}
+            type="submit"
+            className="btn btn-block btn-primary"
+          >
             Login
           </button>
         </div>

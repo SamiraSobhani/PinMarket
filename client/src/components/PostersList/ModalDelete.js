@@ -35,9 +35,9 @@ export default class posterAction extends Component {
           onRequestClose={this.closeModal}
         >
           <div className="modal__container">
-            <button onClick={this.closeModal}>
+            {/* <button onClick={this.closeModal}>
               <img className="modal__icon" src={close} alt="close"></img>
-            </button>
+            </button> */}
             <div className="modal__content">
               <p className="modal__font lg">
                 Please confirm that you'd like to delete this poster from the

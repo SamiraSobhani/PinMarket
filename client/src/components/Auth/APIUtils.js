@@ -15,17 +15,25 @@ const request = (options) => {
       "Bearer " + localStorage.getItem(ACCESS_TOKEN)
     );
   }
-  const YourReCaptchaComponent = () => {
-    const { executeRecaptcha } = useGoogleReCaptcha();
-    const token = executeRecaptcha("login_page");
 
-    return;
-  };
-    <GoogleReCaptchaProvider reCaptchaKey={process.env.CLIENT_SITE_KEY}>
-      <YourReCaptchaComponent />
-    </GoogleReCaptchaProvider>,
-    document.getElementById("app")
-  
+  const defaults = { headers: headers };
+  options = Object.assign({}, defaults, options);
+
+  return fetch(options.url, options).then((response) =>
+    response.json().then((json) => {
+      if (!response.ok) {
+        return Promise.reject(json);
+      }
+      return json;
+    })
+  );
+};
+
+const loginRequestSender = (options, token) => {
+  const headers = new Headers({
+    "Content-Type": "application/json",
+    recaptchaToken: token,
+  });
 
   const defaults = { headers: headers };
   options = Object.assign({}, defaults, options);
@@ -51,12 +59,17 @@ export function getCurrentUser() {
   });
 }
 
-export function login(loginRequest) {
-  return request({
-    url: API_BASE_URL + "/auth/login",
-    method: "POST",
-    body: JSON.stringify(loginRequest),
-  });
+export function login(loginRequest, recaptchaToken) {
+  console.log("TR IN LOGIN FUNCTION IS: " + recaptchaToken);
+
+  return loginRequestSender(
+    {
+      url: API_BASE_URL + "/auth/login",
+      method: "POST",
+      body: JSON.stringify(loginRequest),
+    },
+    recaptchaToken
+  );
 }
 
 export function signup(signupRequest) {

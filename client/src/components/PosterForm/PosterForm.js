@@ -111,7 +111,7 @@ export default function Post() {
 
   return (
     <div className="post-form">
-      <h3 className="post-form__header">Post a New Poster</h3>
+      <h3 className="post-form__header">Create a New Poster</h3>
       <div className="post-form__content">
         <div className="post-form-container">
           <TextField

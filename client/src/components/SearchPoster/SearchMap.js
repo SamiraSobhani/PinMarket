@@ -7,7 +7,7 @@ import Markers from "./Markers";
 
 const mapContainerStyle = {
   width: "85vw",
-  height: "60.5vh",
+  height: "53.5vh",
 };
 
 //Google map options

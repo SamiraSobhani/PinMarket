@@ -22,7 +22,8 @@ function AddMessage() {
         },
       })
       .then((res) => {
-        console.log(newMessage);
+        window.location.reload(false);
+       
       })
       .catch((error) => console.log(error));
   };

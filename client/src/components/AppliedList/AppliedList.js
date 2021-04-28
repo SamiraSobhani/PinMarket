@@ -19,8 +19,6 @@ export class AppliedList extends Component {
       .catch((error) => console.log(error));
   }
 
-  
-
   // getClientNameById(id) {
   //   return this.state.response.users.find((user) => user.id === id);
   // }
@@ -32,14 +30,13 @@ export class AppliedList extends Component {
   render() {
     return (
       <div>
-        <h2 className="posters__header">Applied List</h2>
+        <h2 className="posters__header">Applied Poster</h2>
         <ul className={"posters__list"}>
           {this.state.posters.map((item, index) => (
             <PosterItem
               key={index}
               eachPoster={item}
               // clientName={this.getClientNameById(item.client_id).name}
-             
             />
           ))}
         </ul>
