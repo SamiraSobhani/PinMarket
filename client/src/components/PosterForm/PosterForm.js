@@ -1,3 +1,19 @@
+/*global google*/
+
+import Typography from "@material-ui/core/Typography";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
+import {
+  GoogleMap,
+  useJsApiLoader,
+  InfoWindow,
+  Marker,
+} from "@react-google-maps/api";
+import usePlacesAutocomplete, {
+  getGeocode,
+  getLatLng,
+} from "use-places-autocomplete";
+import useOnclickOutside from "react-cool-onclickoutside";
+
 import { useState, useContext } from "react";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -45,21 +61,6 @@ export default function Post() {
       category: category_id,
     };
 
-    // "id": 4,
-    // "title": "DJ for our wedding",
-    // "description": "need a great DJ",
-    // "price": 100,
-    // "payType": "hourly",
-    // "startDate": "2021-09-09T00:00:00.000+0000",
-    // "endDate": "2021-09-09T00:00:00.000+0000",
-    // "lat": 49.328465,
-    // "lng": -123.153534,
-    // "isActive": true,
-    // "category": {
-    //     "id": 2,
-    //     "name": "Driver",
-    //     "icon": "/driver.svg"
-    // }
     if (
       title === "" ||
       description === "" ||

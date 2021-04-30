@@ -24,7 +24,10 @@ export default class PostersList extends Component {
   componentDidMount() {
     this.getMyPosters();
   }
-
+  componentDidUpdate() {
+    this.getMyPosters();
+    this.deletePoster();
+  }
   deletePoster = (id) => {
     const ACCESS_TOKEN = localStorage.accessToken;
     axios
@@ -32,7 +35,8 @@ export default class PostersList extends Component {
         headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
       })
       .then((response) => {
-        window.location.reload(false);
+        getMyPosters();
+        // window.location.reload(false);
         console.log("inside delete fun", response);
       })
       .catch((error) => console.log(error));

@@ -8,7 +8,7 @@ import mapStyle from "./mapStyle";
 import Locate from "./Locate";
 import { useRef, useCallback, useContext, useEffect, useState } from "react";
 import { appContext } from "./../appContext";
-
+import HomePageMarkers from "./HomePageMarkers"
 const mapContainerStyle = {
   width: "40vw",
   height: "62.5vh",
@@ -77,7 +77,8 @@ export default function MapContainer() {
         }}
       >
         <Locate panTo={panTo} />
-        {state.posters.map((poster) => (
+        <HomePageMarkers/>
+        {/* {state.posters.map((poster) => (
           <Marker
             key={poster.id}
             animation={window.google.maps.Animation.DROP}
@@ -121,7 +122,7 @@ export default function MapContainer() {
               </div>
             </a>
           </InfoWindow>
-        )}
+        )} */}
       </GoogleMap>
     </>
   ) : (
