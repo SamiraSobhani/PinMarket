@@ -33,23 +33,23 @@ export default function MapContainer() {
   const [selectedPoster, setSelectedPoster] = useState(null);
   const mapRef = useRef();
 
-  useEffect(() => {
-    const listener = (e) => {
-      if (e.key === "Escape") {
-        setSelectedPoster(null);
-      }
-    };
-    window.addEventListener("keydown", listener);
+  // useEffect(() => {
+  //   const listener = (e) => {
+  //     if (e.key === "Escape") {
+  //       setSelectedPoster(null);
+  //     }
+  //   };
+  //   window.addEventListener("keydown", listener);
 
-    return () => {
-      window.removeEventListener("keydown", listener);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("keydown", listener);
+  //   };
+  // }, []);
 
-  function selectedIcon(id) {
-    const SC = state.categories.find((category) => category.id === id);
-    return SC.icon;
-  }
+  // function selectedIcon(id) {
+  //   const SC = state.categories.find((category) => category.id === id);
+  //   return SC.icon;
+  // }
 
   const panTo = useCallback(({ lat, lng }) => {
     if (mapRef.current) {

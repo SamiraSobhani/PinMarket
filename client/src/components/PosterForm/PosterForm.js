@@ -32,6 +32,7 @@ import {
 import "date-fns";
 import { appContext } from "./../appContext";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Post() {
   const [title, setTitle] = useState("");
@@ -211,12 +212,11 @@ export default function Post() {
           </MuiPickersUtilsProvider>
           <br />
           <span>{error}</span>
-
           <button
             onClick={(event) => validate(event)}
             className="post-form__button"
           >
-            POST
+            <Link to="/posters">POST</Link>
           </button>
         </div>
       </div>
