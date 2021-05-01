@@ -15,8 +15,10 @@ export default class PostersList extends Component {
         headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
       })
       .then((res) => {
-        console.log("inside getmyposters", res);
-        this.setState({ posters: res.data });
+        console.log("inside getMyposters", res);
+        if (res !== null) {
+          this.setState({ posters: res.data });
+        }
       })
       .catch((error) => console.log(error));
   }

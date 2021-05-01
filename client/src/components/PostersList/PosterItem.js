@@ -2,7 +2,7 @@ import React from "react";
 import ModalDelete from "./ModalDelete.js";
 
 function PosterItem(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <div>
       <li className="useritems">
