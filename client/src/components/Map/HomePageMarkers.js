@@ -24,15 +24,11 @@ class Markers extends Component {
       })
       .catch((error) => console.log(error));
   }
-
-  //   selectedIcon = (id) => {
-  //     console.log("marker", this.state.posters);
-  //     const SC = this.state.posters.find((category) => category.id === id);
-  //     return SC.icon;
-  //   };
-  componentDidMount() {
+  componentWillMount() {
     this.getPosters();
-
+  }
+  componentDidMount() {
+   
     const listener = (e) => {
       if (e.key === "Escape") {
         this.setState({ SelectedPoster: null });
@@ -44,9 +40,9 @@ class Markers extends Component {
       window.removeEventListener("keydown", listener);
     };
   }
-    componentDidUpdate() {
-      this.getPosters();
-    }
+//   componentDidUpdate() {
+//     this.getPosters();
+//   }
 
   // function Markers(props) {
   //   const { coord, setCoord, state, setState } = useContext(appContext);
