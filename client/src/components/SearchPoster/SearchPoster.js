@@ -128,7 +128,7 @@ function SearchPoster() {
       </div>
       <div>
         <SearchMap nearPosters={nearPosters} />
-        <MyButtons />
+        <MyButtons search="search" />
       </div>
     </div>
   );

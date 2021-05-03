@@ -26,7 +26,7 @@ function UserPage() {
         <PostersList className="user__post" />
         <div className="MapButton">
           <MapContainer className="user__map" />
-          <MyButtons />
+          <MyButtons allActivity="all" />
         </div>
         <AppliedList className="user__apply" />
       </div>

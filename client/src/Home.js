@@ -38,7 +38,7 @@ function Home() {
             <PosterForm className="posterForm" />
             <div className="MapButton">
               <MapContainer className="map" />
-              <MyButtons />
+              <MyButtons myPost="post" />
             </div>
           </div>
         </div>
