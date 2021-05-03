@@ -19,9 +19,19 @@ export class AppliedList extends Component {
       .catch((error) => console.log(error));
   }
 
-  // getClientNameById(id) {
-  //   return this.state.response.users.find((user) => user.id === id);
-  // }
+  deletePoster = (id) => {
+    const ACCESS_TOKEN = localStorage.accessToken;
+    axios
+      .delete(`http://localhost:8080/poster?id=${id}`, {
+        headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
+      })
+      .then((response) => {
+        this.getMyAppliedPosters();
+        // window.location.reload(false);
+        console.log("inside delete applied", response);
+      })
+      .catch((error) => console.log(error));
+  };
 
   componentDidMount() {
     this.getMyAppliedPosters();
@@ -36,7 +46,7 @@ export class AppliedList extends Component {
             <PosterItem
               key={index}
               eachPoster={item}
-              // clientName={this.getClientNameById(item.client_id).name}
+              delete={this.deletePoster}
             />
           ))}
         </ul>

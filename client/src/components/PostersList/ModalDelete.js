@@ -41,12 +41,14 @@ export default class posterAction extends Component {
             <div className="modal__content">
               <p className="modal__font lg">
                 Please confirm that you'd like to delete this poster from the
-                list.
-                <br /> You won't be able to undo this action.
+                list. You won't be able to undo this action.
               </p>
             </div>
             <div className="modal__button-container">
-              <button className="modal__button cancelButton" onClick={this.closeModal}>
+              <button
+                className="modal__button cancelButton"
+                onClick={this.closeModal}
+              >
                 Cancel
               </button>
 

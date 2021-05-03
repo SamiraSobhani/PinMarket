@@ -24,14 +24,12 @@ class Markers extends Component {
       })
       .catch((error) => console.log(error));
   }
-  componentWillMount() {
-    this.getPosters();
-  }
+
   componentDidMount() {
-   
+    this.getPosters();
     const listener = (e) => {
       if (e.key === "Escape") {
-        this.setState({ SelectedPoster: null });
+        this.setState({ selectedPoster: null });
       }
     };
     window.addEventListener("keydown", listener);
@@ -40,32 +38,20 @@ class Markers extends Component {
       window.removeEventListener("keydown", listener);
     };
   }
-//   componentDidUpdate() {
-//     this.getPosters();
-//   }
+  componentDidUpdate(previousState) {
+    const ACCESS_TOKEN = localStorage.accessToken;
 
-  // function Markers(props) {
-  //   const { coord, setCoord, state, setState } = useContext(appContext);
-  //   const [selectedPoster, setSelectedPoster] = useState(null);
+    axios
+      .get("http://localhost:8080/posters/all", {
+        headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
+      })
+      .then((res) => {
+        if (previousState.posters !== res.data) {
+          this.setState({ posters: res.data });
+        }
+      });
+  }
 
-  //   function selectedIcon(id) {
-  //     console.log("marker", state.posters);
-  //     const SC = state.categories.find((category) => category.id === id);
-  //     return SC.icon;
-  //   }
-
-  //   useEffect(() => {
-  //     const listener = (e) => {
-  //       if (e.key === "Escape") {
-  //         setSelectedPoster(null);
-  //       }
-  //     };
-  //     window.addEventListener("keydown", listener);
-
-  //     return () => {
-  //       window.removeEventListener("keydown", listener);
-  //     };
-  //   }, []);
   render() {
     return (
       <div>
@@ -78,28 +64,32 @@ class Markers extends Component {
               lng: poster.lng,
             }}
             onClick={() => {
-              this.setState({ SelectedPoster: poster });
+              this.setState({ selectedPoster: poster });
             }}
             icon={{
               url: poster.category.icon,
               scaledSize: new window.google.maps.Size(42, 42),
+              
             }}
           ></Marker>
         ))}
         {this.state.selectedPoster && (
           <InfoWindow
             onCloseClick={() => {
-              this.setState({ SelectedPoster: null });
+              this.setState({ selectedPoster: null });
             }}
             position={{
               lat: selectedPoster.lat,
               lng: selectedPoster.lng,
             }}
+            onClick={() => {
+              alert("hello");
+            }}
             // onClick={() => {
-            //   setcoord({
-            //     lat: selectedPoster.lat,
-            //     lng: selectedPoster.lng,
-            //   });
+            // //   setcoord({
+            // //     lat: selectedPoster.lat,
+            // //     lng: selectedPoster.lng,
+            // //   });
             // }}
           >
             <a

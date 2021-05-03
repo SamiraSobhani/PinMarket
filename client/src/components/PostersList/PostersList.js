@@ -23,12 +23,10 @@ export default class PostersList extends Component {
       .catch((error) => console.log(error));
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getMyPosters();
   }
-  // componentDidUpdate() {
-  //   this.deletePoster();
-  // }
+
   deletePoster = (id) => {
     const ACCESS_TOKEN = localStorage.accessToken;
     axios

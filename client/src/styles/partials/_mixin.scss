@@ -1,25 +1,25 @@
 @mixin tablet {
-    @media (min-width: $tablet) {
-      @content;
-    }
+  @media (min-width: $tablet) {
+    @content;
   }
-  @mixin desktop {
-    @media (min-width: $desktop) {
-      @content;
-    }
+}
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
   }
-  @mixin mybutton {
-    color: $white;
-    background: $darkred;
-    border-radius: 0.35rem;
-    padding: 0.7rem;
-    height: 2rem;
-    width: 7.5rem;
-    border-style: none;
-    outline: none;
-    &:hover {
-      transform: scale(1.25);
-      background-color: $darkBlue;
-    }
-      
+}
+@mixin mybutton {
+  color: $white;
+  background: $darkBlue;
+  border-radius: 0.35rem;
+  padding: 0.7rem;
+  height: 2rem;
+  width: 7.5rem;
+  border-style: none;
+  outline: none;
+  &:hover {
+    transform: scale(1.25);
+    background-color: rgba(28, 128, 175, 0.883);
   }
+
+}
