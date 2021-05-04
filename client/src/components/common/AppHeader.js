@@ -16,7 +16,7 @@ class AppHeader extends Component {
 
         <div className="app-options">
           <h2 className="navbar__welcome ">
-            <img src={this.props.currentUserImage}></img>Welcome ,{" "}
+            <img className="navbar__image" src={this.props.currentUserImage}></img>Welcome ,{" "}
             {this.props.currentUserName}
           </h2>
           <nav className="app-nav">

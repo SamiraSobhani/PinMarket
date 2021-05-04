@@ -26,6 +26,8 @@ class App extends Component {
       authenticated: false,
       currentUser: {},
       loading: false,
+      userName: "",
+      userImage: "",
     };
   }
 
@@ -41,6 +43,8 @@ class App extends Component {
           currentUser: response,
           authenticated: true,
           loading: false,
+          userName: response.name,
+          userImage: response.imageUrl,
         });
       })
       .catch((error) => {
@@ -52,6 +56,7 @@ class App extends Component {
 
   handleLogout = () => {
     localStorage.removeItem(ACCESS_TOKEN);
+    window.location.replace("/login");
     this.setState({
       authenticated: false,
       currentUser: null,
@@ -67,16 +72,15 @@ class App extends Component {
     if (this.state.loading) {
       return <LoadingIndicator />;
     }
-    const userName = this.state.currentUser.name;
-const userImage=this.state.currentUser.imageUrl;
+
     return (
       <div className="app">
         <div className="app-top-box">
           <AppHeader
             authenticated={this.state.authenticated}
             onLogout={this.handleLogout}
-            currentUserName={userName}
-            currentUserImage={userImage}
+            currentUserName={this.state.userName}
+            currentUserImage={this.state.userImage}
           />
         </div>
         <div className="app-body">

@@ -4,10 +4,16 @@
   display: flex;
   justify-content: space-between;
   height: 11rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 .app-options {
   float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .app-nav ul {
@@ -26,9 +32,8 @@
 .app-nav ul li a {
   display: inline-block;
   line-height: 60px;
-  // padding-left: 0.5rem;
-  margin-top: 3rem;
-  padding-right: 0.7rem;
+  padding-right: 0.35rem;
+  padding-left: 0.35rem;
   color: $darkBlue;
   font-size: 0.9rem;
   font-weight: 600;
