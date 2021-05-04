@@ -5,6 +5,8 @@ import logo from "../../assets/FinalLogo.svg";
 import Pin from "../../assets/pin1.jpg";
 class AppHeader extends Component {
   render() {
+    const currentUser = this.props;
+    console.log(this.props);
     return (
       <header className="app-header">
         <img className="navbar__pin" src={Pin}></img>
@@ -13,6 +15,10 @@ class AppHeader extends Component {
         </Link>
 
         <div className="app-options">
+          <h2 className="navbar__welcome ">
+            <img src={this.props.currentUserImage}></img>Welcome ,{" "}
+            {this.props.currentUserName}
+          </h2>
           <nav className="app-nav">
             {this.props.authenticated ? (
               <ul>

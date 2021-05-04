@@ -1,54 +1,3 @@
-// import React from "react";
-// import MapContainer from "./components/Map/MapContainer";
-// import PosterForm from "./components/PosterForm/PosterForm";
-// import { appContext } from "./components/appContext";
-// import useApplicationData from "./hooks/useApplicationData";
-// import MyButtons from "./components/ThreeButton/MyButtons";
-// import Navbar from "./components/Navbar/NavHeader";
-
-// function App() {
-//   const {
-//     coord,
-//     setCoord,
-//     state,
-//     setState,
-//     loginStatus,
-//     setLoginStatus,
-//     zoom,
-//     setZoom,
-//   } = useApplicationData();
-
-//   return (
-
-//       <appContext.Provider
-//         value={{
-//           coord,
-//           setCoord,
-//           state,
-//           setState,
-//           loginStatus,
-//           setLoginStatus,
-//           zoom,
-//           setZoom,
-//         }}
-//       >
-//         <Navbar />
-//         <div className="container">
-//           <div className="main">
-//             <PosterForm className="posterForm" />
-//             <div className="MapButton">
-//               <MapContainer className="map" />
-//               <MyButtons />
-//             </div>
-//           </div>
-//         </div>
-//       </appContext.Provider>
-
-//   );
-// }
-
-// export default App;
-
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import AppHeader from "./components/common/AppHeader";
@@ -75,7 +24,7 @@ class App extends Component {
     super(props);
     this.state = {
       authenticated: false,
-      currentUser: null,
+      currentUser: {},
       loading: false,
     };
   }
@@ -87,6 +36,7 @@ class App extends Component {
 
     getCurrentUser()
       .then((response) => {
+        console.log(response);
         this.setState({
           currentUser: response,
           authenticated: true,
@@ -117,13 +67,16 @@ class App extends Component {
     if (this.state.loading) {
       return <LoadingIndicator />;
     }
-
+    const userName = this.state.currentUser.name;
+const userImage=this.state.currentUser.imageUrl;
     return (
       <div className="app">
         <div className="app-top-box">
           <AppHeader
             authenticated={this.state.authenticated}
             onLogout={this.handleLogout}
+            currentUserName={userName}
+            currentUserImage={userImage}
           />
         </div>
         <div className="app-body">
