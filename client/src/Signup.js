@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import Navbar from "./components/Navbar/NavHeader";
 import { Link, Redirect } from "react-router-dom";
 import { signup } from "./components/Auth/APIUtils";
 import googleLogo from "./assets/google-logo.png";
@@ -22,7 +21,6 @@ class Signup extends Component {
 
     return (
       <div className="signup-container">
-        {/* <Navbar /> */}
         <div className="signup-content">
           <h1 className="signup-title">Signup with PinPal</h1>
           <SocialSignup />

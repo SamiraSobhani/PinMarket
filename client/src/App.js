@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import AppHeader from "./components/common/AppHeader";
+import AppHeader from "./components/Navbar/AppHeader";
 import Login from "./Login";
 import Signup from "./Signup";
 import Profile from "./components/Auth/Profile";

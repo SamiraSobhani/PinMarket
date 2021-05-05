@@ -4,7 +4,7 @@ import PosterForm from "./components/PosterForm/PosterForm";
 import { appContext } from "./components/appContext";
 import useApplicationData from "./hooks/useApplicationData";
 import MyButtons from "./components/ThreeButton/MyButtons";
-import Navbar from "./components/Navbar/NavHeader";
+
 
 function Home() {
   const {
@@ -32,7 +32,7 @@ function Home() {
           setZoom,
         }}
       >
-        {/* <Navbar /> */}
+      
         <div className="container">
           <div className="main">
             <PosterForm className="posterForm" />
