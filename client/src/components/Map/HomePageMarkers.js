@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { appContext } from "./../appContext";
 import { InfoWindow, Marker } from "@react-google-maps/api";
-import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+
 class Markers extends Component {
   state = {
     posters: [],
@@ -38,19 +37,19 @@ class Markers extends Component {
       window.removeEventListener("keydown", listener);
     };
   }
-  componentDidUpdate(previousState) {
-    const ACCESS_TOKEN = localStorage.accessToken;
+  // componentDidUpdate(previousState) {
+  //   const ACCESS_TOKEN = localStorage.accessToken;
 
-    axios
-      .get("http://localhost:8080/posters/all", {
-        headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
-      })
-      .then((res) => {
-        if (previousState.posters !== res.data) {
-          this.setState({ posters: res.data });
-        }
-      });
-  }
+  //   axios
+  //     .get("http://localhost:8080/posters/all", {
+  //       headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
+  //     })
+  //     .then((res) => {
+  //       if (previousState.posters !== res.data) {
+  //         this.setState({ posters: res.data });
+  //       }
+  //     });
+  // }
 
   render() {
     return (
@@ -69,7 +68,6 @@ class Markers extends Component {
             icon={{
               url: poster.category.icon,
               scaledSize: new window.google.maps.Size(42, 42),
-              
             }}
           ></Marker>
         ))}
@@ -79,31 +77,30 @@ class Markers extends Component {
               this.setState({ selectedPoster: null });
             }}
             position={{
-              lat: selectedPoster.lat,
-              lng: selectedPoster.lng,
+              lat: this.state.selectedPoster.lat,
+              lng: this.state.selectedPoster.lng,
             }}
             onClick={() => {
               alert("hello");
             }}
-            // onClick={() => {
-            // //   setcoord({
-            // //     lat: selectedPoster.lat,
-            // //     lng: selectedPoster.lng,
-            // //   });
-            // }}
+            onClick={() => {
+              setcoord({
+                lat: selectedPoster.lat,
+                lng: selectedPoster.lng,
+              });
+            }}
           >
             <a
               className="infoWindow__click"
-              href={`http://localhost:3000/posters/details/${selectedPoster.id}`}
+              href={`http://localhost:3000/posters/details/${this.state.selectedPoster.id}`}
             >
               <div>
-                <h2>{selectedPoster.title}</h2>
-                <p>{selectedPoster.description}</p>
+                <h2>{this.state.selectedPoster.title}</h2>
+                <p>{this.state.selectedPoster.description}</p>
               </div>
             </a>
           </InfoWindow>
         )}
-        )
       </div>
     );
   }

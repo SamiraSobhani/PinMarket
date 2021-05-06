@@ -3,8 +3,8 @@ import axios from "axios";
 // import { ACCESS_TOKEN } from "../components/constants";
 export default function useApplicationData() {
   const [coord, setCoord] = useState({
-    lat: 49.328739,
-    lng: -123.15345,
+    // lat: 49.328739,
+    // lng: -123.15345,
   });
   const [ACCESS_TOKEN] = useState(localStorage.accessToken);
   const [zoom, setZoom] = useState(null);

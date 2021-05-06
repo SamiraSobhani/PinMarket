@@ -35,7 +35,7 @@ export default class PostersList extends Component {
       })
       .then((response) => {
         this.getMyPosters();
-        // window.location.reload(false);
+        window.location.reload(false);
         console.log("inside delete fun", response);
       })
       .catch((error) => console.log(error));

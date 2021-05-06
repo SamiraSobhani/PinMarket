@@ -47,6 +47,23 @@ export default function Post() {
   const { format } = require("date-fns");
   const [toUserPage, setToUserPage] = useState(false);
 
+  const handleFormSubmit = (newPoster) => {
+    const ACCESS_TOKEN = localStorage.accessToken;
+
+    axios
+      .post("http://localhost:8080/poster", newPoster, {
+        headers: {
+          authorization: `Bearer ${ACCESS_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+      })
+
+      .then(() => {
+        window.location.replace("/posters");
+        setToUserPage(true);
+      })
+      .catch((err) => console.log(err));
+  };
   function validate(event) {
     event.preventDefault();
     const newPoster = {
@@ -77,24 +94,6 @@ export default function Post() {
 
     handleFormSubmit(newPoster);
   }
-
-  const handleFormSubmit = (newPoster) => {
-    const ACCESS_TOKEN = localStorage.accessToken;
-
-    axios
-      .post("http://localhost:8080/poster", newPoster, {
-        headers: {
-          authorization: `Bearer ${ACCESS_TOKEN}`,
-          "Content-Type": "application/json",
-        },
-      })
-
-      .then(() => {
-        window.location.reload(false);
-        setToUserPage(true);
-      })
-      .catch((err) => console.log(err));
-  };
 
   const handleChange = (event) => {
     setPayType(event.target.value);
@@ -212,11 +211,12 @@ export default function Post() {
           </MuiPickersUtilsProvider>
           <br />
           <span>{error}</span>
+
           <button
             onClick={(event) => validate(event)}
             className="post-form__button"
           >
-            <Link to="/posters">POST</Link>
+            POST
           </button>
         </div>
       </div>
