@@ -69,6 +69,7 @@ class LoginForm extends Component {
     email: "",
     password: "",
     recaptchaToken: "",
+    errors: {},
   };
 
   handleInputChange = (event) => {
@@ -96,11 +97,15 @@ class LoginForm extends Component {
               console.log(localStorage.accessToken);
               Alert.success("You're successfully logged in!");
               this.props.history.push("/posters");
+              //   setTimeout(() => {
+              //     this.props.history.push("/posters");
+              //   }, 1000);
             })
+
             .catch((error) => {
               error;
               // (error && error.message) ||
-              //   "Oops! Something went wrong. Please try again!"
+              //   "Oops! Something went wrong. Please try again!";
             });
           // console.log(token);
 
@@ -110,12 +115,20 @@ class LoginForm extends Component {
   };
   handleSubmit = (event) => {
     event.preventDefault();
+    try {
+      const loginRequest = Object.assign({}, this.state);
+      console.log("inside handlesubmit function2");
+      const recaptchaToken = this.getToken(loginRequest);
+      console.log("inside handlesubmit function3", recaptchaToken);
+    } catch (ex) {
+      console.log("inside handlesubmit function4");
+      if (ex.response && ex.response.status === 400) {
+        const errors = { ...this.state.errors };
+        errors.username = ex.response.data;
+        this.setState({ errors });
+      }
+    }
 
-    const loginRequest = Object.assign({}, this.state);
-    const recaptchaToken = this.getToken(loginRequest);
-    setTimeout(() => {
-      this.props.history.push("/posters");
-    }, 1000);
     // login(loginRequest, recaptchaToken)
     //   .then((response) => {
     //     localStorage.setItem(ACCESS_TOKEN, response.accessToken);
@@ -160,7 +173,6 @@ class LoginForm extends Component {
         <div className="form-item">
           <button
             data-action="submit"
-            // onClick={(e) => onFormSubmit(e)}
             type="submit"
             className="btn btn-block btn-primary"
           >
