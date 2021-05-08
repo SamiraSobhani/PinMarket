@@ -1,22 +1,64 @@
 import React from "react";
 import profilePic from "../../assets/Icons/Mr.png";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { appContext } from "./../appContext";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+
 function MessageItem(props) {
   const { state, setState } = useContext(appContext);
+  const [content, setContent] = useState("");
+  let userImage = profilePic;
+  if (props.parentMessage.userImage !== null) {
+    userImage = props.parentMessage.userImage;
+  }
+  const { id } = useParams();
+  const newMessage = {
+    posterId: parseInt(id),
+    content: content,
+    inReplyToMessageId: props.parentMessage.id,
+  };
+  const input = useRef(null);
 
-  //   Reply = (id) => {
-  //     const Input = document.getElementById("{id}");
-  //     if (Input.style.display === "block") {
-  //       Input.style.display = "none";
-  //     } else {
-  //       Input.style.display = "block";
-  //     }
-  //   };
+  useEffect(() => {
+    window.addEventListener("keydown", handleSubmitMessage);
+    return () => {
+      window.removeEventListener("keydown", handleSubmitMessage);
+    };
+  }, []);
+
+  const handleSubmitMessage = (e) => {
+    if (e.key === "Enter") {
+      const ACCESS_TOKEN = localStorage.accessToken;
+      axios
+        .post(`http://localhost:8080/message`, newMessage, {
+          headers: {
+            authorization: `Bearer ${ACCESS_TOKEN}`,
+          },
+        })
+        .then((res) => {
+          console.log(newMessage);
+          window.location.reload(false);
+        })
+        .catch((error) => console.log(error));
+    }
+  };
+  const handleChange = (event) => {
+    (event) => {
+      console.log(event);
+      setContent(event.target.value);
+    };
+
+    // let inputName = e.target.name;
+    // let inputValue = e.target.value;
+    // setMessage((state) => ({ ...state, [inputName]: inputValue }));
+  };
+
   return (
     <div>
       <li className="chat__items">
-        <img className="chat__profilePic" src={profilePic}></img>
+        <img className="chat__profilePic" src={userImage}></img>
+        <span>{props.parentMessage.userName}</span>
         <div className="chat__contents">
           <h3 className="chat__text">{props.parentMessage.content}</h3>
           <div>
@@ -45,6 +87,8 @@ function MessageItem(props) {
               <div className="chat__content">
                 <p className="chat__text">{message.content}</p>
                 <span
+                  className="chat__reply"
+                  onChange={handleChange}
                   onClick={() => {
                     const Input = document.getElementById(`${message.id}`);
                     if (Input.style.display === "block") {
@@ -53,11 +97,18 @@ function MessageItem(props) {
                       Input.style.display = "block";
                     }
                   }}
-                  className="chat__reply"
                 >
                   Reply
                 </span>
-                <input className="chat__input" id={message.id}></input>
+                <input
+                  type="text"
+                  className="chat__input"
+                  id={message.id}
+                  onChange={handleChange}
+                  autoComplete="off"
+                  onSubmit={handleSubmitMessage}
+                  ref={input}
+                ></input>
               </div>
             </li>
           ))}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import profilePic from "../../assets/Icons/Mr.png";
+import profilePic from "../../assets/Icons/profile3.png";
 import ModalApply from "./ModalApply";
 import { useContext } from "react";
 import { appContext } from "../appContext";
@@ -18,6 +18,7 @@ export default class ShowPosterDetails extends Component {
     endDate: "",
     price: "",
     payType: "",
+    ownerImgUrl: profilePic,
   };
 
   getData() {
@@ -32,7 +33,7 @@ export default class ShowPosterDetails extends Component {
         // const mydate = this.state.response.singlePoster.end_date;
         // // console.log(parseISOString(mydate));
         // console.log(moment(mydate).format("YYYY-MM-DD"));
-
+        console.log(res);
         this.setState({ ownerName: res.data.owner.name });
         this.setState({ categoryName: res.data.category.name });
         this.setState({ title: res.data.title });
@@ -41,6 +42,9 @@ export default class ShowPosterDetails extends Component {
         this.setState({ endDate: res.data.endDate });
         this.setState({ price: res.data.price });
         this.setState({ payType: res.data.payType });
+        if (res.data.owner.imageUrl !== null) {
+          this.setState({ ownerImgUrl: res.data.owner.imageUrl });
+        }
       })
       .catch((error) => console.log(error));
   }
@@ -56,7 +60,10 @@ export default class ShowPosterDetails extends Component {
         <section className="search__result">
           <div className="search__boxheader">
             <h2 className="search__name">Name: {this.state.ownerName}</h2>
-            <img className="search__profilePic" src={profilePic}></img>
+            <img
+              className="search__profilePic"
+              src={this.state.ownerImgUrl}
+            ></img>
           </div>
           <div className="search__div">
             <h3 className="search__lable">Category: </h3>

@@ -71,7 +71,7 @@ function SearchPoster() {
     const res = [];
     state.posters.map((poster) => {
       if (category) {
-        if (poster.category.id == category.id) {
+        if (poster.category.id === category.id) {
           res.push(poster);
         }
       }

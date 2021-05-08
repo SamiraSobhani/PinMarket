@@ -2,10 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 // import { ACCESS_TOKEN } from "../components/constants";
 export default function useApplicationData() {
-  const [coord, setCoord] = useState({
-    // lat: 49.328739,
-    // lng: -123.15345,
-  });
+  const [coord, setCoord] = useState({});
   const [ACCESS_TOKEN] = useState(localStorage.accessToken);
   const [zoom, setZoom] = useState(null);
   const [state, setState] = useState({

@@ -20,7 +20,6 @@ import { ACCESS_TOKEN } from "./components/constants";
 import Details from "./Details";
 import profilePic from "./assets/Icons/profile3.png";
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -92,7 +91,7 @@ class App extends Component {
             <Route path="/posters/details/:id" component={Details} />
             <Route path="/posters/details" component={Details} />
             <Route path="/posters/userpage" component={Home} />
-            <Route exact path="/" component={Signup}></Route>
+            <Route exact path="/" component={Login}></Route>
             <PrivateRoute
               path="/profile"
               authenticated={this.state.authenticated}

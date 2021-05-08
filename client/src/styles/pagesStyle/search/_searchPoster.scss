@@ -36,7 +36,8 @@
   &__profilePic {
     width: 1rem;
     height: auto;
-    border: solid $darkBlue 0.04rem;
+    border: solid $white 0.04rem;
+    border-radius: 50%;
   }
 }
 .chat-detail {
