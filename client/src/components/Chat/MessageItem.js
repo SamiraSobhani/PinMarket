@@ -7,25 +7,23 @@ import axios from "axios";
 
 function MessageItem(props) {
   const { state, setState } = useContext(appContext);
-  const [content, setContent] = useState("");
   let userImage = profilePic;
   if (props.parentMessage.userImage !== null) {
     userImage = props.parentMessage.userImage;
   }
   const { id } = useParams();
-  const newMessage = {
+  const [newMessage, setNewMessage] = useState({
     posterId: parseInt(id),
-    content: content,
+    content: "",
     inReplyToMessageId: props.parentMessage.id,
-  };
-  const input = useRef(null);
+  });
 
-  useEffect(() => {
-    window.addEventListener("keydown", handleSubmitMessage);
-    return () => {
-      window.removeEventListener("keydown", handleSubmitMessage);
-    };
-  }, []);
+  const handleChange = (event) => {
+    setNewMessage((prevState) => ({
+      ...prevState,
+      content: event.target.value,
+    }));
+  };
 
   const handleSubmitMessage = (e) => {
     if (e.key === "Enter") {
@@ -37,21 +35,10 @@ function MessageItem(props) {
           },
         })
         .then((res) => {
-          console.log(newMessage);
           window.location.reload(false);
         })
         .catch((error) => console.log(error));
     }
-  };
-  const handleChange = (event) => {
-    (event) => {
-      console.log(event);
-      setContent(event.target.value);
-    };
-
-    // let inputName = e.target.name;
-    // let inputValue = e.target.value;
-    // setMessage((state) => ({ ...state, [inputName]: inputValue }));
   };
 
   return (
@@ -88,7 +75,6 @@ function MessageItem(props) {
                 <p className="chat__text">{message.content}</p>
                 <span
                   className="chat__reply"
-                  onChange={handleChange}
                   onClick={() => {
                     const Input = document.getElementById(`${message.id}`);
                     if (Input.style.display === "block") {
@@ -106,9 +92,8 @@ function MessageItem(props) {
                   id={message.id}
                   onChange={handleChange}
                   autoComplete="off"
-                  onSubmit={handleSubmitMessage}
-                  ref={input}
-                ></input>
+                  onKeyDown={handleSubmitMessage}
+                />
               </div>
             </li>
           ))}
