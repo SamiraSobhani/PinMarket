@@ -18,11 +18,21 @@ function MessageItem(props) {
     inReplyToMessageId: props.parentMessage.id,
   });
 
+  // useEffect(() => {
+  //   window.addEventListener("keydown", handleSubmitMessage);
+  //   return () => {
+  //     window.removeEventListener("keydown", handleSubmitMessage);
+  //   };
+  // }, []);
+
   const handleChange = (event) => {
     setNewMessage((prevState) => ({
       ...prevState,
       content: event.target.value,
     }));
+    // let inputName = e.target.name;
+    // let inputValue = e.target.value;
+    // setMessage((state) => ({ ...state, [inputName]: inputValue }));
   };
 
   const handleSubmitMessage = (e) => {
@@ -35,6 +45,7 @@ function MessageItem(props) {
           },
         })
         .then((res) => {
+          console.log("after post method");
           window.location.reload(false);
         })
         .catch((error) => console.log(error));
@@ -75,6 +86,7 @@ function MessageItem(props) {
                 <p className="chat__text">{message.content}</p>
                 <span
                   className="chat__reply"
+                  // onChange={handleChange}
                   onClick={() => {
                     const Input = document.getElementById(`${message.id}`);
                     if (Input.style.display === "block") {
@@ -92,6 +104,7 @@ function MessageItem(props) {
                   id={message.id}
                   onChange={handleChange}
                   autoComplete="off"
+                  // onSubmit={handleSubmitMessage}
                   onKeyDown={handleSubmitMessage}
                 />
               </div>

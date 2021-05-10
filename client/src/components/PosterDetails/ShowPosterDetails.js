@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import profilePic from "../../assets/Icons/profile3.png";
+import profilePic from "../../assets/Icons/profile6.png";
 import ModalApply from "./ModalApply";
 import { useContext } from "react";
 import { appContext } from "../appContext";

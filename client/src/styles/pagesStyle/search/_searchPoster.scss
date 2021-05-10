@@ -34,9 +34,9 @@
   padding-left: 1rem;
   background-color: white;
   &__profilePic {
-    width: 1rem;
-    height: auto;
-    border: solid $white 0.04rem;
+    // width: 1rem;
+    // height: auto;
+    border: solid $lightBlue 0.15rem;
     border-radius: 50%;
   }
 }

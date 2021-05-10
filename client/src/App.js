@@ -18,7 +18,7 @@ import Search from "./Search";
 import Home from "./Home";
 import { ACCESS_TOKEN } from "./components/constants";
 import Details from "./Details";
-import profilePic from "./assets/Icons/profile3.png";
+import profilePic from "./assets/Icons/profile6.png";
 
 class App extends Component {
   constructor(props) {
