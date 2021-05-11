@@ -1,4 +1,3 @@
-
 import React from "react";
 import axios from "axios";
 import { Component } from "react";
@@ -18,7 +17,14 @@ class Chat extends Component {
         },
       })
       .then((res) => {
+        const items = [];
         console.log(res.data);
+
+        res.data.map(
+          (item) => items.push(Object.values(item)[9]),
+          console.log("items", items)
+        );
+
         this.setState({ parentMessage: res.data });
       })
       .catch((error) => console.log(error));

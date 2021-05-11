@@ -7,10 +7,14 @@ import axios from "axios";
 
 function MessageItem(props) {
   const { state, setState } = useContext(appContext);
+
   let userImage = profilePic;
-  if (props.parentMessage.userImage !== null) {
-    userImage = props.parentMessage.userImage;
-  }
+  const getImage = (userImage) => {
+    if (props.parentMessage.userImage !== null) {
+      userImage = props.parentMessage.userImage;
+    }
+    return userImage;
+  };
   const { id } = useParams();
   const [newMessage, setNewMessage] = useState({
     posterId: parseInt(id),
@@ -18,21 +22,16 @@ function MessageItem(props) {
     inReplyToMessageId: props.parentMessage.id,
   });
 
-  // useEffect(() => {
-  //   window.addEventListener("keydown", handleSubmitMessage);
-  //   return () => {
-  //     window.removeEventListener("keydown", handleSubmitMessage);
-  //   };
-  // }, []);
+  const nestedReplies = Object.values(props.parentMessage)[9];
 
   const handleChange = (event) => {
     setNewMessage((prevState) => ({
       ...prevState,
+      // inReplyToMessageId: id,
       content: event.target.value,
     }));
-    // let inputName = e.target.name;
-    // let inputValue = e.target.value;
-    // setMessage((state) => ({ ...state, [inputName]: inputValue }));
+
+    // console.log("inside handle change");
   };
 
   const handleSubmitMessage = (e) => {
@@ -45,7 +44,9 @@ function MessageItem(props) {
           },
         })
         .then((res) => {
-          console.log("after post method");
+          console.log("after post method", newMessage);
+          // console.log(props.parentMessage.nestedReplies);
+          console.log("after post method", newMessage.userImage);
           window.location.reload(false);
         })
         .catch((error) => console.log(error));
@@ -55,7 +56,7 @@ function MessageItem(props) {
   return (
     <div>
       <li className="chat__items">
-        <img className="chat__profilePic" src={userImage}></img>
+        <img className="chat__profilePic" src={getImage()}></img>
         <span>{props.parentMessage.userName}</span>
         <div className="chat__contents">
           <h3 className="chat__text">{props.parentMessage.content}</h3>
@@ -75,20 +76,28 @@ function MessageItem(props) {
             >
               Reply
             </span>
-            <input className="chat__input" id={props.parentMessage.id}></input>
+            <input
+              className="chat__input"
+              id={props.parentMessage.id}
+              onChange={handleChange}
+              autoComplete="off"
+              // onSubmit={handleSubmitMessage}
+              onKeyDown={handleSubmitMessage}
+            ></input>
           </div>
         </div>
         <ul className="chat__nestedReplies">
-          {props.parentMessage.nestedReplies.map((message) => (
+          {nestedReplies.map((message) => (
             <li key={message.id} className="chat__item">
-              <img className="chat__profilePic" src={profilePic}></img>
+              <img className="chat__profilePic" src={message.userImage}></img>
+              <span>{message.userName}</span>
               <div className="chat__content">
                 <p className="chat__text">{message.content}</p>
-                <span
+                {/* <span
                   className="chat__reply"
-                  // onChange={handleChange}
                   onClick={() => {
                     const Input = document.getElementById(`${message.id}`);
+                  
                     if (Input.style.display === "block") {
                       Input.style.display = "none";
                     } else {
@@ -97,7 +106,7 @@ function MessageItem(props) {
                   }}
                 >
                   Reply
-                </span>
+                </span> */}
                 <input
                   type="text"
                   className="chat__input"
