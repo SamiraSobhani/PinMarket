@@ -54,72 +54,58 @@ function MessageItem(props) {
   };
 
   return (
-    <div>
+    <div className="chat__box">
       <li className="chat__items">
         <img className="chat__profilePic" src={getImage()}></img>
-        <span>{props.parentMessage.userName}</span>
+        <span className="chat__userName">{props.parentMessage.userName}</span>
         <div className="chat__contents">
           <h3 className="chat__text">{props.parentMessage.content}</h3>
-          <div>
-            <span
-              onClick={() => {
-                const Input = document.getElementById(
-                  `${props.parentMessage.id}`
-                );
-                if (Input.style.display === "block") {
-                  Input.style.display = "none";
-                } else {
-                  Input.style.display = "block";
-                }
-              }}
-              className="chat__reply"
-            >
-              Reply
-            </span>
-            <input
-              className="chat__input"
-              id={props.parentMessage.id}
-              onChange={handleChange}
-              autoComplete="off"
-              // onSubmit={handleSubmitMessage}
-              onKeyDown={handleSubmitMessage}
-            ></input>
-          </div>
         </div>
         <ul className="chat__nestedReplies">
           {nestedReplies.map((message) => (
             <li key={message.id} className="chat__item">
               <img className="chat__profilePic" src={message.userImage}></img>
-              <span>{message.userName}</span>
+              <span className="chat__userName">{message.userName}</span>
               <div className="chat__content">
                 <p className="chat__text">{message.content}</p>
-                {/* <span
-                  className="chat__reply"
-                  onClick={() => {
-                    const Input = document.getElementById(`${message.id}`);
-                  
-                    if (Input.style.display === "block") {
-                      Input.style.display = "none";
-                    } else {
-                      Input.style.display = "block";
-                    }
-                  }}
-                >
-                  Reply
-                </span> */}
+
                 <input
                   type="text"
                   className="chat__input"
                   id={message.id}
                   onChange={handleChange}
                   autoComplete="off"
-                  // onSubmit={handleSubmitMessage}
                   onKeyDown={handleSubmitMessage}
                 />
               </div>
             </li>
           ))}
         </ul>
+        <div>
+          <span
+            onClick={() => {
+              const Input = document.getElementById(
+                `${props.parentMessage.id}`
+              );
+              if (Input.style.display === "block") {
+                Input.style.display = "none";
+              } else {
+                Input.style.display = "block";
+              }
+            }}
+            className="chat__reply"
+          >
+            Reply
+          </span>
+          <input
+            className="chat__input"
+            id={props.parentMessage.id}
+            onChange={handleChange}
+            autoComplete="off"
+            onKeyDown={handleSubmitMessage}
+          ></input>
+          <hr className="chat__line" />
+        </div>
       </li>
     </div>
   );

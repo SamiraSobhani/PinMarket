@@ -6,6 +6,7 @@ import AddMessage from "./AddMessage";
 class Chat extends Component {
   state = {
     parentMessage: [],
+   
   };
 
   getMessage() {

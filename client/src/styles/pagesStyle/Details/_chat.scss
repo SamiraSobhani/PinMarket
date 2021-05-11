@@ -17,24 +17,32 @@
   width: 40%;
 }
 .chat {
+  &__box {
+    background-color: $graphite;
+  }
+  &__items {
+    list-style: none;
+  }
+  &__userName {
+    margin-left: 0.5rem;
+  }
   &__profilePic {
     width: 1.35rem;
     height: auto;
     border: solid $white 0.1rem;
     border-radius: 50%;
+    margin-left: 0.4rem;
+    margin-top: 0.4rem;
   }
   &__item {
-    // display: flex;
-    height: 5.5rem;
-    margin-bottom: 1rem;
     list-style: none;
   }
+}
+.chat {
   &__content {
     line-height: 0.2rem;
     height: 2rem;
     margin-left: 2rem;
-    // display: flex;
-    // flex-direction: column;
   }
   &__input {
     margin-top: 0.5rem;
@@ -51,18 +59,22 @@
   }
   &__contents {
     margin-bottom: 0.5rem;
+    margin-left: 2.5rem;
   }
   &__reply {
-    padding-top: 1.5rem;
     font-size: 0.65rem;
+    margin-left: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  &__line {
+    border: $graphite;
   }
 }
 .addMessage {
-  
   border: solid 0.5rem $darkBlue;
   transform: translateY(40px);
   background-color: white;
 }
-.posters__list{
+.posters__list {
   margin-top: 3rem;
 }

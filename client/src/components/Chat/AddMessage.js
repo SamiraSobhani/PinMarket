@@ -12,6 +12,7 @@ function AddMessage() {
     content: content,
     inReplyToMessageId: -1,
   };
+  // const [color, setColor] = useState("rgb(128, 128, 128)");
   console.log(newMessage);
   const handleSubmitMessage = () => {
     const ACCESS_TOKEN = localStorage.accessToken;
@@ -23,12 +24,17 @@ function AddMessage() {
       })
       .then((res) => {
         window.location.reload(false);
-       
       })
       .catch((error) => console.log(error));
   };
+  // const changeColor = (color) => {
+  //   setColor({ color });
+  // };
   return (
-    <div className="addMessage">
+    <div
+      //  style={{ background: color }}
+      className="addMessage"
+    >
       <TextField
         style={{ width: 450, margin: 10, marginTop: 5 }}
         label="Add new message"
@@ -37,7 +43,14 @@ function AddMessage() {
         onChange={(event) => setContent(event.target.value)}
         autoComplete="off"
       />
-      <button onClick={handleSubmitMessage}>Submit</button>
+      <button
+        onClick={
+          handleSubmitMessage
+          // ,changeColor("#01192d")
+        }
+      >
+        Submit
+      </button>
     </div>
   );
 }

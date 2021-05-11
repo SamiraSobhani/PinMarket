@@ -80,6 +80,7 @@ body {
           align-items: flex-end;
   padding: 1rem;
   background-color: white;
+  border: darkgray solid 0.1rem;
 }
 .modal__icon {
   width: 0.875rem;
@@ -193,9 +194,8 @@ body {
   background-color: white;
 }
 .search__profilePic {
-  width: 1rem;
-  height: auto;
-  border: solid #01192d 0.04rem;
+  border: solid rgba(28, 128, 175, 0.883) 0.15rem;
+  border-radius: 50%;
 }
 
 .chat-detail {
@@ -265,9 +265,11 @@ body {
   display: flex;
 }
 .search__profilePic {
-  width: 2.5rem;
-  height: auto;
+  width: 1.9rem;
+  height: 1.9rem;
   margin-right: 0.5rem;
+  border: solid rgba(28, 128, 175, 0.883) 0.26rem;
+  border-radius: 50%;
 }
 .search__boxheader {
   border: solid 0.3rem #01192d;
@@ -809,15 +811,24 @@ button {
   width: 40%;
 }
 
+.chat__box {
+  background-color: #232940;
+}
+.chat__items {
+  list-style: none;
+}
+.chat__userName {
+  margin-left: 0.5rem;
+}
 .chat__profilePic {
   width: 1.35rem;
   height: auto;
   border: solid white 0.1rem;
   border-radius: 50%;
+  margin-left: 0.4rem;
+  margin-top: 0.4rem;
 }
 .chat__item {
-  height: 5.5rem;
-  margin-bottom: 1rem;
   list-style: none;
 }
 .chat__content {
@@ -841,8 +852,12 @@ button {
   margin-bottom: 0.5rem;
 }
 .chat__reply {
-  padding-top: 1.5rem;
   font-size: 0.65rem;
+  margin-left: 0.5rem;
+  margin-bottom: 1rem;
+}
+.chat__line {
+  border: #232940;
 }
 
 .addMessage {
