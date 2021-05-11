@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
-// import './AppHeader.css';
 import logo from "../../assets/FinalLogo.svg";
 import Pin from "../../assets/pin1.jpg";
+
 class AppHeader extends Component {
   render() {
     const currentUser = this.props;
@@ -16,8 +16,11 @@ class AppHeader extends Component {
 
         <div className="app-options">
           <h2 className="navbar__welcome ">
-            <img className="navbar__image" src={this.props.currentUserImage}></img>Welcome ,{" "}
-            {this.props.currentUserName}
+            <img
+              className="navbar__image"
+              src={this.props.currentUserImage}
+            ></img>
+            Welcome , {this.props.currentUserName}
           </h2>
           <nav className="app-nav">
             {this.props.authenticated ? (

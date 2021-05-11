@@ -32,9 +32,8 @@ function SearchPoster() {
             Math.sin(lat1) * Math.sin(lat2) +
               Math.cos(lat1) * Math.cos(lat2) * Math.cos(lng1 - lng2)
           );
-        console.log(distance);
+
         myArray.push({ distance, p2id, p2 });
-        console.log(myArray);
       } catch (error) {
         return null;
       }
@@ -46,9 +45,7 @@ function SearchPoster() {
     const disArray = [];
     myRes.map((distanceObj) => {
       if (distanceObj.distance < value) {
-        console.log(distanceObj);
         disArray.push(distanceObj.p2id);
-        console.log(disArray);
         return posterAroundMe(disArray);
       }
     });
@@ -61,15 +58,15 @@ function SearchPoster() {
           myResult.push(poster);
         }
       });
-      console.log({ myResult });
+
       setnearPosters(myResult);
-      return;
+      return categorisedPosters(myResult);
     });
   };
 
-  const categorisedPosters = () => {
+  const categorisedPosters = (myResult) => {
     const res = [];
-    state.posters.map((poster) => {
+    myResult.map((poster) => {
       if (category) {
         if (poster.category.id === category.id) {
           res.push(poster);
@@ -80,7 +77,7 @@ function SearchPoster() {
       }
     });
     setnearPosters(res);
-    console.log(res);
+
     return;
   };
 
@@ -120,7 +117,10 @@ function SearchPoster() {
               style={{ width: 280, margin: 8 }}
               renderInput={(params) => <TextField {...params} label="" />}
             />
-            <button className="filter__button" onClick={categorisedPosters}>
+            <button
+              className="filter__button"
+              onClick={(categorisedPosters, distBtw2Ptss)}
+            >
               Set Filter
             </button>
           </div>

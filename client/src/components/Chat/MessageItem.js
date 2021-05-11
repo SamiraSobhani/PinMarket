@@ -7,7 +7,7 @@ import axios from "axios";
 
 function MessageItem(props) {
   const { state, setState } = useContext(appContext);
-
+  console.log(state);
   let userImage = profilePic;
   const getImage = (userImage) => {
     if (props.parentMessage.userImage !== null) {
@@ -56,16 +56,20 @@ function MessageItem(props) {
   return (
     <div className="chat__box">
       <li className="chat__items">
-        <img className="chat__profilePic" src={getImage()}></img>
-        <span className="chat__userName">{props.parentMessage.userName}</span>
+        <div className="chat__header">
+          <img className="chat__profilePic" src={getImage()}></img>
+          <span className="chat__userName">{props.parentMessage.userName}</span>
+        </div>
         <div className="chat__contents">
-          <h3 className="chat__text">{props.parentMessage.content}</h3>
+          <p className="chat__mainText">{props.parentMessage.content}</p>
         </div>
         <ul className="chat__nestedReplies">
           {nestedReplies.map((message) => (
             <li key={message.id} className="chat__item">
-              <img className="chat__profilePic" src={message.userImage}></img>
-              <span className="chat__userName">{message.userName}</span>
+              <div className="chat__header">
+                <img className="chat__profilePic" src={message.userImage}></img>
+                <span className="chat__userName">{message.userName}</span>
+              </div>
               <div className="chat__content">
                 <p className="chat__text">{message.content}</p>
 

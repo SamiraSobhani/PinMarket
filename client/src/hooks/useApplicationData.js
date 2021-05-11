@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-// import { ACCESS_TOKEN } from "../components/constants";
+
 export default function useApplicationData() {
   const [coord, setCoord] = useState({});
   const [ACCESS_TOKEN] = useState(localStorage.accessToken);
@@ -41,8 +41,8 @@ export default function useApplicationData() {
     posters: [],
     owner: [],
   });
-  const [nearPosters, setnearPosters] = useState(state.posters);
 
+  const [nearPosters, setnearPosters] = useState(state.posters);
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {

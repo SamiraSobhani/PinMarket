@@ -37,7 +37,7 @@ function AddMessage() {
     >
       <TextField
         style={{ width: 450, margin: 10, marginTop: 5 }}
-        label="Add new message"
+        label="Type your message"
         placeholder="Write..."
         fullWidth
         onChange={(event) => setContent(event.target.value)}

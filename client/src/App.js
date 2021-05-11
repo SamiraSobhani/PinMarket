@@ -39,7 +39,6 @@ class App extends Component {
 
     getCurrentUser()
       .then((response) => {
-        console.log(response);
         this.setState({
           currentUser: response,
           authenticated: true,

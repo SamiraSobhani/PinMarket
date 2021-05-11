@@ -9,9 +9,9 @@ import AddMessage from "./components/Chat/AddMessage";
 
 function Details() {
   const { id } = useParams();
-  const { state, setState } = useApplicationData();
+  const { state, setState,posterById, setPosterbyId } = useApplicationData();
   return (
-    <appContext.Provider value={{ state, setState }}>
+    <appContext.Provider value={{ state, setState,posterById, setPosterbyId }}>
       <div className="details">
         <div className="detailsAndButtons">
           <div className="details__buttons">
@@ -20,7 +20,6 @@ function Details() {
           <ShowPosterDetails id={id} />
         </div>
         <div className="details__chat">
-          {/* <AddMessage /> */}
           <Chat id={id} />
         </div>
       </div>

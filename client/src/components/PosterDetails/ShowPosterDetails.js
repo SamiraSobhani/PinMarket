@@ -2,11 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import profilePic from "../../assets/Icons/profile6.png";
 import ModalApply from "./ModalApply";
-import { useContext } from "react";
-import { appContext } from "../appContext";
-import DateFnsUtils from "@date-io/date-fns";
+
 const { format } = require("date-fns");
-import moment from "moment";
 
 export default class ShowPosterDetails extends Component {
   state = {
@@ -30,10 +27,6 @@ export default class ShowPosterDetails extends Component {
         },
       })
       .then((res) => {
-        // const mydate = this.state.response.singlePoster.end_date;
-        // // console.log(parseISOString(mydate));
-        // console.log(moment(mydate).format("YYYY-MM-DD"));
-        console.log(res);
         this.setState({ ownerName: res.data.owner.name });
         this.setState({ categoryName: res.data.category.name });
         this.setState({ title: res.data.title });

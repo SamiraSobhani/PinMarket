@@ -8,7 +8,6 @@ function Markers(props) {
   const [selectedPoster, setSelectedPoster] = useState(null);
 
   function selectedIcon(id) {
-    console.log("marker", state.posters);
     const SC = state.categories.find((category) => category.id === id);
     return SC.icon;
   }
@@ -72,7 +71,6 @@ function Markers(props) {
           </a>
         </InfoWindow>
       )}
-      )
     </div>
   );
 }
