@@ -6,38 +6,7 @@ export default function useApplicationData() {
   const [ACCESS_TOKEN] = useState(localStorage.accessToken);
   const [zoom, setZoom] = useState(null);
   const [state, setState] = useState({
-    categories: [
-      {
-        id: 1,
-        name: "florist",
-        icon: "/flower2.svg",
-      },
-      {
-        id: 2,
-        name: "Driver",
-        icon: "/driver.svg",
-      },
-      {
-        id: 3,
-        name: "makeup artist",
-        icon: "/makeup.png",
-      },
-      {
-        id: 4,
-        name: "DJ",
-        icon: "/DJ.png",
-      },
-      {
-        id: 5,
-        name: "Photographer",
-        icon: "/camera-red.png",
-      },
-      {
-        id: 6,
-        name: "Dressmaker",
-        icon: "/dressmaker.png",
-      },
-    ],
+    categories: [],
     posters: [],
     owner: [],
   });
@@ -56,6 +25,24 @@ export default function useApplicationData() {
       alert("Sorry, your browser does not support HTML5 geolocation.");
     }
   }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/categories", {
+        headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
+      })
+      .then((res) => {
+        console.log(res.data);
+
+        setState((prev) => ({
+          ...prev,
+          categories: [...res.data],
+        }));
+
+        console.log(state.categories);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   useEffect(() => {
     axios
       .get("http://localhost:8080/posters/all", {
