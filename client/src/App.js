@@ -20,6 +20,8 @@ import { ACCESS_TOKEN } from "./components/constants";
 import Details from "./Details";
 import profilePic from "./assets/Icons/profile6.png";
 
+import Timer from "./components/Timer";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -115,6 +117,7 @@ class App extends Component {
             ></Route>
             <Route component={NotFound}></Route>
           </Switch>
+          <Timer />
         </div>
         <Alert
           stack={{ limit: 3 }}

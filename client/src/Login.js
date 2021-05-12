@@ -97,19 +97,11 @@ class LoginForm extends Component {
               console.log(localStorage.accessToken);
               Alert.success("You're successfully logged in!");
               this.props.history.push("/posters");
-              //   setTimeout(() => {
-              //     this.props.history.push("/posters");
-              //   }, 1000);
             })
 
             .catch((error) => {
               error;
-              // (error && error.message) ||
-              //   "Oops! Something went wrong. Please try again!";
             });
-          // console.log(token);
-
-          // return token;
         });
     });
   };
@@ -128,23 +120,7 @@ class LoginForm extends Component {
         this.setState({ errors });
       }
     }
-
-    // login(loginRequest, recaptchaToken)
-    //   .then((response) => {
-    //     localStorage.setItem(ACCESS_TOKEN, response.accessToken);
-    //     console.log(response.accessToken);
-    //     console.log(localStorage.accessToken);
-    //     Alert.success("You're successfully logged in!");
-    //     this.props.history.push("/posters");
-    //   })
-    //   .catch((error) => {
-    //     Alert.error(
-    //       (error && error.message) ||
-    //         "Oops! Something went wrong. Please try again!"
-    //     );
-    //   });
   };
-
   render() {
     return (
       <form className="myform" onSubmit={this.handleSubmit}>
