@@ -6,7 +6,7 @@ import Pin from "../../assets/pin1.jpg";
 class AppHeader extends Component {
   render() {
     const currentUser = this.props;
-    console.log(this.props);
+
     return (
       <header className="app-header">
         <img className="navbar__pin" src={Pin}></img>

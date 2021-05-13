@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { appContext } from "./components/appContext";
 import useApplicationData from "./hooks/useApplicationData";
 import Chat from "./components/Chat/Chat";
-import AddMessage from "./components/Chat/AddMessage";
+
 
 function Details() {
   const { id } = useParams();

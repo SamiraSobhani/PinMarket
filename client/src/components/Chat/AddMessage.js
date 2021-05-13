@@ -13,7 +13,7 @@ function AddMessage() {
     inReplyToMessageId: -1,
   };
   // const [color, setColor] = useState("rgb(128, 128, 128)");
-  console.log(newMessage);
+ 
   const handleSubmitMessage = () => {
     const ACCESS_TOKEN = localStorage.accessToken;
     axios

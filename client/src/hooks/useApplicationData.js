@@ -25,20 +25,17 @@ export default function useApplicationData() {
       alert("Sorry, your browser does not support HTML5 geolocation.");
     }
   }, []);
+
   useEffect(() => {
     axios
       .get("http://localhost:8080/categories", {
         headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
       })
       .then((res) => {
-        console.log(res.data);
-
         setState((prev) => ({
           ...prev,
           categories: [...res.data],
         }));
-
-        console.log(state.categories);
       })
       .catch((err) => console.log(err));
   }, []);

@@ -6,7 +6,6 @@ import AddMessage from "./AddMessage";
 class Chat extends Component {
   state = {
     parentMessage: [],
-   
   };
 
   getMessage() {
@@ -19,12 +18,8 @@ class Chat extends Component {
       })
       .then((res) => {
         const items = [];
-        console.log(res.data);
 
-        res.data.map(
-          (item) => items.push(Object.values(item)[9]),
-          console.log("items", items)
-        );
+        res.data.map((item) => items.push(Object.values(item)[9]));
 
         this.setState({ parentMessage: res.data });
       })

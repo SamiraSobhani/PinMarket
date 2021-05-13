@@ -3,12 +3,11 @@ import IdleTimer from "./IdleTimer";
 import { ACCESS_TOKEN } from "./constants";
 
 import Alert from "react-s-alert";
-export default function Timer() {
+export default function Timer(props) {
   const [isTimeout, setIsTimeout] = useState(false);
   useEffect(() => {
-    console.log(window.location.pathname);
     const timer = new IdleTimer({
-      timeout: 10, //expire after 10seconds will change it to 600 later
+      timeout: 100, //expire after 10seconds will change it to 600 later
       onTimeout: () => {
         setIsTimeout(true);
       },
@@ -33,6 +32,7 @@ export default function Timer() {
 
   return (
     <div>
+     
       {isTimeout
         ? (window.localStorage.removeItem(ACCESS_TOKEN), handleLogout())
         : ""}

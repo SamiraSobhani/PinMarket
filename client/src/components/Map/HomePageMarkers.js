@@ -80,9 +80,7 @@ class Markers extends Component {
               lat: this.state.selectedPoster.lat,
               lng: this.state.selectedPoster.lng,
             }}
-            onClick={() => {
-              alert("hello");
-            }}
+         
             onClick={() => {
               setcoord({
                 lat: selectedPoster.lat,

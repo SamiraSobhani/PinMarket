@@ -4,10 +4,10 @@ import { useContext, useEffect, useState, useRef } from "react";
 import { appContext } from "./../appContext";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
+import moment from "moment";
 function MessageItem(props) {
   const { state, setState } = useContext(appContext);
-  console.log(state);
+
   let userImage = profilePic;
   const getImage = (userImage) => {
     if (props.parentMessage.userImage !== null) {
@@ -62,6 +62,9 @@ function MessageItem(props) {
         </div>
         <div className="chat__contents">
           <p className="chat__mainText">{props.parentMessage.content}</p>
+          <p className="chat__time">
+            {moment(props.parentMessage.timestamp).fromNow()}
+          </p>
         </div>
         <ul className="chat__nestedReplies">
           {nestedReplies.map((message) => (
@@ -72,7 +75,9 @@ function MessageItem(props) {
               </div>
               <div className="chat__content">
                 <p className="chat__text">{message.content}</p>
-
+                <p className="chat__time">
+                  {moment(message.timestamp).fromNow()}
+                </p>
                 <input
                   type="text"
                   className="chat__input"
@@ -82,6 +87,7 @@ function MessageItem(props) {
                   onKeyDown={handleSubmitMessage}
                 />
               </div>
+              {/* <Timestamp relative date={Date} autoUpdate /> */}
             </li>
           ))}
         </ul>
