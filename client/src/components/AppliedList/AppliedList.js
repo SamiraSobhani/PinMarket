@@ -8,7 +8,7 @@ export class AppliedList extends Component {
   };
 
   getMyAppliedPosters() {
-    const ACCESS_TOKEN = localStorage.accessToken;
+    const ACCESS_TOKEN = sessionStorage.accessToken;
     axios
       .get("http://localhost:8080/posters/applied", {
         headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
@@ -20,7 +20,7 @@ export class AppliedList extends Component {
   }
 
   deletePoster = (id) => {
-    const ACCESS_TOKEN = localStorage.accessToken;
+    const ACCESS_TOKEN = sessionStorage.accessToken;
     axios
       .delete(`http://localhost:8080/poster?id=${id}`, {
         headers: { authorization: `Bearer ${ACCESS_TOKEN}` },

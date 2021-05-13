@@ -16,10 +16,12 @@ export default class ShowPosterDetails extends Component {
     price: "",
     payType: "",
     ownerImgUrl: profilePic,
+    lat: null,
+    lng: null,
   };
 
   getData() {
-    const ACCESS_TOKEN = localStorage.accessToken;
+    const ACCESS_TOKEN = sessionStorage.accessToken;
     axios
       .get(`http://localhost:8080/poster?id=${this.props.id}`, {
         headers: {
@@ -27,6 +29,7 @@ export default class ShowPosterDetails extends Component {
         },
       })
       .then((res) => {
+        console.log(res.data);
         this.setState({ ownerName: res.data.owner.name });
         this.setState({ categoryName: res.data.category.name });
         this.setState({ title: res.data.title });
@@ -35,14 +38,29 @@ export default class ShowPosterDetails extends Component {
         this.setState({ endDate: res.data.endDate });
         this.setState({ price: res.data.price });
         this.setState({ payType: res.data.payType });
+        this.setState({ lat: res.data.lat });
+        this.setState({ lng: res.data.lng });
+        console.log(this.state.lat);
         if (res.data.owner.imageUrl !== null) {
           this.setState({ ownerImgUrl: res.data.owner.imageUrl });
         }
       })
       .catch((error) => console.log(error));
   }
+  convertLatLng = () => {
+    axios
+      .get(
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+      )
+      .then((res) => {
+        console.log(this.state.lat);
+        console.log(res);
+      })
+      .catch((error) => console.log(error));
+  };
   componentDidMount() {
     this.getData();
+    this.convertLatLng();
   }
   applyButton() {
     window.alert("sometext");

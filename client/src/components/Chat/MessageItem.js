@@ -36,7 +36,7 @@ function MessageItem(props) {
 
   const handleSubmitMessage = (e) => {
     if (e.key === "Enter") {
-      const ACCESS_TOKEN = localStorage.accessToken;
+      const ACCESS_TOKEN = sessionStorage.accessToken;
       axios
         .post(`http://localhost:8080/message`, newMessage, {
           headers: {
@@ -48,6 +48,7 @@ function MessageItem(props) {
           // console.log(props.parentMessage.nestedReplies);
           console.log("after post method", newMessage.userImage);
           window.location.reload(false);
+          // window.history.pushState({}, "");
         })
         .catch((error) => console.log(error));
     }

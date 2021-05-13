@@ -9,10 +9,10 @@ const request = (options) => {
     "Content-Type": "application/json",
   });
 
-  if (localStorage.getItem(ACCESS_TOKEN)) {
+  if (sessionStorage.getItem(ACCESS_TOKEN)) {
     headers.append(
       "Authorization",
-      "Bearer " + localStorage.getItem(ACCESS_TOKEN)
+      "Bearer " + sessionStorage.getItem(ACCESS_TOKEN)
     );
   }
 
@@ -49,7 +49,7 @@ const loginRequestSender = (options, token) => {
 };
 
 export function getCurrentUser() {
-  if (!localStorage.getItem(ACCESS_TOKEN)) {
+  if (!sessionStorage.getItem(ACCESS_TOKEN)) {
     return Promise.reject("No access token set.");
   }
 

@@ -48,7 +48,7 @@ export default function Post() {
   const [toUserPage, setToUserPage] = useState(false);
 
   const handleFormSubmit = (newPoster) => {
-    const ACCESS_TOKEN = localStorage.accessToken;
+    const ACCESS_TOKEN = sessionStorage.accessToken;
 
     axios
       .post("http://localhost:8080/poster", newPoster, {

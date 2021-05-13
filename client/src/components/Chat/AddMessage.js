@@ -13,9 +13,9 @@ function AddMessage() {
     inReplyToMessageId: -1,
   };
   // const [color, setColor] = useState("rgb(128, 128, 128)");
- 
+
   const handleSubmitMessage = () => {
-    const ACCESS_TOKEN = localStorage.accessToken;
+    const ACCESS_TOKEN = sessionStorage.accessToken;
     axios
       .post(`http://localhost:8080/message`, newMessage, {
         headers: {

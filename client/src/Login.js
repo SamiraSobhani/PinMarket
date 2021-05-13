@@ -92,9 +92,8 @@ class LoginForm extends Component {
           // Send form value as well as token to the server
           login(loginRequest, token)
             .then((response) => {
-              localStorage.setItem(ACCESS_TOKEN, response.accessToken);
-              console.log(response.accessToken);
-              console.log(localStorage.accessToken);
+              sessionStorage.setItem(ACCESS_TOKEN, response.accessToken);
+           
               Alert.success("You're successfully logged in!");
               this.props.history.push("/posters");
             })

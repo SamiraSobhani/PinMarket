@@ -9,7 +9,7 @@ class Markers extends Component {
   };
 
   getPosters() {
-    const ACCESS_TOKEN = localStorage.accessToken;
+    const ACCESS_TOKEN = sessionStorage.accessToken;
 
     axios
       .get("http://localhost:8080/posters/all", {
@@ -37,19 +37,7 @@ class Markers extends Component {
       window.removeEventListener("keydown", listener);
     };
   }
-  // componentDidUpdate(previousState) {
-  //   const ACCESS_TOKEN = localStorage.accessToken;
 
-  //   axios
-  //     .get("http://localhost:8080/posters/all", {
-  //       headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
-  //     })
-  //     .then((res) => {
-  //       if (previousState.posters !== res.data) {
-  //         this.setState({ posters: res.data });
-  //       }
-  //     });
-  // }
 
   render() {
     return (
@@ -80,7 +68,6 @@ class Markers extends Component {
               lat: this.state.selectedPoster.lat,
               lng: this.state.selectedPoster.lng,
             }}
-         
             onClick={() => {
               setcoord({
                 lat: selectedPoster.lat,

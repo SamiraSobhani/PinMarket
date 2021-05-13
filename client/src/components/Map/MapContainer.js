@@ -8,7 +8,7 @@ import mapStyle from "./mapStyle";
 import Locate from "./Locate";
 import { useRef, useCallback, useContext, useEffect, useState } from "react";
 import { appContext } from "./../appContext";
-import HomePageMarkers from "./HomePageMarkers"
+import HomePageMarkers from "./HomePageMarkers";
 const mapContainerStyle = {
   width: "40vw",
   height: "62.5vh",
@@ -32,24 +32,6 @@ export default function MapContainer() {
   });
   const [selectedPoster, setSelectedPoster] = useState(null);
   const mapRef = useRef();
-
-  // useEffect(() => {
-  //   const listener = (e) => {
-  //     if (e.key === "Escape") {
-  //       setSelectedPoster(null);
-  //     }
-  //   };
-  //   window.addEventListener("keydown", listener);
-
-  //   return () => {
-  //     window.removeEventListener("keydown", listener);
-  //   };
-  // }, []);
-
-  // function selectedIcon(id) {
-  //   const SC = state.categories.find((category) => category.id === id);
-  //   return SC.icon;
-  // }
 
   const panTo = useCallback(({ lat, lng }) => {
     if (mapRef.current) {
@@ -77,52 +59,7 @@ export default function MapContainer() {
         }}
       >
         <Locate panTo={panTo} />
-        <HomePageMarkers/>
-        {/* {state.posters.map((poster) => (
-          <Marker
-            key={poster.id}
-            animation={window.google.maps.Animation.DROP}
-            position={{
-              lat: poster.lat,
-              lng: poster.lng,
-            }}
-            onClick={() => {
-              setSelectedPoster(poster);
-            }}
-            icon={{
-              url: selectedIcon(poster.category.id),
-              scaledSize: new window.google.maps.Size(42, 42),
-            }}
-          />
-        ))}
-
-        {selectedPoster && (
-          <InfoWindow
-            onCloseClick={() => {
-              setSelectedPoster(null);
-            }}
-            position={{
-              lat: selectedPoster.lat,
-              lng: selectedPoster.lng,
-            }}
-            onClick={() => {
-              setcoord({
-                lat: selectedPoster.lat,
-                lng: selectedPoster.lng,
-              });
-            }}
-          >
-            <a
-              className="infoWindow__click"
-              href={`http://localhost:3000/posters/details/${selectedPoster.id}`}
-            >
-              <div>
-                <h2>{selectedPoster.title}</h2>
-                <p>{selectedPoster.description}</p>
-              </div>
-            </a>
-          </InfoWindow>
-        )} */}
+        <HomePageMarkers />
       </GoogleMap>
     </>
   ) : (

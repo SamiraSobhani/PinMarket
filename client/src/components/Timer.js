@@ -22,7 +22,7 @@ export default function Timer(props) {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem(ACCESS_TOKEN);
+    sessionStorage.removeItem(ACCESS_TOKEN);
     console.log(window.location);
     if (window.location.pathname !== "/login") {
       window.location.replace("/login");
@@ -32,9 +32,8 @@ export default function Timer(props) {
 
   return (
     <div>
-     
       {isTimeout
-        ? (window.localStorage.removeItem(ACCESS_TOKEN), handleLogout())
+        ? (window.sessionStorage.removeItem(ACCESS_TOKEN), handleLogout())
         : ""}
     </div>
   );

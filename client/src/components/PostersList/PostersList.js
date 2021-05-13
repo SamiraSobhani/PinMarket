@@ -8,7 +8,7 @@ export default class PostersList extends Component {
   };
 
   getMyPosters() {
-    const ACCESS_TOKEN = localStorage.accessToken;
+    const ACCESS_TOKEN = sessionStorage.accessToken;
 
     axios
       .get("http://localhost:8080/posters/me", {
@@ -28,7 +28,7 @@ export default class PostersList extends Component {
   }
 
   deletePoster = (id) => {
-    const ACCESS_TOKEN = localStorage.accessToken;
+    const ACCESS_TOKEN = sessionStorage.accessToken;
     axios
       .delete(`http://localhost:8080/poster?id=${id}`, {
         headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
@@ -36,6 +36,7 @@ export default class PostersList extends Component {
       .then((response) => {
         this.getMyPosters();
         window.location.reload(false);
+        // window.history.pushState({}, "","");
         console.log("inside delete fun", response);
       })
       .catch((error) => console.log(error));

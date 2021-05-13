@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function useApplicationData() {
   const [coord, setCoord] = useState({});
-  const [ACCESS_TOKEN] = useState(localStorage.accessToken);
+  const [ACCESS_TOKEN] = useState(sessionStorage.accessToken);
   const [zoom, setZoom] = useState(null);
   const [state, setState] = useState({
     categories: [],

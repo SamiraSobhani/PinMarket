@@ -20,7 +20,7 @@ import { ACCESS_TOKEN } from "./components/constants";
 import Details from "./Details";
 import profilePic from "./assets/Icons/profile6.png";
 import Timer from "./components/Timer";
-// import { Beforeunload } from "react-beforeunload";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -56,7 +56,7 @@ class App extends Component {
   };
 
   handleLogout = () => {
-    localStorage.removeItem(ACCESS_TOKEN);
+    sessionStorage.removeItem(ACCESS_TOKEN);
     window.location.replace("/login");
     this.setState({
       authenticated: false,
@@ -65,28 +65,11 @@ class App extends Component {
     Alert.success("You're safely logged out!");
   };
 
-  handleUnload = () => {
-    // event.preventDefault();
-    console.log("HELLO WORLD");
-    localStorage.removeItem(ACCESS_TOKEN);
-    window.location.replace("/login");
-    this.setState({
-      authenticated: false,
-      currentUser: null,
-    });
-    // Alert.success("You're safely logged out!");
-  };
+
 
   componentDidMount() {
-    // window.addEventListener("beforeunload", this.handleUnload);
     this.loadCurrentlyLoggedInUser();
-    // window.onbeforeunload = function () {
-    //   localStorage.clear();
-    // };
   }
-  // componentWillUnmount() {
-  //   window.removeEventListener("beforeunload", this.handleUnload);
-  // }
 
   render() {
     if (this.state.loading) {
@@ -94,12 +77,6 @@ class App extends Component {
     }
 
     return (
-      // <Beforeunload
-      //   onBeforeunload={() => {
-      //     // event.preventDefault();
-      //     this.handleLogout;
-      //   }}
-      // >
       <div className="app">
         <div className="app-top-box">
           <AppHeader
@@ -151,7 +128,6 @@ class App extends Component {
           offset={65}
         />
       </div>
-      // </Beforeunload>
     );
   }
 }
