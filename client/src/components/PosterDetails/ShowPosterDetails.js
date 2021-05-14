@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import profilePic from "../../assets/Icons/profile6.png";
 import ModalApply from "./ModalApply";
+import MyGeocode from "./Geocode";
 
 const { format } = require("date-fns");
 
@@ -29,7 +30,6 @@ export default class ShowPosterDetails extends Component {
         },
       })
       .then((res) => {
-        console.log(res.data);
         this.setState({ ownerName: res.data.owner.name });
         this.setState({ categoryName: res.data.category.name });
         this.setState({ title: res.data.title });
@@ -40,27 +40,17 @@ export default class ShowPosterDetails extends Component {
         this.setState({ payType: res.data.payType });
         this.setState({ lat: res.data.lat });
         this.setState({ lng: res.data.lng });
-        console.log(this.state.lat);
+       
         if (res.data.owner.imageUrl !== null) {
           this.setState({ ownerImgUrl: res.data.owner.imageUrl });
         }
       })
       .catch((error) => console.log(error));
   }
-  convertLatLng = () => {
-    axios
-      .get(
-        `https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
-      )
-      .then((res) => {
-        console.log(this.state.lat);
-        console.log(res);
-      })
-      .catch((error) => console.log(error));
-  };
+
   componentDidMount() {
     this.getData();
-    this.convertLatLng();
+   
   }
   applyButton() {
     window.alert("sometext");
@@ -101,6 +91,9 @@ export default class ShowPosterDetails extends Component {
             <span className="search__priceTag">
               {this.state.price} {this.state.payType}
             </span>
+          </div>
+          <div>
+            <MyGeocode lat={this.state.lat} lng={this.state.lng} />
           </div>
         </section>
         <section className="search__button">

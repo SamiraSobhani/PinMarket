@@ -1,8 +1,7 @@
 import {
   GoogleMap,
   useJsApiLoader,
-  InfoWindow,
-  Marker,
+
 } from "@react-google-maps/api";
 import mapStyle from "./mapStyle";
 import Locate from "./Locate";
