@@ -2,9 +2,9 @@ import React from "react";
 import { appContext } from "./../appContext";
 import { InfoWindow, Marker } from "@react-google-maps/api";
 import { useContext, useEffect, useState } from "react";
-
+import homeIcon from "../../assets/Icons/home3.png";
 function Markers(props) {
-  const { coord, setCoord, state, setState } = useContext(appContext);
+  const { coord, state } = useContext(appContext);
   const [selectedPoster, setSelectedPoster] = useState(null);
 
   function selectedIcon(id) {
@@ -27,6 +27,17 @@ function Markers(props) {
 
   return (
     <div>
+      <Marker
+        animation={window.google.maps.Animation.DROP}
+        position={{
+          lat: coord.lat,
+          lng: coord.lng,
+        }}
+        icon={{
+          url: homeIcon,
+          scaledSize: new window.google.maps.Size(47, 47),
+        }}
+      ></Marker>
       {props.nearPosters.map((poster) => (
         <Marker
           key={poster.id}

@@ -1,34 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import { InfoWindow, Marker } from "@react-google-maps/api";
-import axios from "axios";
+import { appContext } from "./../appContext";
+import { useContext, useEffect, useState } from "react";
+import homeIcon from "../../assets/Icons/home3.png";
 
-class Markers extends Component {
-  state = {
-    posters: [],
-    selectedPoster: null,
-  };
+function Markers() {
+  const { coord, state } = useContext(appContext);
+  const [selectedPoster, setSelectedPoster] = useState(null);
 
-  getPosters() {
-    const ACCESS_TOKEN = sessionStorage.accessToken;
-
-    axios
-      .get("http://localhost:8080/posters/all", {
-        headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
-      })
-      .then((res) => {
-        console.log("inside getposters", res);
-        if (res !== null) {
-          this.setState({ posters: res.data });
-        }
-      })
-      .catch((error) => console.log(error));
-  }
-
-  componentDidMount() {
-    this.getPosters();
+  useEffect(() => {
     const listener = (e) => {
       if (e.key === "Escape") {
-        this.setState({ selectedPoster: null });
+        setSelectedPoster(null);
       }
     };
     window.addEventListener("keydown", listener);
@@ -36,59 +19,67 @@ class Markers extends Component {
     return () => {
       window.removeEventListener("keydown", listener);
     };
-  }
+  });
 
-
-  render() {
-    return (
-      <div>
-        {this.state.posters.map((poster) => (
-          <Marker
-            key={poster.id}
-            animation={window.google.maps.Animation.DROP}
-            position={{
-              lat: poster.lat,
-              lng: poster.lng,
-            }}
-            onClick={() => {
-              this.setState({ selectedPoster: poster });
-            }}
-            icon={{
-              url: poster.category.icon,
-              scaledSize: new window.google.maps.Size(42, 42),
-            }}
-          ></Marker>
-        ))}
-        {this.state.selectedPoster && (
-          <InfoWindow
-            onCloseClick={() => {
-              this.setState({ selectedPoster: null });
-            }}
-            position={{
-              lat: this.state.selectedPoster.lat,
-              lng: this.state.selectedPoster.lng,
-            }}
-            onClick={() => {
-              setcoord({
-                lat: selectedPoster.lat,
-                lng: selectedPoster.lng,
-              });
-            }}
+  return (
+    <div>
+      <Marker
+        animation={window.google.maps.Animation.DROP}
+        position={{
+          lat: coord.lat,
+          lng: coord.lng,
+        }}
+        icon={{
+          url: homeIcon,
+          scaledSize: new window.google.maps.Size(47, 47),
+        }}
+      ></Marker>
+      {state.posters.map((poster) => (
+        <Marker
+          key={poster.id}
+          animation={window.google.maps.Animation.DROP}
+          position={{
+            lat: poster.lat,
+            lng: poster.lng,
+          }}
+          onClick={() => {
+            setSelectedPoster(poster);
+          }}
+          icon={{
+            url: poster.category.icon,
+            scaledSize: new window.google.maps.Size(42, 42),
+          }}
+        ></Marker>
+      ))}
+      {selectedPoster && (
+        <InfoWindow
+          onCloseClick={() => {
+            setSelectedPoster(null);
+          }}
+          position={{
+            lat: selectedPoster.lat,
+            lng: selectedPoster.lng,
+          }}
+          onClick={() => {
+            setcoord({
+              lat: selectedPoster.lat,
+              lng: selectedPoster.lng,
+            });
+          }}
+        >
+          <a
+            className="infoWindow__click"
+            href={`http://localhost:3000/posters/details/${selectedPoster.id}`}
           >
-            <a
-              className="infoWindow__click"
-              href={`http://localhost:3000/posters/details/${this.state.selectedPoster.id}`}
-            >
-              <div>
-                <h2>{this.state.selectedPoster.title}</h2>
-                <p>{this.state.selectedPoster.description}</p>
-              </div>
-            </a>
-          </InfoWindow>
-        )}
-      </div>
-    );
-  }
+            <div>
+              <h2>{selectedPoster.title}</h2>
+              <p>{selectedPoster.description}</p>
+            </div>
+          </a>
+        </InfoWindow>
+      )}
+    </div>
+  );
 }
 
 export default Markers;
