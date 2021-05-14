@@ -2,7 +2,7 @@ import React from "react";
 import { InfoWindow, Marker } from "@react-google-maps/api";
 import { appContext } from "./../appContext";
 import { useContext, useEffect, useState } from "react";
-import homeIcon from "../../assets/Icons/home3.png";
+import homeIcon from "../../assets/Icons/home4.png";
 
 function Markers() {
   const { coord, state } = useContext(appContext);
@@ -31,7 +31,7 @@ function Markers() {
         }}
         icon={{
           url: homeIcon,
-          scaledSize: new window.google.maps.Size(47, 47),
+          scaledSize: new window.google.maps.Size(35, 42),
         }}
       ></Marker>
       {state.posters.map((poster) => (

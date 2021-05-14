@@ -8,7 +8,6 @@ class IdleTimer {
       onExpired();
       return;
     }
-
     this.eventHandler = this.updateExpiredTime.bind(this);
     this.tracker();
     this.startInterval();
@@ -16,9 +15,13 @@ class IdleTimer {
 
   startInterval() {
     this.updateExpiredTime();
-
     this.interval = setInterval(() => {
       const expiredTime = parseInt(sessionStorage.getItem("_expiredTime"), 10);
+      console.log(expiredTime - Date.now());
+      if (expiredTime - Date.now() <= 1000) {
+        window.alert("You will be logged out automatically in 1 minute");
+
+      }
       if (expiredTime < Date.now()) {
         if (this.onTimeout) {
           this.onTimeout();

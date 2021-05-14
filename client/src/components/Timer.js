@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import IdleTimer from "./IdleTimer";
 import { ACCESS_TOKEN } from "./constants";
-
 import Alert from "react-s-alert";
+
 export default function Timer(props) {
   const [isTimeout, setIsTimeout] = useState(false);
   useEffect(() => {
     const timer = new IdleTimer({
-      timeout: 1000, //expire after 10seconds will change it to 600 later
+      timeout: 15, //expire after 10seconds will change it to 600 later
       onTimeout: () => {
         setIsTimeout(true);
       },

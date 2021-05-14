@@ -1,5 +1,5 @@
 import React from "react";
-import profilePic from "../../assets/Icons/Mr.png";
+import profilePic from "../../assets/Icons/profile6.png";
 import { useContext, useEffect, useState, useRef } from "react";
 import { appContext } from "./../appContext";
 import { useParams } from "react-router-dom";
