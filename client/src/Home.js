@@ -4,7 +4,7 @@ import PosterForm from "./components/PosterForm/PosterForm";
 import { appContext } from "./components/appContext";
 import useApplicationData from "./hooks/useApplicationData";
 import MyButtons from "./components/ThreeButton/MyButtons";
-
+import Timer from "./components/Auth/Timer";
 
 function Home() {
   const {
@@ -41,6 +41,7 @@ function Home() {
               <MyButtons myPost="post" />
             </div>
           </div>
+          <Timer/>
         </div>
       </appContext.Provider>
    

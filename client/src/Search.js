@@ -2,7 +2,7 @@ import React from "react";
 import { appContext } from "./components/appContext";
 import useApplicationData from "./hooks/useApplicationData";
 import SearchPoster from "./components/SearchPoster/SearchPoster";
-
+import Timer from "./components/Auth/Timer";
 function Search() {
   const {
     coord,
@@ -20,6 +20,7 @@ function Search() {
         <div>
           <SearchPoster className="slider" />
         </div>
+        <Timer />
       </div>
     </appContext.Provider>
   );

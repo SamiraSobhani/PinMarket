@@ -19,7 +19,7 @@ import Home from "./Home";
 import { ACCESS_TOKEN } from "./components/constants";
 import Details from "./Details";
 import profilePic from "./assets/Icons/profile6.png";
-import Timer from "./components/Timer";
+import welcome from "./WelcomePage";
 
 class App extends Component {
   constructor(props) {
@@ -57,15 +57,16 @@ class App extends Component {
 
   handleLogout = () => {
     sessionStorage.removeItem(ACCESS_TOKEN);
+    sessionStorage.removeItem(sessionStorage.getItem("_expiredTime"));
+
     window.location.replace("/login");
+    this.myFunc();
     this.setState({
       authenticated: false,
       currentUser: null,
     });
     Alert.success("You're safely logged out!");
   };
-
-
 
   componentDidMount() {
     this.loadCurrentlyLoggedInUser();
@@ -88,12 +89,38 @@ class App extends Component {
         </div>
         <div className="app-body">
           <Switch>
-            <Route path="/posters" component={UserPage} exact />
-            <Route path="/posters/search" component={Search} />
-            <Route path="/posters/details/:id" component={Details} />
-            <Route path="/posters/details" component={Details} />
-            <Route path="/posters/userpage" component={Home} />
-            <Route exact path="/" component={Login}></Route>
+            <Route exact path="/" component={welcome} />
+            <PrivateRoute
+              exact
+              path="/posters"
+              authenticated={this.state.authenticated}
+              currentUser={this.state.currentUser}
+              component={UserPage}
+            ></PrivateRoute>
+            <PrivateRoute
+              path="/posters/search"
+              authenticated={this.state.authenticated}
+              currentUser={this.state.currentUser}
+              component={Search}
+            ></PrivateRoute>
+            <PrivateRoute
+              path="/posters/details/:id"
+              authenticated={this.state.authenticated}
+              currentUser={this.state.currentUser}
+              component={Details}
+            ></PrivateRoute>
+            <PrivateRoute
+              path="/posters/details"
+              authenticated={this.state.authenticated}
+              currentUser={this.state.currentUser}
+              component={Details}
+            ></PrivateRoute>
+            <PrivateRoute
+              path="/posters/userpage"
+              authenticated={this.state.authenticated}
+              currentUser={this.state.currentUser}
+              component={Home}
+            ></PrivateRoute>
             <PrivateRoute
               path="/profile"
               authenticated={this.state.authenticated}
@@ -118,7 +145,6 @@ class App extends Component {
             ></Route>
             <Route component={NotFound}></Route>
           </Switch>
-          <Timer />
         </div>
         <Alert
           stack={{ limit: 3 }}

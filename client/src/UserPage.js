@@ -5,7 +5,7 @@ import MapContainer from "./components/Map/MapContainer";
 import { appContext } from "./components/appContext";
 import useApplicationData from "./hooks/useApplicationData";
 import MyButtons from "./components/ThreeButton/MyButtons";
-
+import Timer from "./components/Auth/Timer";
 
 function UserPage() {
   const {
@@ -16,8 +16,8 @@ function UserPage() {
     loginStatus,
     setLoginStatus,
   } = useApplicationData();
+  console.log(sessionStorage.getItem("_expiredTime"));
   return (
-    
     <appContext.Provider
       value={{ coord, setCoord, state, setState, loginStatus, setLoginStatus }}
     >
@@ -28,9 +28,9 @@ function UserPage() {
           <MyButtons allActivity="all" />
         </div>
         <AppliedList className="user__apply" />
+        <Timer />
       </div>
     </appContext.Provider>
-   
   );
 }
 

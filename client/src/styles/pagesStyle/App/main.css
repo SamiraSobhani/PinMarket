@@ -816,45 +816,76 @@ button {
 }
 .chat__items {
   list-style: none;
+  margin-right: 2rem;
+}
+.chat__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .chat__userName {
   margin-left: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 .chat__profilePic {
   width: 1.35rem;
   height: auto;
   border: solid white 0.1rem;
   border-radius: 50%;
-  margin-left: 0.4rem;
-  margin-top: 0.4rem;
+  margin-left: 1rem;
 }
 .chat__item {
   list-style: none;
 }
+
 .chat__content {
   line-height: 0.2rem;
   height: 2rem;
   margin-left: 2rem;
 }
+.chat__time {
+  font-size: 0.6rem;
+  font-weight: 300;
+  color: gray;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
 .chat__input {
   margin-top: 0.5rem;
   display: none;
+  margin-left: 3.5rem;
 }
 .chat__text {
   margin: 0.5rem;
   padding-bottom: 0.65rem;
-  font-size: 0.95rem;
+  font-size: 0.7rem;
+  margin-left: 1.3rem;
+  font-weight: 400;
 }
 .chat__nestedReplies {
   margin-left: 1.5rem;
 }
 .chat__contents {
   margin-bottom: 0.5rem;
+  margin-left: 2.5rem;
+}
+.chat__mainText {
+  margin: 0.5rem;
+  padding-bottom: 0.65rem;
+  font-size: 0.7rem;
+  margin-left: 0.8rem;
+  font-weight: 400;
 }
 .chat__reply {
-  font-size: 0.65rem;
-  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  margin-left: 2.85rem;
   margin-bottom: 1rem;
+  font-weight: bold;
+  color: rgba(28, 128, 175, 0.883);
 }
 .chat__line {
   border: #232940;
@@ -869,6 +900,30 @@ button {
 
 .posters__list {
   margin-top: 3rem;
+  padding-left: 0;
+}
+
+.banner {
+  width: 1700px;
+  height: 750px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: url("../../../assets/welcomePinPage.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.banner__container {
+  margin: auto 0;
+  font-size: 50px;
+  color: white;
+  font-weight: bold;
 }
 
 .container {

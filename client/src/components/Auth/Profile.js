@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import './../../styles/pagesStyle/Profile/_ProfileHeader.scss';
-
+import "./../../styles/pagesStyle/Profile/_ProfileHeader.scss";
+import Timer from "./Timer";
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +14,7 @@ class Profile extends Component {
             <div className="profile-avatar">
               {this.props.currentUser.imageUrl ? (
                 <img
-                className="profile-img"
+                  className="profile-img"
                   src={this.props.currentUser.imageUrl}
                   alt={this.props.currentUser.name}
                 />
@@ -33,6 +33,7 @@ class Profile extends Component {
             </div>
           </div>
         </div>
+        <Timer />
       </div>
     );
   }

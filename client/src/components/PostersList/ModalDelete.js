@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
-import close from "../../assets/Icons/close-24px.svg";
+
 
 export default class posterAction extends Component {
   state = {
@@ -35,9 +35,7 @@ export default class posterAction extends Component {
           onRequestClose={this.closeModal}
         >
           <div className="modal__container">
-            {/* <button onClick={this.closeModal}>
-              <img className="modal__icon" src={close} alt="close"></img>
-            </button> */}
+         
             <div className="modal__content">
               <p className="modal__font lg">
                 Please confirm that you'd like to delete this poster from the

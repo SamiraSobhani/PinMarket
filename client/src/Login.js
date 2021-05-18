@@ -4,6 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import googleLogo from "./assets/google-logo.png";
 import Alert from "react-s-alert";
 import { GOOGLE_AUTH_URL, ACCESS_TOKEN } from "./components/constants";
+import { FormErrors } from "./FormErrors";
 
 class Login extends Component {
   componentDidMount() {
@@ -70,17 +71,61 @@ class LoginForm extends Component {
     password: "",
     recaptchaToken: "",
     errors: {},
+    formErrors: { email: "", password: "" },
+    emailValid: false,
+    passwordValid: false,
+    formValid: false,
   };
 
   handleInputChange = (event) => {
     const target = event.target;
     const inputName = target.name;
     const inputValue = target.value;
-
-    this.setState({
-      [inputName]: inputValue,
-    });
+    this.setState(
+      {
+        [inputName]: inputValue,
+      },
+      () => {
+        this.validateField(inputName, inputValue);
+      }
+    );
   };
+
+  validateField(fieldName, value) {
+    let fieldValidationErrors = this.state.formErrors;
+    let emailValid = this.state.emailValid;
+    let passwordValid = this.state.passwordValid;
+    switch (fieldName) {
+      case "email":
+        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+        fieldValidationErrors.email = emailValid ? "" : " is invalid";
+        break;
+      case "password":
+        passwordValid = value.length >= 5;
+        fieldValidationErrors.password = passwordValid ? "" : " is too short";
+        break;
+      default:
+        break;
+    }
+    this.setState(
+      {
+        formErrors: fieldValidationErrors,
+        emailValid: emailValid,
+        passwordValid: passwordValid,
+      },
+      this.validateForm
+    );
+  }
+
+  validateForm() {
+    this.setState({
+      formValid: this.state.emailValid && this.state.passwordValid,
+    });
+  }
+
+  errorClass(error) {
+    return error.length === 0 ? "" : "has-error";
+  }
 
   getToken = (loginRequest) => {
     window.grecaptcha.ready(function () {
@@ -93,7 +138,6 @@ class LoginForm extends Component {
           login(loginRequest, token)
             .then((response) => {
               sessionStorage.setItem(ACCESS_TOKEN, response.accessToken);
-           
               Alert.success("You're successfully logged in!");
               this.props.history.push("/posters");
             })
@@ -120,39 +164,55 @@ class LoginForm extends Component {
       }
     }
   };
+
   render() {
     return (
       <form className="myform" onSubmit={this.handleSubmit}>
-        <div className="form-item">
-          <input
-            type="email"
-            name="email"
-            className="form-control"
-            placeholder=" Email"
-            value={this.state.email}
-            onChange={this.handleInputChange}
-            required
-          />
+        <div className="panel panel-default">
+          <FormErrors formErrors={this.state.formErrors} />
         </div>
-        <div className="form-item">
-          <input
-            type="password"
-            name="password"
-            className="form-control"
-            placeholder=" Password"
-            value={this.state.password}
-            onChange={this.handleInputChange}
-            required
-          />
-        </div>
-        <div className="form-item">
-          <button
-            data-action="submit"
-            type="submit"
-            className="btn btn-block btn-primary"
-          >
-            Login
-          </button>
+        <div
+          className={`form-group ${this.errorClass(
+            this.state.formErrors.email
+          )}`}
+        >
+          <div className="form-item">
+            <input
+              type="email"
+              name="email"
+              className="form-control"
+              placeholder=" Email"
+              value={this.state.email}
+              onChange={this.handleInputChange}
+              required
+            />
+          </div>
+          <div className="form-item">
+            <div
+              className={`form-group ${this.errorClass(
+                this.state.formErrors.password
+              )}`}
+            >
+              <input
+                type="password"
+                name="password"
+                className="form-control"
+                placeholder=" Password"
+                value={this.state.password}
+                onChange={this.handleInputChange}
+                required
+              />
+            </div>
+            <div className="form-item">
+              <button
+                data-action="submit"
+                type="submit"
+                className="btn btn-block btn-primary"
+              >
+                Login
+              </button>
+            </div>
+          </div>
         </div>
       </form>
     );
