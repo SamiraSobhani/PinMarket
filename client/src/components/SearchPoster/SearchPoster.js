@@ -103,31 +103,36 @@ function SearchPoster() {
             />
           </div>
         </div>
-
-        <div className="filter__category">
-          <p className="filter__text">Filter by Category:</p>
-          <div className="category__filter">
-            <Autocomplete
-              onChange={(event, value) => setCategory(value)}
-              id="category-search"
-              name="category-search"
-              value={state.categories.id}
-              options={Object.values(state.categories)}
-              getOptionLabel={(option) => option.name}
-              style={{ width: 280, margin: 8 }}
-              renderInput={(params) => <TextField {...params} label="" />}
-            />
+        <div>
+          <div className="filter__category">
+            <p className="filter__text">Filter by Category:</p>
+            <div className="category__filter">
+              <Autocomplete
+                onChange={(event, value) => setCategory(value)}
+                id="category-search"
+                name="category-search"
+                value={state.categories.id}
+                options={Object.values(state.categories)}
+                getOptionLabel={(option) => option.name}
+                style={{ width: 280, margin: 8 }}
+                renderInput={(params) => <TextField {...params} label="" />}
+              />
+            </div>
           </div>
+          <button
+            className="filter__button"
+            onClick={(categorisedPosters, distBtw2Ptss)}
+          >
+            Set Filter
+          </button>
         </div>
-        <button
-          className="filter__button"
-          onClick={(categorisedPosters, distBtw2Ptss)}
-        >
-          Set Filter
-        </button>
-      </div>
-      <div>
-        <FilteredList nearPosters={nearPosters} />
+        <div className="posters__content">
+          <ul className="posters__list">
+            {nearPosters.map((item, index) => (
+              <FilteredList key={index} eachPoster={item} />
+            ))}
+          </ul>
+        </div>
       </div>
       <div className="filter__map">
         <SearchMap nearPosters={nearPosters} />

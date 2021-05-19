@@ -8,14 +8,8 @@ import MyButtons from "./components/ThreeButton/MyButtons";
 import Timer from "./components/Auth/Timer";
 
 function UserPage() {
-  const {
-    coord,
-    setCoord,
-    state,
-    setState,
-    loginStatus,
-    setLoginStatus,
-  } = useApplicationData();
+  const { coord, setCoord, state, setState, loginStatus, setLoginStatus } =
+    useApplicationData();
   console.log(sessionStorage.getItem("_expiredTime"));
   return (
     <appContext.Provider
@@ -28,8 +22,8 @@ function UserPage() {
           <MyButtons allActivity="all" />
         </div>
         <AppliedList className="user__apply" />
-        <Timer />
       </div>
+      <Timer />
     </appContext.Provider>
   );
 }

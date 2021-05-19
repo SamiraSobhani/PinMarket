@@ -4,9 +4,10 @@
   width: 75%;
 }
 .category__filter {
-  margin-left: 5rem;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
 }
 .input-range__slider {
   border: 1px solid $darkBlue;
@@ -53,10 +54,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-top: -2.4rem;
+  margin-top: -2.1rem;
   margin-bottom: 3.5rem;
-  width: 40%;
+  width: 35%;
   border: solid 0.1rem $darkBlue;
+  border-radius: 8px;
   height: 200px;
   &__button {
     width: 25%;
@@ -77,10 +79,23 @@
   }
   &__category {
     display: flex;
-    width: 95%;
+    width: 90%;
     height: 50%;
   }
   &__map {
     width: 55%;
   }
 }
+.posters__content {
+  margin-left: 1.5rem;
+}
+
+.filtered__icon {
+  width: 1.2rem;
+}
+// .MuiFormControl-root {
+//   width: unset;
+// }
+// .MuiFormControl-fullWidth {
+//   width:unset;
+// }
