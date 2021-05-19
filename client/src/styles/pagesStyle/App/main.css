@@ -14,11 +14,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  max-height: 7rem;
+  max-height: 6rem;
 }
 .navbar__pin {
-  width: 9rem;
-  height: auto;
+  width: 7rem;
+  height: 8rem;
 }
 .navbar__logo {
   text-align: center;
@@ -146,9 +146,8 @@ body {
 }
 
 .slider {
-  margin: 2rem 0 4rem 3rem;
-  padding: 0.33rem;
-  border: solid #01192d 0.1rem;
+  padding: 1rem;
+  margin-top: 1rem;
   width: 75%;
 }
 
@@ -157,6 +156,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .input-range__slider {
@@ -178,10 +181,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 
 .search {
@@ -229,29 +228,43 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: -2.4rem;
   margin-bottom: 3.5rem;
-  width: 98%;
-  border: solid 0.3rem #01192d;
-  height: 150px;
+  width: 35%;
+  border: solid 0.25rem #01192d;
+  height: 200px;
 }
 .filter__button {
-  margin-left: 1rem;
+  width: 25%;
+  margin-bottom: 1rem;
 }
 .filter__text {
   color: #01192d;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  margin-left: 1rem;
+  margin: 1rem 0 0 1rem;
+  width: 30%;
 }
 .filter__distance {
-  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 98%;
+  height: 40%;
 }
 .filter__category {
-  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 95%;
+  height: 50%;
 }
 
 .search {
@@ -770,7 +783,6 @@ button {
 }
 
 .profile-logo {
-  margin-top: -2rem;
   width: 17.5rem;
   margin: 0 auto;
 }
@@ -904,8 +916,8 @@ button {
 }
 
 .banner {
-  width: 1700px;
-  height: 750px;
+  width: 100%;
+  height: 785px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -918,12 +930,27 @@ button {
   background-image: url("../../../assets/welcomePinPage.jpg");
   background-position: center;
   background-size: cover;
+  -webkit-animation: mymove 7s infinite;
+          animation: mymove 7s infinite;
 }
-.banner__container {
-  margin: auto 0;
+@-webkit-keyframes mymove {
+  50% {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+}
+@keyframes mymove {
+  50% {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+}
+.banner__text {
+  margin-top: 12rem;
   font-size: 50px;
-  color: white;
+  color: #01192d;
   font-weight: bold;
+  opacity: 1;
 }
 
 .container {
@@ -944,7 +971,7 @@ button {
 .myMap {
   margin-top: -2.2rem;
   height: 27rem;
-  width: 33rem;
+  width: 13rem;
 }
 
 .mapButton {

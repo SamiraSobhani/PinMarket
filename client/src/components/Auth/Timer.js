@@ -58,7 +58,7 @@ export default function Timer(props) {
 
   useEffect(() => {
     const timer = new IdleTimer({
-      timeout: 20, //expire after 10seconds will change it to 600 later
+      timeout: 600, //expire after 10seconds will change it to 600 later
       onTimeout: () => {
         setIsTimeout(true);
       },

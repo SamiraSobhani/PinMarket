@@ -103,12 +103,7 @@ class App extends Component {
               currentUser={this.state.currentUser}
               component={Search}
             ></PrivateRoute>
-            <PrivateRoute
-              path="/posters/details/:id"
-              authenticated={this.state.authenticated}
-              currentUser={this.state.currentUser}
-              component={Details}
-            ></PrivateRoute>
+            <Route path="/posters/details/:id" component={Details}></Route>
             <PrivateRoute
               path="/posters/details"
               authenticated={this.state.authenticated}

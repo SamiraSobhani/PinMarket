@@ -7,11 +7,11 @@ import MyButtons from "../ThreeButton/MyButtons";
 import SearchMap from "./SearchMap";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
+import FilteredList from "./FilteredList";
 
 function SearchPoster() {
-  const { coord, state, setState, nearPosters, setnearPosters } = useContext(
-    appContext
-  );
+  const { coord, state, setState, nearPosters, setnearPosters } =
+    useContext(appContext);
   const [value, setValue] = useState(0);
   const [category, setCategory] = useState("");
 
@@ -117,16 +117,19 @@ function SearchPoster() {
               style={{ width: 280, margin: 8 }}
               renderInput={(params) => <TextField {...params} label="" />}
             />
-            <button
-              className="filter__button"
-              onClick={(categorisedPosters, distBtw2Ptss)}
-            >
-              Set Filter
-            </button>
           </div>
         </div>
+        <button
+          className="filter__button"
+          onClick={(categorisedPosters, distBtw2Ptss)}
+        >
+          Set Filter
+        </button>
       </div>
       <div>
+        <FilteredList nearPosters={nearPosters} />
+      </div>
+      <div className="filter__map">
         <SearchMap nearPosters={nearPosters} />
         <MyButtons search="search" />
       </div>

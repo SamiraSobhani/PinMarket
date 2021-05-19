@@ -5,7 +5,7 @@ const welcome = (props) => {
     <div className="banner">
       <div className="banner__text">
       
-          <h1>Welcome to pinpal</h1>
+          <h1>Welcome to PinPal</h1>
        
       </div>
     </div>

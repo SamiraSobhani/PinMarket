@@ -32,8 +32,8 @@ class Profile extends Component {
               <p className="profile-email">{this.props.currentUser.email}</p>
             </div>
           </div>
+          <Timer />
         </div>
-        <Timer />
       </div>
     );
   }

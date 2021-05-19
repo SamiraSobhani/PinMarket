@@ -1,16 +1,24 @@
 .banner {
   width: 100%;
-  height: 800px;
+  height: 785px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-image: url("../../../assets/welcomePinPage.jpg");
   background-position: center;
   background-size: cover;
+  animation: mymove 7s infinite;
+  @keyframes mymove {
+    50% {
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+    }
+  }
   &__text {
-    margin: auto 0;
+    margin-top: 12rem;
     font-size: 50px;
-    color: white;
+    color: $darkBlue;
     font-weight: bold;
+    opacity: 1;
   }
 }
