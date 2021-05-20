@@ -14,7 +14,7 @@ function SearchPoster() {
     useContext(appContext);
   const [value, setValue] = useState(0);
   const [category, setCategory] = useState("");
-
+  const [className, setClassName] = useState("posters__content");
   const distBtw2Ptss = (p1, p2, p2id) => {
     const myArray = [];
     state.posters.map((poster) => {
@@ -77,7 +77,7 @@ function SearchPoster() {
       }
     });
     setnearPosters(res);
-
+    setClassName("posters__contentActive");
     return;
   };
 
@@ -126,7 +126,7 @@ function SearchPoster() {
             Set Filter
           </button>
         </div>
-        <div className="posters__content">
+        <div className={className}>
           <ul className="posters__list">
             {nearPosters.map((item, index) => (
               <FilteredList key={index} eachPoster={item} />

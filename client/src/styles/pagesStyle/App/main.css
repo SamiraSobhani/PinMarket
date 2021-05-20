@@ -240,7 +240,7 @@ body {
   height: 200px;
 }
 .filter__button {
-  width: 25%;
+  min-width: 25%;
   margin-bottom: 1rem;
 }
 .filter__text {
@@ -922,12 +922,7 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  justify-content: left;
   background-image: url("../../../assets/welcomePinPage.jpg");
   background-position: center;
   background-size: cover;
@@ -947,7 +942,8 @@ button {
   }
 }
 .banner__text {
-  margin-top: 12rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
   font-size: 50px;
   color: #01192d;
   font-weight: bold;

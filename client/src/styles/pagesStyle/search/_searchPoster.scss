@@ -61,7 +61,7 @@
   border-radius: 8px;
   height: 200px;
   &__button {
-    width: 25%;
+    min-width: 25%;
     margin-bottom: 1rem;
     margin-left: 0.8rem;
   }
@@ -87,15 +87,12 @@
   }
 }
 .posters__content {
+  display: none;
+}
+.posters__contentActive {
+  display: unset;
   margin-left: 1.5rem;
 }
-
 .filtered__icon {
   width: 1.2rem;
 }
-// .MuiFormControl-root {
-//   width: unset;
-// }
-// .MuiFormControl-fullWidth {
-//   width:unset;
-// }

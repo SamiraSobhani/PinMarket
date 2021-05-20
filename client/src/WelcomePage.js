@@ -4,9 +4,13 @@ const welcome = (props) => {
   return (
     <div className="banner">
       <div className="banner__text">
-      
-          <h1>Welcome to PinPal</h1>
-       
+        <p>
+          Empower your community
+          <br />
+          What you need
+          <br />
+          When you need it
+        </p>
       </div>
     </div>
   );

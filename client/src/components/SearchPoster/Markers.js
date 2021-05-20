@@ -11,6 +11,9 @@ function Markers(props) {
     const SC = state.categories.find((category) => category.id === id);
     return SC.icon;
   }
+  
+
+
 
   useEffect(() => {
     const listener = (e) => {
