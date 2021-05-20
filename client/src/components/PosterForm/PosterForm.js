@@ -1,19 +1,3 @@
-/*global google*/
-
-import Typography from "@material-ui/core/Typography";
-import LocationOnIcon from "@material-ui/icons/LocationOn";
-import {
-  GoogleMap,
-  useJsApiLoader,
-  InfoWindow,
-  Marker,
-} from "@react-google-maps/api";
-import usePlacesAutocomplete, {
-  getGeocode,
-  getLatLng,
-} from "use-places-autocomplete";
-import useOnclickOutside from "react-cool-onclickoutside";
-
 import { useState, useContext } from "react";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -32,7 +16,6 @@ import {
 import "date-fns";
 import { appContext } from "./../appContext";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 export default function Post() {
   const [title, setTitle] = useState("");
@@ -184,7 +167,7 @@ export default function Post() {
                 style={{ width: 208, margin: 8, marginRight: 25 }}
                 disableToolbar
                 variant="inline"
-                format="yyyy/MM/dd"
+                format="dd/MMM/yyyy"
                 margin="normal"
                 label="Start Date"
                 value={startDate}
@@ -198,7 +181,7 @@ export default function Post() {
                 style={{ width: 208, margin: 8 }}
                 disableToolbar
                 variant="inline"
-                format="yyyy/MM/dd"
+                format="dd/MMM/yyyy"
                 margin="normal"
                 label="End Date"
                 value={endDate}

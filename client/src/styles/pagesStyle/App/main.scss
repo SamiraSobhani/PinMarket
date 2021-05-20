@@ -16,7 +16,6 @@
 @import "../Details/chat";
 @import "../welcome/welcome";
 
-
 .container {
   margin-right: 2rem;
   margin-left: 2rem;
@@ -24,7 +23,7 @@
 }
 .main {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .myMap {
   margin-top: -2.2rem;

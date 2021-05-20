@@ -1,6 +1,7 @@
 .details {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+
   &__chat {
     color: $white;
     width: 45%;
@@ -9,12 +10,15 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-left: 4rem;
+    margin-top: 2rem;
   }
 }
 .detailsAndButtons {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 45%;
+  margin-left: 1rem;
 }
 .chat {
   &__box {
