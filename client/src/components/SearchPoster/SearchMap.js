@@ -6,7 +6,7 @@ import { appContext } from "./../appContext";
 import Markers from "./Markers";
 
 const mapContainerStyle = {
-  width: "50vw",
+  width: "40vw",
   height: "53.5vh",
 };
 

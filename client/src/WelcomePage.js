@@ -4,7 +4,7 @@ const welcome = (props) => {
   return (
     <div className="banner">
       <div className="banner__text">
-        <p>
+        <p className="banner__text">
           Empower your community
           <br />
           What you need

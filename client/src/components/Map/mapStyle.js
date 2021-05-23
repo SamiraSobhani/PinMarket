@@ -52,7 +52,7 @@ export default [
     elementType: "geometry.fill",
     stylers: [
       {
-        color: "#ffffff",
+        color: "#EDF3FA",
       },
     ],
   },

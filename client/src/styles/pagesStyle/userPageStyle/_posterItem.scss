@@ -6,16 +6,21 @@
   &__header {
     padding: 0.6rem;
     text-align: center;
-    border: solid 0.3rem $darkBlue;
+    border: solid 0.1rem $darkBlue;
     border-radius: 0.3rem;
-    margin-top: -2.1rem;
+    margin-top: -1.3rem;
+  }
+  &__list {
+    margin-left: 1rem;
+  }
+  &__main{
+    width: 17%;
   }
 }
 .user {
   &__container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     color: $darkBlue;
   }
 }
-

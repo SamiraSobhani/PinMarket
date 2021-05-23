@@ -39,7 +39,7 @@ export class AppliedList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="posters__main">
         <h2 className="posters__header">Applied Poster</h2>
         <ul className="posters__list">
           {this.state.posters.map((item, index) => (

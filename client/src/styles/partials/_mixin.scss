@@ -19,7 +19,6 @@
   outline: none;
   &:hover {
     transform: scale(1.25);
-    background-color: rgba(28, 128, 175, 0.883);
+    background-color: $lightBlue;
   }
-
 }

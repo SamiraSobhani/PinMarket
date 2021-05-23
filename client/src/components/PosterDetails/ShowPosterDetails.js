@@ -4,8 +4,6 @@ import profilePic from "../../assets/Icons/profile6.png";
 import ModalApply from "./ModalApply";
 import MyGeocode from "./Geocode";
 
-const { format } = require("date-fns");
-
 export default class ShowPosterDetails extends Component {
   state = {
     categoryName: "",
@@ -40,7 +38,7 @@ export default class ShowPosterDetails extends Component {
         this.setState({ payType: res.data.payType });
         this.setState({ lat: res.data.lat });
         this.setState({ lng: res.data.lng });
-       
+
         if (res.data.owner.imageUrl !== null) {
           this.setState({ ownerImgUrl: res.data.owner.imageUrl });
         }
@@ -50,7 +48,6 @@ export default class ShowPosterDetails extends Component {
 
   componentDidMount() {
     this.getData();
-   
   }
   applyButton() {
     window.alert("sometext");
