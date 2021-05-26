@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Saira+Stencil+One");
-
+// @import url("https://fonts.googleapis.com/css2?family=Saira+Stencil+One");
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap');
 .banner {
   width: 100%;
   height: 785px;
@@ -23,6 +23,6 @@
     color: $darkBlue;
     font-weight: 500;
     opacity: 1;
-    font-family: Saira Stencil One;
+    font-family: 'Rubik', sans-serif;
   }
 }
