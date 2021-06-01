@@ -6,7 +6,7 @@ export default class MyAddress extends Component {
     address: "",
   };
   MyGeocode = () => {
-    Geocode.setApiKey("AIzaSyBRUYC8MMdlwDjIzBVvo7U5oHa3h2tQ09k");
+    Geocode.setApiKey("AIzaSyBtHbQpkqrCL-HBHAg_1fRVgowXaaZJSc4");
     Geocode.enableDebug();
 
     Geocode.fromLatLng(this.props.lat, this.props.lng).then(
@@ -47,7 +47,7 @@ export default class MyAddress extends Component {
     );
   };
   render() {
-      this.MyGeocode();
+    this.MyGeocode();
     return (
       <div className="search__div">
         <h3 className="search__lable">Address: </h3>

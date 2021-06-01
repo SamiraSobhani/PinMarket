@@ -1,6 +1,9 @@
 .useritem {
   font-size: 0.75rem;
   line-height: 0.5rem;
+  &__title {
+    line-height: 0.95rem;
+  }
 }
 .posters {
   &__header {
@@ -13,7 +16,7 @@
   &__list {
     margin-left: 1rem;
   }
-  &__main{
+  &__main {
     width: 17%;
   }
 }

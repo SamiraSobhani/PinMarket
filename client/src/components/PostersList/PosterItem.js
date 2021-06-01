@@ -7,7 +7,7 @@ function PosterItem(props) {
     <div>
       <li className="useritems">
         <div className="useritem">
-          <h4>Title: {props.eachPoster.title}</h4>
+          <h4 className="useritem__title">Title: {props.eachPoster.title}</h4>
           <p>Owner: {props.eachPoster.owner.name}</p>
           <div>
             <p>
