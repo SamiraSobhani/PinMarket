@@ -66,17 +66,19 @@ class SocialLogin extends Component {
 }
 
 class LoginForm extends Component {
-  state = {
-    email: "",
-    password: "",
-    recaptchaToken: "",
-    errors: {},
-    formErrors: { email: "", password: "" },
-    emailValid: false,
-    passwordValid: false,
-    formValid: false,
-  };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: "",
+      recaptchaToken: "",
+      errors: {},
+      formErrors: { email: "", password: "" },
+      emailValid: false,
+      passwordValid: false,
+      formValid: false,
+    };
+  }
   handleInputChange = (event) => {
     const target = event.target;
     const inputName = target.name;
@@ -139,7 +141,9 @@ class LoginForm extends Component {
             .then((response) => {
               sessionStorage.setItem(ACCESS_TOKEN, response.accessToken);
               Alert.success("You're successfully logged in!");
+              console.log("ready to push");
               this.props.history.push("/posters");
+              console.log("after push");
             })
 
             .catch((error) => {
@@ -154,6 +158,7 @@ class LoginForm extends Component {
       const loginRequest = Object.assign({}, this.state);
       console.log("inside handlesubmit function2");
       const recaptchaToken = this.getToken(loginRequest);
+      this.props.history.push("/posters");
       console.log("inside handlesubmit function3", recaptchaToken);
     } catch (ex) {
       console.log("inside handlesubmit function4");

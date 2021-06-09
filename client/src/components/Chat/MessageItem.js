@@ -27,11 +27,9 @@ function MessageItem(props) {
   const handleChange = (event) => {
     setNewMessage((prevState) => ({
       ...prevState,
-      // inReplyToMessageId: id,
+
       content: event.target.value,
     }));
-
-    // console.log("inside handle change");
   };
 
   const handleSubmitMessage = (e) => {
@@ -45,10 +43,9 @@ function MessageItem(props) {
         })
         .then((res) => {
           console.log("after post method", newMessage);
-          // console.log(props.parentMessage.nestedReplies);
+
           console.log("after post method", newMessage.userImage);
           window.location.reload(false);
-          // window.history.pushState({}, "");
         })
         .catch((error) => console.log(error));
     }
