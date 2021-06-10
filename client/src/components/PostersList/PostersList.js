@@ -11,7 +11,7 @@ export default class PostersList extends Component {
     const ACCESS_TOKEN = sessionStorage.accessToken;
 
     axios
-      .get("http://localhost:8080/posters/me", {
+      .get("https://api.pinpal-market.com/posters/me", {
         headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
       })
       .then((res) => {
@@ -30,7 +30,7 @@ export default class PostersList extends Component {
   deletePoster = (id) => {
     const ACCESS_TOKEN = sessionStorage.accessToken;
     axios
-      .delete(`http://localhost:8080/poster?id=${id}`, {
+      .delete(`https://api.pinpal-market.com/poster?id=${id}`, {
         headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
       })
       .then((response) => {

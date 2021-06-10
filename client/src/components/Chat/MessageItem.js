@@ -36,7 +36,7 @@ function MessageItem(props) {
     if (e.key === "Enter") {
       const ACCESS_TOKEN = sessionStorage.accessToken;
       axios
-        .post(`http://localhost:8080/message`, newMessage, {
+        .post(`https://api.pinpal-market.com/message`, newMessage, {
           headers: {
             authorization: `Bearer ${ACCESS_TOKEN}`,
           },

@@ -34,7 +34,7 @@ export default function Post() {
     const ACCESS_TOKEN = sessionStorage.accessToken;
 
     axios
-      .post("http://localhost:8080/poster", newPoster, {
+      .post("https://api.pinpal-market.com/poster", newPoster, {
         headers: {
           authorization: `Bearer ${ACCESS_TOKEN}`,
           "Content-Type": "application/json",

@@ -27,7 +27,7 @@ export default class posterAction extends Component {
     this.closeModal();
   };
   register = () => {
-    Axios.post("http://localhost:8080/register", {
+    Axios.post("https://api.pinpal-market.com/register", {
       username: this.state.usernameReg,
       password: this.state.passwordReg,
     }).then((response) => {
