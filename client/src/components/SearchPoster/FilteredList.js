@@ -4,7 +4,7 @@ function FilteredList(props) {
   return (
     <a
       className="infoWindow__click"
-      href={`http://localhost:3000/posters/details/${props.eachPoster.id}`}
+      href={`https://www.pinpal-market.com/posters/details/${props.eachPoster.id}`}
     >
       <li className="useritems">
         <div className="useritem">

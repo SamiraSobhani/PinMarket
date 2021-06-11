@@ -69,7 +69,7 @@ function Markers() {
         >
           <a
             className="infoWindow__click"
-            href={`http://localhost:3000/posters/details/${selectedPoster.id}`}
+            href={`https://www.pinpal-market.com/posters/details/${selectedPoster.id}`}
           >
             <div>
               <h2>{selectedPoster.title}</h2>

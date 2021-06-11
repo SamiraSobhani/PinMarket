@@ -29,9 +29,6 @@ class Signup extends Component {
             <span className="or-text">OR</span>
           </div>
           <SignupForm {...this.props} />
-          <div className="login-link">
-            Already have an account? <Link to="/login">Login!</Link>
-          </div>
         </div>
       </div>
     );
@@ -147,40 +144,24 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <form className="myform" onSubmit={this.handleSubmit}>
+      <div className="myform">
         <div className="panel panel-default">
           <FormErrors formErrors={this.state.formErrors} />
         </div>
-        <div
-          className={`form-group ${this.errorClass(
-            this.state.formErrors.name
-          )}`}
-        ></div>
-        <div className="form-item">
-          <input
-            autoComplete="off"
-            type="text"
-            name="name"
-            className="form-control"
-            placeholder=" Name"
-            value={this.state.name}
-            onChange={this.handleInputChange}
-            required
-          />
-        </div>
-        <div className="form-item">
+        <form className="myInput" onSubmit={this.handleSubmit}>
           <div
             className={`form-group ${this.errorClass(
-              this.state.formErrors.email
+              this.state.formErrors.name
             )}`}
-          >
+          ></div>
+          <div className="form-item">
             <input
               autoComplete="off"
-              type="email"
-              name="email"
+              type="text"
+              name="name"
               className="form-control"
-              placeholder=" Email"
-              value={this.state.email}
+              placeholder=" Name"
+              value={this.state.name}
               onChange={this.handleInputChange}
               required
             />
@@ -188,27 +169,48 @@ class SignupForm extends Component {
           <div className="form-item">
             <div
               className={`form-group ${this.errorClass(
-                this.state.formErrors.password
+                this.state.formErrors.email
               )}`}
             >
               <input
-                type="password"
-                name="password"
+                autoComplete="off"
+                type="email"
+                name="email"
                 className="form-control"
-                placeholder=" Password"
-                value={this.state.password}
+                placeholder=" Email"
+                value={this.state.email}
                 onChange={this.handleInputChange}
                 required
               />
             </div>
             <div className="form-item">
-              <button type="submit" className="btn btn-block btn-primary">
-                Sign Up
-              </button>
+              <div
+                className={`form-group ${this.errorClass(
+                  this.state.formErrors.password
+                )}`}
+              >
+                <input
+                  type="password"
+                  name="password"
+                  className="form-control"
+                  placeholder=" Password"
+                  value={this.state.password}
+                  onChange={this.handleInputChange}
+                  required
+                />
+              </div>
+              <div className="form-item">
+                <button type="submit" className="btn btn-block btn-primary">
+                  Sign Up
+                </button>
+              </div>
             </div>
           </div>
+        </form>
+        <div className="login-link">
+          Already have an account? <Link to="/login">Login!</Link>
         </div>
-      </form>
+      </div>
     );
   }
 }

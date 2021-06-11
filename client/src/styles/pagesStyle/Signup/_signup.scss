@@ -1,8 +1,8 @@
 @import "../../partials/variables";
 .signup-container {
   text-align: center;
-  margin-top:-4rem;
-  // background-image: url("../../../assets/pin1.jpg");
+  margin-top: -4rem;
+
   background-repeat: no-repeat;
 }
 
@@ -50,4 +50,13 @@
   margin-top: 0;
   margin-bottom: 30px;
   color: rgba(0, 0, 0, 0.65);
+}
+.formErrors {
+  color: red;
+}
+.myInput {
+  margin-top: 2rem;
+}
+.or-separator {
+  margin-top: 0.5rem;
 }
