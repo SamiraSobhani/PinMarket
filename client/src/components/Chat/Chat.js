@@ -11,7 +11,7 @@ class Chat extends Component {
   getMessage() {
     const ACCESS_TOKEN = sessionStorage.accessToken;
     axios
-      .get(`https://api.pinpal-market.com/messages?posterId=${this.props.id}`, {
+      .get(`http://localhost:8080/messages?posterId=${this.props.id}`, {
         headers: {
           authorization: `Bearer ${ACCESS_TOKEN}`,
         },

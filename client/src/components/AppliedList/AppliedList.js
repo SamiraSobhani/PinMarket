@@ -10,7 +10,7 @@ export class AppliedList extends Component {
   getMyAppliedPosters() {
     const ACCESS_TOKEN = sessionStorage.accessToken;
     axios
-      .get("https://api.pinpal-market.com/posters/applied", {
+      .get("http://localhost:8080/posters/applied", {
         headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
       })
       .then((res) => {
@@ -22,7 +22,7 @@ export class AppliedList extends Component {
   deletePoster = (id) => {
     const ACCESS_TOKEN = sessionStorage.accessToken;
     axios
-      .delete(`https://api.pinpal-market.com/poster?id=${id}`, {
+      .delete(`http://localhost:8080/poster?id=${id}`, {
         headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
       })
       .then((response) => {

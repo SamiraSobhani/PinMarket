@@ -142,7 +142,7 @@ class LoginForm extends Component {
               sessionStorage.setItem(ACCESS_TOKEN, response.accessToken);
               Alert.success("You're successfully logged in!");
               console.log("ready to push");
-              this.props.history.push("/posters");
+              window.location.replace("/posters");
               console.log("after push");
             })
 

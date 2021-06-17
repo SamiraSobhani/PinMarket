@@ -28,7 +28,7 @@ export default function useApplicationData() {
 
   useEffect(() => {
     axios
-      .get("https://api.pinpal-market.com/categories", {
+      .get("http://localhost:8080/categories", {
         headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
       })
       .then((res) => {
@@ -42,7 +42,7 @@ export default function useApplicationData() {
 
   useEffect(() => {
     axios
-      .get("https://api.pinpal-market.com/posters/all", {
+      .get("http://localhost:8080/posters/all", {
         headers: { authorization: `Bearer ${ACCESS_TOKEN}` },
       })
       .then((res) => {

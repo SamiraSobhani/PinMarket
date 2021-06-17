@@ -11,9 +11,6 @@ function Markers(props) {
     const SC = state.categories.find((category) => category.id === id);
     return SC.icon;
   }
-  
-
-
 
   useEffect(() => {
     const listener = (e) => {
@@ -76,7 +73,7 @@ function Markers(props) {
         >
           <a
             className="infoWindow__click"
-            href={`https://www.pinpal-market.com/posters/details/${selectedPoster.id}`}
+            href={`http://localhost:3000/posters/details/${selectedPoster.id}`}
           >
             <div>
               <h2>{selectedPoster.title}</h2>

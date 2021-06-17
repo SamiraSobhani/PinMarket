@@ -4,7 +4,7 @@ function FilteredList(props) {
   return (
     <a
       className="infoWindow__click"
-      href={`https://www.pinpal-market.com/posters/details/${props.eachPoster.id}`}
+      href={`http://localhost:3000/posters/details/${props.eachPoster.id}`}
     >
       <li className="useritems">
         <div className="useritem">
@@ -12,7 +12,10 @@ function FilteredList(props) {
           <p>Owner: {props.eachPoster.owner.name}</p>
           <div>
             <p>
-              <img className="filtered__icon" src={props.eachPoster.category.icon}></img>{" "}
+              <img
+                className="filtered__icon"
+                src={props.eachPoster.category.icon}
+              ></img>{" "}
               {props.eachPoster.category.name} for
               <span> ${props.eachPoster.price}/</span>
               <span>{props.eachPoster.payType}</span>

@@ -22,7 +22,7 @@ export default class ShowPosterDetails extends Component {
   getData() {
     const ACCESS_TOKEN = sessionStorage.accessToken;
     axios
-      .get(`https://api.pinpal-market.com/poster?id=${this.props.id}`, {
+      .get(`http://localhost:8080/poster?id=${this.props.id}`, {
         headers: {
           authorization: `Bearer ${ACCESS_TOKEN}`,
         },
