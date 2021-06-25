@@ -3,23 +3,25 @@
 .app-header {
   display: flex;
   justify-content: space-between;
-  height: 8.8rem;
+  height: 4.8rem;
   margin-right: 1rem;
   margin-left: 1rem;
+  width: 100%;
 }
 
 .app-options {
-  float: right;
+  margin-top: 1.7rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items:flex-end ;
 }
 
 .app-nav ul {
   list-style-position: none;
   margin: 0;
   padding: 0;
+  display: flex;
 }
 
 .app-nav ul li {
@@ -35,7 +37,7 @@
   padding-right: 0.35rem;
   padding-left: 0.35rem;
   color: $darkBlue;
-  font-size: 0.9rem;
+  font-size: 0.5rem;
   font-weight: 600;
   text-decoration: none;
 }
@@ -48,4 +50,68 @@
 }
 .app-nav ul li a.active {
   color: $darkred;
+}
+
+@media (min-width:768px){
+  .app-nav ul li a {
+    display: inline-block;
+    line-height: 60px;
+    padding-right: 0.35rem;
+    padding-left: 0.35rem;
+    color: $darkBlue;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .app-nav ul {
+    list-style-position: none;
+    margin: 0;
+    padding: 0;
+  }
+  .app-options {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .app-header {
+    display: flex;
+    justify-content: space-between;
+    height: 8.8rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+}
+@media (min-width:1440px){
+  .app-nav ul li a {
+    display: inline-block;
+    line-height: 60px;
+    padding-right: 0.35rem;
+    padding-left: 0.35rem;
+    color: $darkBlue;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+  } 
+  .app-nav ul {
+    list-style-position: none;
+    margin: 0;
+    padding: 0;
+  }
+  .app-options {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .app-header {
+    display: flex;
+    justify-content: space-between;
+    height: 8.8rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
 }

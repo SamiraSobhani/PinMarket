@@ -2,16 +2,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-height: 6rem;
+  max-height: 4rem;
   &__pin {
-    width: 7rem;
-    height: 8rem;
-    margin-right: 2rem;
+    width: 2rem;
+    height: 2.5rem;
+    margin-right: 0.5rem;
   }
 
   &__logo {
     text-align: center;
-    width: 22rem;
+    width: 7rem;
     height: auto;
   }
   &__profile {
@@ -19,7 +19,7 @@
     margin-right: 2rem;
   }
   &__welcome {
-    font-size: 0.75rem;
+    font-size: 0.5rem;
     display: flex;
     align-items: center;
     color: $darkBlue;
@@ -33,8 +33,93 @@
     color: $darkBlue;
   }
   &__image {
-    width: 2.5rem;
+    width: 1.2rem;
     border-radius: 50%;
     margin-right: 0.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 6rem;
+    &__pin {
+      width: 7rem;
+      height: 8rem;
+      margin-right: 2rem;
+    }
+
+    &__logo {
+      text-align: center;
+      width: 22rem;
+      height: auto;
+    }
+    &__profile {
+      display: flex;
+      margin-right: 2rem;
+    }
+    &__welcome {
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      color: $darkBlue;
+      margin-top: -1.8rem;
+      margin-bottom: 0;
+    }
+    &__icon {
+      margin-left: 0.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      color: $darkBlue;
+    }
+    &__image {
+      width: 2.5rem;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 6rem;
+    &__pin {
+      width: 7rem;
+      height: 8rem;
+      margin-right: 2rem;
+    }
+
+    &__logo {
+      text-align: center;
+      width: 22rem;
+      height: auto;
+    }
+    &__profile {
+      display: flex;
+      margin-right: 2rem;
+    }
+    &__welcome {
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      color: $darkBlue;
+      margin-top: -1.8rem;
+      margin-bottom: 0;
+    }
+    &__icon {
+      margin-left: 0.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      color: $darkBlue;
+    }
+    &__image {
+      width: 2.5rem;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+    }
   }
 }
