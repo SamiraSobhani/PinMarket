@@ -1,16 +1,14 @@
 @import "../../partials/variables";
 .signup-container {
   text-align: center;
-  margin-top: -4rem;
-
-  background-repeat: no-repeat;
+  // width: 70%;
 }
 
 .signup-content {
   margin-top: 6rem;
   background: #fff;
   border-radius: 2px;
-  width: 500px;
+  width: 55%;
   display: inline-block;
   margin-top: 30px;
   vertical-align: middle;
@@ -22,6 +20,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  font-size: 0.85rem;
 }
 .social-btn {
   margin-bottom: 15px;
@@ -40,13 +39,13 @@
 
 .login-link {
   color: rgba(0, 0, 0, 0.65);
-  font-size: 14px;
+  font-size: 0.55rem;
   margin-top: 1rem;
 }
 
 .signup-title {
-  font-size: 1.5em;
-  font-weight: 500;
+  font-size: 1.2em;
+  font-weight: 600;
   margin-top: 0;
   margin-bottom: 30px;
   color: rgba(0, 0, 0, 0.65);
