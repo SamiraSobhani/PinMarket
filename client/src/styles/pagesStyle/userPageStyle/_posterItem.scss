@@ -1,5 +1,5 @@
 .useritem {
-  font-size: 0.75rem;
+  font-size: 0.55rem;
   line-height: 0.5rem;
   &__title {
     line-height: 0.95rem;
@@ -11,19 +11,89 @@
     text-align: center;
     border: solid 0.1rem $darkBlue;
     border-radius: 0.3rem;
-    margin-top: -1.3rem;
+    margin-top: 1.3rem;
+    width: 50%;
+    font-size: 0.65rem;
+    margin: 0 auto;
   }
   &__list {
     margin-left: 1rem;
+   
+      margin-top: 0.7rem;
+      padding-left: 0;
+    
   }
   &__main {
-    width: 17%;
+    width: 75%;
   }
 }
 .user {
   &__container {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    // justify-content: space-around;
     color: $darkBlue;
+  }
+}
+@media (min-width: 768px) {
+  .useritem {
+    font-size: 0.75rem;
+    line-height: 0.5rem;
+    &__title {
+      line-height: 0.95rem;
+    }
+  }
+  .posters {
+    &__header {
+      padding: 0.6rem;
+      text-align: center;
+      border: solid 0.1rem $darkBlue;
+      border-radius: 0.3rem;
+      margin-top: -1.3rem;
+    }
+    &__list {
+      margin-left: 1rem;
+    }
+    &__main {
+      width: 17%;
+    }
+  }
+  .user {
+    &__container {
+      display: flex;
+      justify-content: space-around;
+      color: $darkBlue;
+    }
+  }
+}
+@media (min-width: 1440px) {
+  .useritem {
+    font-size: 0.75rem;
+    line-height: 0.5rem;
+    &__title {
+      line-height: 0.95rem;
+    }
+  }
+  .posters {
+    &__header {
+      padding: 0.6rem;
+      text-align: center;
+      border: solid 0.1rem $darkBlue;
+      border-radius: 0.3rem;
+      margin-top: -1.3rem;
+    }
+    &__list {
+      margin-left: 1rem;
+    }
+    &__main {
+      width: 17%;
+    }
+  }
+  .user {
+    &__container {
+      display: flex;
+      justify-content: space-around;
+      color: $darkBlue;
+    }
   }
 }

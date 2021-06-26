@@ -59,13 +59,87 @@
   border-style: none;
   background-color: $darkred;
   color: $white;
-  padding: 0.5rem 0.75rem;
+  padding: 0.35rem 0.55rem;
   border-radius: 0.5rem;
   outline: none;
   margin-bottom: 0.7rem;
   margin-top: 0;
+  font-size: 0.45rem;
 }
 .cancelButton {
   background-color: white;
   color: $darkBlue;
+}
+@media (min-width:768px){
+  .modal {
+    background-color: $darkgray;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 25%;
+    line-height: 3rem;
+    max-width: 22rem;
+    color: $darkBlue;
+    outline-color: $darkgray;
+    height: 8rem;
+    &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 1rem;
+      background-color: $white;
+      border: $darkgray solid 0.1rem;
+    }
+    &__icon {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+    &__content {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    &__head {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      font-size: 32px;
+      line-height: 36px;
+      padding-top: 1.5625rem;
+    }
+    &__font {
+      padding-top: 1rem;
+      font-size: 14px;
+      line-height: 26px;
+    }
+  
+    &__button {
+      width: 5.1875rem;
+      font-size: 12px;
+      height: 2rem;
+      border-radius: 0.35rem;
+      background-color: $white;
+      border: 1px solid $cloud;
+    }
+    &__button-delete {
+      background-color: $darkred;
+      text-decoration: none;
+      color: $white;
+      outline: none;
+    }
+  }
+  
+  .action__delete {
+    border-style: none;
+    background-color: $darkred;
+    color: $white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    outline: none;
+    margin-bottom: 0.7rem;
+    margin-top: 0;
+  }
+  .cancelButton {
+    background-color: white;
+    color: $darkBlue;
+  }
 }

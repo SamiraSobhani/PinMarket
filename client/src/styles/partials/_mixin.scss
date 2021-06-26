@@ -11,14 +11,27 @@
 @mixin mybutton {
   color: $white;
   background: $darkBlue;
-  border-radius: 0.35rem;
-  padding: 0.7rem;
-  height: 2rem;
-  width: 7.5rem;
+  border-radius: 0.15rem;
+  padding: 0.3rem;
+  height: 1rem;
+  width:4rem;
   border-style: none;
   outline: none;
+  font-size: 0.5rem;
   &:hover {
     transform: scale(1.25);
     background-color: $lightBlue;
+  }
+  @media (min-width: 768px) {
+    border-radius: 0.35rem;
+    padding: 0.7rem;
+    height: 2rem;
+    width: 7.5rem;
+    border-style: none;
+    outline: none;
+    &:hover {
+      transform: scale(1.25);
+      background-color: $lightBlue;
+    }
   }
 }

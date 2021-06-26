@@ -9,11 +9,12 @@ class AppHeader extends Component {
 
     return (
       <header className="app-header">
+        
         <img className="navbar__pin" src={Pin}></img>
         <Link to="/posters" className="app-title">
           <img src={logo} className="profile-logo"></img>
         </Link>
-
+        
         <div className="app-options">
           <h2 className="navbar__welcome ">
             <img

@@ -17,8 +17,8 @@
 @import "../userPageStyle/posterItem";
 
 .container {
-  margin-right: 2rem;
-  margin-left: 2rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
   font-family: "Open Sans", sans-serif;
 }
 .main {
@@ -26,9 +26,9 @@
   justify-content: space-around;
 }
 .myMap {
-  margin-top: -2.2rem;
-  height: 27rem;
-  width: 13rem;
+  // margin-top: -2.2rem;
+  height: 17rem;
+  width: 75%;
 }
 .mapButton {
   display: flex;
@@ -65,4 +65,16 @@
 
 .go-back-btn {
   min-width: 160px;
+}
+@media (min-width:768px){
+  .container {
+    margin-right: 2rem;
+    margin-left: 2rem;
+    font-family: "Open Sans", sans-serif;
+  }
+  .myMap {
+    margin-top: -2.2rem;
+    height: 27rem;
+    width: 13rem;
+  }
 }

@@ -1,10 +1,10 @@
 .threeButtons {
   display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
+  // justify-content: space-between;
+  margin-top: 0.7rem;
   margin-bottom: 1rem;
-  margin-left: 2rem;
-  width: 80%;
+margin-left: 0;
+  width: 70%;
   &__post {
     @include mybutton;
   }
@@ -26,4 +26,26 @@
 }
 #search {
   background-color: $lightBlue;
+}
+@media (min-width:768px){
+  .threeButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+    width: 80%;
+    &__post {
+      @include mybutton;
+    }
+    &__all {
+      @include mybutton;
+    }
+    &__search {
+      @include mybutton;
+    }
+    &__details {
+      @include mybutton;
+    }
+  }
 }

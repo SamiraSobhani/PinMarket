@@ -48,7 +48,7 @@ export default function MapContainer() {
     <>
       <GoogleMap
         mapContainerClassName="myMap"
-        mapContainerStyle={mapContainerStyle}
+        // mapContainerStyle={mapContainerStyle}
         center={coord}
         zoom={zoom || 13}
         options={options}

@@ -6,20 +6,22 @@
   &__pin {
     width: 2rem;
     height: 2.5rem;
-    margin-right: 0.5rem;
+    margin-left: -0.5rem;
   }
 
   &__logo {
     text-align: center;
-    width: 7rem;
+    width: 6rem;
     height: auto;
+   
   }
+
   &__profile {
     display: flex;
     margin-right: 2rem;
   }
   &__welcome {
-    font-size: 0.5rem;
+    font-size: 0.4rem;
     display: flex;
     align-items: center;
     color: $darkBlue;
@@ -55,6 +57,7 @@
       width: 22rem;
       height: auto;
     }
+  
     &__profile {
       display: flex;
       margin-right: 2rem;
