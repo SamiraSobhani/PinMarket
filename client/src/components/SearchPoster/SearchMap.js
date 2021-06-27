@@ -23,7 +23,7 @@ const libraries = ["places"];
 export default function SearchMap(props) {
   const { coord, setCoord, state, setState, zoom } = useContext(appContext);
   const { isLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyBtHbQpkqrCL-HBHAg_1fRVgowXaaZJSc4",
+    googleMapsApiKey: "AIzaSyB7DoeDarvO7KhfNP_My1CeY1JPdCty5Dg",
     libraries,
   });
 

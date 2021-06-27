@@ -26,7 +26,7 @@ const libraries = ["places"];
 export default function MapContainer() {
   const { coord, setCoord, state, setState, zoom } = useContext(appContext);
   const { isLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyBtHbQpkqrCL-HBHAg_1fRVgowXaaZJSc4",
+    googleMapsApiKey: "AIzaSyB7DoeDarvO7KhfNP_My1CeY1JPdCty5Dg",
     libraries,
   });
   const [selectedPoster, setSelectedPoster] = useState(null);
@@ -48,7 +48,7 @@ export default function MapContainer() {
     <>
       <GoogleMap
         mapContainerClassName="myMap"
-        // mapContainerStyle={mapContainerStyle}
+        mapContainerStyle={mapContainerStyle}
         center={coord}
         zoom={zoom || 13}
         options={options}
