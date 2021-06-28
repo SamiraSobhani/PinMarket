@@ -132,7 +132,7 @@ class LoginForm extends Component {
   getToken = (loginRequest) => {
     window.grecaptcha.ready(function () {
       window.grecaptcha
-        .execute("6LfkQgQbAAAAAB7B-h_6x7edOjN6pWSGomW1reFf", {
+        .execute("6LcA3VwbAAAAAI3uSOapiqNbdFhixwEa4JVVdNle", {
           action: "submit",
         })
         .then(function (token) {

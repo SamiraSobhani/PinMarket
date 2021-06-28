@@ -9,7 +9,7 @@ import { useRef, useCallback, useContext, useEffect, useState } from "react";
 import { appContext } from "./../appContext";
 import HomePageMarkers from "./HomePageMarkers";
 const mapContainerStyle = {
-  width: "40vw",
+ 
   height: "62.5vh",
 };
 

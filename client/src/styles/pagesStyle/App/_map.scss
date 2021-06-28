@@ -7,6 +7,9 @@
   border-radius: 0.5rem;
   overflow: hidden;
   display: flex;
+  width: 95%;
+  height: 15rem;
+  margin: 0 auto;
 }
 
 .locate {
@@ -24,4 +27,12 @@
 .locateIcon {
   cursor: pointer;
   margin-left: -0.7rem;
+}
+@media (min-width:768px){
+ 
+  .myMap {
+
+    width: 40vw
+  }
+  
 }

@@ -4,16 +4,13 @@
   align-items: center;
   max-height: 4rem;
   &__pin {
-    width: 2rem;
-    height: 2.5rem;
-    margin-left: -0.5rem;
+    display: none;
   }
 
   &__logo {
     text-align: center;
     width: 6rem;
     height: auto;
-   
   }
 
   &__profile {
@@ -57,7 +54,7 @@
       width: 22rem;
       height: auto;
     }
-  
+
     &__profile {
       display: flex;
       margin-right: 2rem;
