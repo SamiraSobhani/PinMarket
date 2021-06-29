@@ -83,7 +83,7 @@ export default function Places() {
         value={value}
         onChange={handleInput}
         style={{
-          width: 450,
+         
           margin: 8,
         }}
         disabled={!ready}

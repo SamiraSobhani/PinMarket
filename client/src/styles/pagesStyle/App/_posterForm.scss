@@ -7,19 +7,34 @@
   }
   &__button {
     background-color: $darkred;
-    border-radius: 0.5rem;
-    padding: 1rem 2.5rem;
+    border-radius: 0.3rem;
+    padding: 0.6rem 1.5rem;
     border-style: none;
     outline: none;
+    font-size: 0.5rem;
   }
   &__header {
     padding-left: 2rem;
     padding-bottom: 0.7rem;
-    margin-top: 3rem;
-    font-size: 1.5rem;
+    margin-top:2rem;
+    font-size: 0.75rem;
     border-bottom: solid 0.5rem $darkBlue;
     color: $darkBlue;
   }
+}
+.post-form-container input{
+width: 90%;
+}
+
+
+.MuiInputBase-root {
+  font-size: 0.65rem !important;
+}
+.MuiSelect-select {
+  font-size: 0.65rem !important;
+}
+.post-form-container label{
+font-size: 0.65rem;
 }
 .suggestion {
   max-width: 450px;
@@ -27,7 +42,10 @@
 .post-form__button a {
   text-decoration: none;
   color: $white;
+  font-size: 0.65rem !important;
 }
+
+
 // .MapButton {
 //   margin-top: 2rem;
 
@@ -35,5 +53,35 @@
 @media (min-width: 768px) {
   .MapButton {
     margin-top: 0.9rem;
+  }
+  .post-form {
+    height: 70%;
+    border-radius: 0.5rem;
+    margin-top: -1.35rem;
+    &__content {
+      padding: 0.7rem 1.7rem 1rem 1.7rem;
+    }
+    &__button {
+      background-color: $darkred;
+      border-radius: 0.5rem;
+      padding: 1rem 2.5rem;
+      border-style: none;
+      outline: none;
+    }
+    &__header {
+      padding-left: 2rem;
+      padding-bottom: 0.7rem;
+      margin-top: 3rem;
+      font-size: 1.5rem;
+      border-bottom: solid 0.5rem $darkBlue;
+      color: $darkBlue;
+    }
+  }
+  .suggestion {
+    max-width: 450px;
+  }
+  .post-form__button a {
+    text-decoration: none;
+    color: $white;
   }
 }

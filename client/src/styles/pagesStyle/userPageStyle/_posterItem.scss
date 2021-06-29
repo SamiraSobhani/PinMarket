@@ -72,6 +72,7 @@
   }
 }
 @media (min-width: 1440px) {
+  
   .useritem {
     font-size: 0.75rem;
     line-height: 0.5rem;
@@ -80,12 +81,15 @@
     }
   }
   .posters {
+    width: 90%;
+    margin: 0 auto;
     &__header {
       padding: 0.6rem;
       text-align: center;
       border: solid 0.1rem $darkBlue;
       border-radius: 0.3rem;
       margin-top: -1.3rem;
+      font-size: 0.77rem;
     }
     &__list {
       margin-left: 1rem;

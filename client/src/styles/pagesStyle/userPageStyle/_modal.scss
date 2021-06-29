@@ -59,8 +59,8 @@
   border-style: none;
   background-color: $darkred;
   color: $white;
-  padding: 0.35rem 0.55rem;
-  border-radius: 0.5rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.3rem;
   outline: none;
   margin-bottom: 0.7rem;
   margin-top: 0;
@@ -133,7 +133,8 @@
     background-color: $darkred;
     color: $white;
     padding: 0.5rem 0.75rem;
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
+    font-size: 0.57rem;
     outline: none;
     margin-bottom: 0.7rem;
     margin-top: 0;
@@ -142,4 +143,10 @@
     background-color: white;
     color: $darkBlue;
   }
+}
+@media (min-width:1440px){
+  .action__delete {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.6rem;
+  } 
 }

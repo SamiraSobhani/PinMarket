@@ -100,7 +100,7 @@ export default function Post() {
         <div className="post-form-container">
           <TextField
             id="job-title"
-            style={{ width: 450, margin: 8, marginTop: 0 }}
+            style={{  margin: 8, marginTop: 0 }}
             label="title"
             placeholder="What do you need help with?"
             fullWidth
@@ -111,7 +111,7 @@ export default function Post() {
           <TextField
             id="job-descripton"
             name="job-descripton"
-            style={{ width: 450, margin: 8 }}
+            style={{  margin: 8 }}
             label="Description"
             placeholder="Details of your job"
             fullWidth
@@ -128,7 +128,7 @@ export default function Post() {
             value={state.categories.id}
             options={Object.values(state.categories)}
             getOptionLabel={(option) => option.name}
-            style={{ width: 450, margin: 8 }}
+            style={{  margin: 8 }}
             renderInput={(params) => <TextField {...params} label="Category" />}
           />
           <Places setCoord={setCoord} coord={coord} />
@@ -137,7 +137,7 @@ export default function Post() {
             id="price"
             name="price"
             value={state.price}
-            style={{ width: 208, margin: 8, marginRight: 25 }}
+            style={{  margin: 8, marginRight: 25 }}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">$</InputAdornment>
