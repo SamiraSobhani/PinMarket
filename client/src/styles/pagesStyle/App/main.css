@@ -69,9 +69,10 @@ body {
     max-height: 6rem;
   }
   .navbar__pin {
-    width: 7rem;
-    height: 8rem;
+    width: 5rem;
+    height: 6.5rem;
     margin-right: 2rem;
+    display: unset;
   }
   .navbar__logo {
     text-align: center;
@@ -85,7 +86,7 @@ body {
     margin-right: 2rem;
   }
   .navbar__welcome {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1507,7 +1508,7 @@ button {
   }
 
   .profile-logo {
-    width: 17.5rem;
+    width: 14.5rem;
     margin: 0 auto;
   }
 }
@@ -1931,7 +1932,7 @@ button {
   .myMap {
     margin-top: -1rem;
     height: 25rem;
-    width: 17rem;
+    width: 27rem;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -44,9 +44,10 @@
     align-items: center;
     max-height: 6rem;
     &__pin {
-      width: 7rem;
-      height: 8rem;
+      width: 5rem;
+      height: 6.5rem;
       margin-right: 2rem;
+      display:unset;
     }
 
     &__logo {
@@ -60,7 +61,7 @@
       margin-right: 2rem;
     }
     &__welcome {
-      font-size: 0.75rem;
+      font-size: 0.6rem;
       display: flex;
       align-items: center;
       color: $darkBlue;

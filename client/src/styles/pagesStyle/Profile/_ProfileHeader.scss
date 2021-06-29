@@ -15,7 +15,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  // margin-right: -55%;
 }
 
 .app-nav ul {
@@ -56,13 +55,19 @@
 }
 
 @media (min-width: 768px) {
+  .app-nav{
+    display: flex;
+    justify-content: flex-end;
+ 
+    width: 100%;
+  }
+ 
   .app-nav ul li a {
-    display: inline-block;
     line-height: 60px;
-    padding-right: 0.35rem;
-    padding-left: 0.35rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
     color: $darkBlue;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-decoration: none;
   }
@@ -71,7 +76,9 @@
     list-style-position: none;
     margin: 0;
     padding: 0;
+   
   }
+ 
   .app-options {
     float: right;
     display: flex;
