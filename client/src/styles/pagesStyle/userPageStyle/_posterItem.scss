@@ -6,7 +6,6 @@
   }
 }
 .posters {
-  
   &__header {
     padding: 0.6rem;
     text-align: center;
@@ -37,32 +36,35 @@
 }
 @media (min-width: 768px) {
   .useritem {
-    font-size: 0.75rem;
-    line-height: 0.5rem;
+    font-size: 0.65rem;
+    line-height: 0.8rem;
     &__title {
       line-height: 0.95rem;
     }
   }
   .posters {
+    width: 90%;
     &__header {
       padding: 0.6rem;
       text-align: center;
       border: solid 0.1rem $darkBlue;
       border-radius: 0.3rem;
-      width: 100%;
+      width: 85%;
     }
     &__list {
       margin-left: 1rem;
     }
     &__main {
-      width: 17%;
+      width: 25%;
     }
   }
   .user {
     &__container {
       display: flex;
+      flex-direction: row;
       justify-content: space-around;
       color: $darkBlue;
+     
     }
   }
 }
@@ -92,6 +94,7 @@
   .user {
     &__container {
       display: flex;
+      flex-direction: row;
       justify-content: space-around;
       color: $darkBlue;
     }
