@@ -146,15 +146,15 @@ export default function Post() {
             onChange={(event) => setPrice(Number(event.target.value))}
             autoComplete="off"
           />
-          <FormControl onSubmit={(event) => event.preventDefault()}>
-            <InputLabel id="pay-type">Pay Type</InputLabel>
+          <FormControl id="pay-type" onSubmit={(event) => event.preventDefault()}>
+            <InputLabel >Pay Type</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="pay-type-select"
               name="pay-type-select"
               value={state.payType}
               onChange={handleChange}
-              style={{ width: 208 }}
+             
             >
               <MenuItem value={"hourly"}>Hourly</MenuItem>
               <MenuItem value={"fix"}>Fix</MenuItem>
