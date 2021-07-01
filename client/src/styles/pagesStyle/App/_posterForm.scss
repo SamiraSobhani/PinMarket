@@ -93,3 +93,11 @@
   }
 
 }
+@media (min-width: 1440px) {
+  .post-form-container label {
+    font-size: 0.78rem;
+  }
+  .MuiInputBase-root {
+    font-size: 0.85rem !important;
+  }
+}
