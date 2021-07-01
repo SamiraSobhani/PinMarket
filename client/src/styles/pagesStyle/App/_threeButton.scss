@@ -34,7 +34,8 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
     margin-left: 0rem;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     &__post {
       @include mybutton;
     }
@@ -57,6 +58,7 @@
     margin-bottom: 1rem;
     margin-left: 8%;
     width: 80%;
+    margin: 0 auto;
     &__post {
       @include mybutton;
     }
@@ -78,7 +80,8 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
     margin-left: 2rem;
-    width: 80%;
+    width: 75%;
+    margin: 0 auto;
     &__post {
       @include mybutton;
     }
