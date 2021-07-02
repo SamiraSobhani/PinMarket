@@ -5,10 +5,10 @@ import { useRef, useCallback, useContext, useEffect, useState } from "react";
 import { appContext } from "./../appContext";
 import Markers from "./Markers";
 
-const mapContainerStyle = {
-  width: "40vw",
-  height: "53.5vh",
-};
+// const mapContainerStyle = {
+//   width: "40vw",
+//   height: "53.5vh",
+// };
 
 //Google map options
 const options = {
@@ -59,8 +59,8 @@ export default function SearchMap(props) {
   return isLoaded ? (
     <>
       <GoogleMap
-        mapContainerClassName="myMap"
-        mapContainerStyle={mapContainerStyle}
+        mapContainerClassName="myMap SMap"
+        // mapContainerStyle={mapContainerStyle}
         center={coord}
         zoom={zoom || 13}
         options={options}
