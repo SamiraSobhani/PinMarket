@@ -59,6 +59,7 @@
   justify-content: space-between;
   margin: 0 auto;
   width: 85%;
+  max-width: 320px;
   border: solid 0.1rem $darkBlue;
   border-radius: 8px;
   height: 180px;
@@ -68,7 +69,8 @@
     margin-bottom: 0.5rem;
     margin-left: 0.8rem;
     font-size: 0.45rem;
-    padding: 0.25rem 0.6rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
   }
   &__text {
     color: $darkBlue;
@@ -105,7 +107,8 @@
 .filtered__icon {
   width: 1.2rem;
 }
-@media (min-width: 768) {
+/************************************/
+@media (min-width: 768px) {
   .slider {
     padding: 1rem;
     margin-top: 1rem;
@@ -129,6 +132,7 @@
   }
   .map__filter {
     display: flex;
+    flex-direction: row;
     width: 100%;
     justify-content: space-between;
   }
@@ -160,20 +164,23 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: -2.1rem;
-    margin-bottom: 3.5rem;
+
     width: 35%;
     border: solid 0.1rem $darkBlue;
     border-radius: 8px;
     height: 200px;
     &__button {
-      min-width: 25%;
-      margin-bottom: 1rem;
+      min-width: 20%;
+      max-width: 30%;
+      margin-bottom: 0.6rem;
       margin-left: 0.8rem;
+      font-size: 0.45rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 5px;
     }
     &__text {
       color: $darkBlue;
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       font-weight: 600;
       margin: 1rem 0 0 1rem;
       width: 25%;
