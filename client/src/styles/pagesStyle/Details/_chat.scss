@@ -11,8 +11,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-   
-    margin:0 auto
+
+    margin: 0 auto;
   }
 }
 .detailsAndButtons {
@@ -110,12 +110,12 @@
   font-size: 0.7rem !important;
 }
 /********************************/
-@media(min-width:768px){
-
+@media (min-width: 768px) {
   .details {
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
-  
+
     &__chat {
       color: $white;
       width: 45%;
@@ -124,7 +124,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      margin-left: 4rem;
+
       margin-top: 2rem;
     }
   }
@@ -148,12 +148,12 @@
     }
     &__userName {
       margin-left: 0.5rem;
-      font-size: 0.8rem;
+      font-size: 0.6rem;
       font-weight: bold;
     }
     &__profilePic {
       width: 1.35rem;
-      height: auto;
+      height: 1.35rem;
       border: solid $white 0.1rem;
       border-radius: 50%;
       margin-left: 1rem;
@@ -169,24 +169,26 @@
       margin-left: 2rem;
     }
     &__time {
-      font-size: 0.6rem;
+      font-size: 0.5rem;
       font-weight: 300;
       color: $gray;
       margin-left: 1rem;
       margin-bottom: 1rem;
+      margin-top: 0.2rem;
     }
     &__input {
       margin-top: 0.5rem;
       display: none;
       margin-left: 3.5rem;
     }
-  
+
     &__text {
       margin: 0.5rem;
-      padding-bottom: 0.65rem;
-      font-size: 0.7rem;
+      padding-bottom: 0.15rem;
+      font-size: 0.55rem;
       margin-left: 1.3rem;
       font-weight: 400;
+      line-height: 0.8rem;
     }
     &__nestedReplies {
       margin-left: 1.5rem;
@@ -197,16 +199,18 @@
     }
     &__mainText {
       margin: 0.5rem;
-      padding-bottom: 0.65rem;
-      font-size: 0.7rem;
+      padding-bottom: 0.35rem;
+      margin-bottom: 0;
+      font-size: 0.55rem;
       margin-left: 0.8rem;
       font-weight: 400;
     }
     &__reply {
-      font-size: 0.75rem;
+      font-size: 0.55rem;
       margin-left: 2.85rem;
       margin-bottom: 1rem;
       font-weight: bold;
+
       color: $lightBlue;
     }
     &__line {
@@ -219,6 +223,28 @@
     background-color: white;
   }
 
+  .MuiFormLabel-root {
+    font-size: 0.65rem !important;
+  }
+}
+/********************************/
+@media (min-width: 1440px) {
+  .MuiFormLabel-root {
+    font-size: 0.7rem !important;
+  }
 
-
+  .chat {
+    &__mainText {
+      font-size: 0.6rem;
+    }
+    &__text {
+      font-size: 0.6rem;
+    }
+    &__time {
+      font-size: 0.55rem;
+    }
+    &__reply {
+      font-size: 0.6rem;
+    }
+  }
 }
