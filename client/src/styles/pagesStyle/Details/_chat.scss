@@ -1,23 +1,24 @@
 .details {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
 
   &__chat {
     color: $white;
-    width: 45%;
+    width: 85%;
     border: solid 0.03rem $gray;
     background-color: $darkBlue;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 4rem;
-    margin-top: 2rem;
+   
+    margin:0 auto
   }
 }
 .detailsAndButtons {
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 85%;
   margin-left: 1rem;
 }
 .chat {
@@ -31,10 +32,11 @@
   &__header {
     display: flex;
     align-items: center;
+    padding-top: 0.5rem;
   }
   &__userName {
     margin-left: 0.5rem;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     font-weight: bold;
   }
   &__profilePic {
@@ -70,7 +72,7 @@
   &__text {
     margin: 0.5rem;
     padding-bottom: 0.65rem;
-    font-size: 0.7rem;
+    font-size: 0.55rem;
     margin-left: 1.3rem;
     font-weight: 400;
   }
@@ -84,12 +86,12 @@
   &__mainText {
     margin: 0.5rem;
     padding-bottom: 0.65rem;
-    font-size: 0.7rem;
+    font-size: 0.55rem;
     margin-left: 0.8rem;
     font-weight: 400;
   }
   &__reply {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     margin-left: 2.85rem;
     margin-bottom: 1rem;
     font-weight: bold;
@@ -104,4 +106,119 @@
   transform: translateY(40px);
   background-color: white;
 }
+.MuiFormLabel-root {
+  font-size: 0.7rem !important;
+}
+/********************************/
+@media(min-width:768px){
 
+  .details {
+    display: flex;
+    justify-content: space-around;
+  
+    &__chat {
+      color: $white;
+      width: 45%;
+      border: solid 0.03rem $gray;
+      background-color: $darkBlue;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 4rem;
+      margin-top: 2rem;
+    }
+  }
+  .detailsAndButtons {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin-left: 1rem;
+  }
+  .chat {
+    &__box {
+      background-color: $graphite;
+    }
+    &__items {
+      list-style: none;
+      margin-right: 2rem;
+    }
+    &__header {
+      display: flex;
+      align-items: center;
+    }
+    &__userName {
+      margin-left: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    &__profilePic {
+      width: 1.35rem;
+      height: auto;
+      border: solid $white 0.1rem;
+      border-radius: 50%;
+      margin-left: 1rem;
+    }
+    &__item {
+      list-style: none;
+    }
+  }
+  .chat {
+    &__content {
+      line-height: 0.2rem;
+      height: 2rem;
+      margin-left: 2rem;
+    }
+    &__time {
+      font-size: 0.6rem;
+      font-weight: 300;
+      color: $gray;
+      margin-left: 1rem;
+      margin-bottom: 1rem;
+    }
+    &__input {
+      margin-top: 0.5rem;
+      display: none;
+      margin-left: 3.5rem;
+    }
+  
+    &__text {
+      margin: 0.5rem;
+      padding-bottom: 0.65rem;
+      font-size: 0.7rem;
+      margin-left: 1.3rem;
+      font-weight: 400;
+    }
+    &__nestedReplies {
+      margin-left: 1.5rem;
+    }
+    &__contents {
+      margin-bottom: 0.5rem;
+      margin-left: 2.5rem;
+    }
+    &__mainText {
+      margin: 0.5rem;
+      padding-bottom: 0.65rem;
+      font-size: 0.7rem;
+      margin-left: 0.8rem;
+      font-weight: 400;
+    }
+    &__reply {
+      font-size: 0.75rem;
+      margin-left: 2.85rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      color: $lightBlue;
+    }
+    &__line {
+      border: $graphite;
+    }
+  }
+  .addMessage {
+    border: solid 0.5rem $darkBlue;
+    transform: translateY(40px);
+    background-color: white;
+  }
+
+
+
+}

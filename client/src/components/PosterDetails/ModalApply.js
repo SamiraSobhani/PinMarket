@@ -48,7 +48,7 @@ export default class ModalApply extends Component {
           </div>
         </Modal>
         <button onClick={this.openModal} className="apply-button">
-          A<br />P<br />P<br />L<br />Y
+          APPLY
         </button>
       </div>
     );
