@@ -36,7 +36,7 @@ function AddMessage() {
       className="addMessage"
     >
       <TextField
-        style={{ width: 450, margin: 10, marginTop: 5 }}
+        style={{ margin: 10, marginTop: 5 }}
         label="Type your message"
         placeholder="Write..."
         fullWidth

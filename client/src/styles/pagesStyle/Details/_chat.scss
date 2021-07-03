@@ -18,7 +18,7 @@
 .detailsAndButtons {
   display: flex;
   flex-direction: column;
-  width: 85%;
+  width: 95%;
   margin-left: 1rem;
 }
 .chat {
@@ -41,7 +41,7 @@
   }
   &__profilePic {
     width: 1.35rem;
-    height: auto;
+    height: 1.35rem;
     border: solid $white 0.1rem;
     border-radius: 50%;
     margin-left: 1rem;
@@ -108,6 +108,9 @@
 }
 .MuiFormLabel-root {
   font-size: 0.7rem !important;
+}
+.MuiFormControl-fullWidth {
+  width: 90% !important;
 }
 /********************************/
 @media (min-width: 768px) {

@@ -33,9 +33,9 @@
   color: $darkBlue;
   border: solid white 0.2rem;
   border-radius: 0.5rem;
-  width: 80%;
   height: 45%;
-  padding-left: 1rem;
+  margin: 0 auto;
+  padding-left: 0;
   background-color: white;
   &__profilePic {
     border: solid $lightBlue 0.15rem;
@@ -58,7 +58,7 @@
   flex-direction: column;
   justify-content: space-between;
   margin: 0 auto;
-  
+
   width: 85%;
   max-width: 320px;
   border: solid 0.1rem $darkBlue;
@@ -97,7 +97,7 @@
 }
 .SMap {
   height: 20rem !important;
-  min-width:12rem ;
+  min-width: 12rem;
 }
 .posters__content {
   display: none;
