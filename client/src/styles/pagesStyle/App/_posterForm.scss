@@ -42,7 +42,10 @@
   text-decoration: none;
   color: $white;
 }
-
+.MuiSelect-select.MuiSelect-select {
+width: 10rem;
+}
+/***********************************/
 @media (min-width: 768px) {
   .MapButton {
     margin-top: 0.9rem;

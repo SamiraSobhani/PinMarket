@@ -174,7 +174,18 @@
     display: unset;
     margin-left: 1.5rem;
   }
+  .SMap {
+    width: 21rem !important;
+    height: 20rem !important;
+  }
 }
+@media (min-width: 1000px) {
+  .SMap {
+    width: 27rem !important;
+    height: 24rem !important;
+  }
+}
+
 @media (min-width: 1440px) {
   .filter {
     max-width: 370px;
@@ -193,5 +204,9 @@
     &__map {
       margin: 0;
     }
+  }
+  .SMap {
+    width: 30rem !important;
+    height: 26rem !important;
   }
 }
