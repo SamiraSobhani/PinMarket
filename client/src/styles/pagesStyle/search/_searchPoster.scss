@@ -58,6 +58,7 @@
   flex-direction: column;
   justify-content: space-between;
   margin: 0 auto;
+  
   width: 85%;
   max-width: 320px;
   border: solid 0.1rem $darkBlue;
@@ -96,6 +97,7 @@
 }
 .SMap {
   height: 20rem !important;
+  min-width:12rem ;
 }
 .posters__content {
   display: none;
