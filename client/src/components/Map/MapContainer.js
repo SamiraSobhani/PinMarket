@@ -1,17 +1,9 @@
-import {
-  GoogleMap,
-  useJsApiLoader,
-
-} from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import mapStyle from "./mapStyle";
 import Locate from "./Locate";
 import { useRef, useCallback, useContext, useEffect, useState } from "react";
 import { appContext } from "./../appContext";
 import HomePageMarkers from "./HomePageMarkers";
-const mapContainerStyle = {
- 
-  height: "62.5vh",
-};
 
 //Google map options
 const options = {
@@ -48,7 +40,6 @@ export default function MapContainer() {
     <>
       <GoogleMap
         mapContainerClassName="myMap"
-        mapContainerStyle={mapContainerStyle}
         center={coord}
         zoom={zoom || 13}
         options={options}

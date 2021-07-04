@@ -5,7 +5,6 @@
 @import "../userPageStyle/modal";
 @import "../search/searchPoster";
 @import "../Details/showPosterDetail";
-@import "../search/chat";
 @import "./threeButton";
 @import "./posterForm";
 @import "./map";
@@ -95,7 +94,7 @@
 @media (min-width:1440px){
   .myMap {
     margin-top: -1rem;
-    height: 25rem;
-    width: 27rem;
+    height: 31rem;
+    width: 33rem;
   }
 }
